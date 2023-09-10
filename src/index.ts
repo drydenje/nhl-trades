@@ -1,7 +1,8 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
-
+const fs = require("fs");
 const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
+const path = require("path");
 
 async function performScraping() {
   const axiosResponse = await axios.request({
@@ -13,17 +14,24 @@ async function performScraping() {
     },
   });
 
+  fs.writeFile(`./public/result.txt`, axiosResponse.data, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
+
   const $ = cheerio.load(axiosResponse.data);
-  // const container = $('#container');
+  const container = $("#container");
+  // console.log(container.html());
 
   // const title = container()
-  const tables = $("#container")
-    .find("> table")
-    .each((index, element) => {
-      console.log(`ELEMENT: #${index}`);
-      console.log($(element).html());
-    });
-  console.log(`Trade count: ${tables.length}`);
+  // const tables = $("#container")
+  //   .find("> table")
+  //   .each((index, element) => {
+  //     console.log(`ELEMENT: #${index}`);
+  //     console.log($(element).html());
+  //   });
+  // console.log(`Trade count: ${tables.length}`);
   // console.log(tables.html());
   // console.log(tables);
 }
