@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1694395468915" clover="3.2.0">
-  <project timestamp="1694395468915" name="All files">
-    <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="6" coveredelements="5" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
+<coverage generated="1694433865121" clover="3.2.0">
+  <project timestamp="1694433865122" name="All files">
+    <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1" elements="8" coveredelements="5" complexity="0" loc="6" ncloc="6" packages="1" files="1" classes="1"/>
     <file name="utils.ts" path="/Users/jeremydryden/src/projects/nhl-trades/src/utils/utils.ts">
-      <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
+      <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="14" count="0" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>

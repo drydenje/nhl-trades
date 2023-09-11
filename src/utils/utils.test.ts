@@ -1,19 +1,22 @@
 // import axios from "axios";
+// import { describe, expect, test } from "@jest/globals";
+import { getTradeTeams, bah } from "./utils";
+// import page from "../../public/result";
+
 const axios = require("axios");
 jest.mock("axios");
-import { describe, expect, test } from "@jest/globals";
-import { getTradeTeams } from "./utils";
-import page from "../../public/result";
 
 const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 
-type Trade = {};
-
 describe("getTradeTeams module", () => {
-  test("should get the trades from a cheerio object", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test.only("should get the trades from a cheerio object", async () => {
     const users = [{ name: "Bob" }];
-    const resp = { data: { name: "Aud" } };
-    // axios.get.mockResolvedValue(resp);
+    const resp = { data: [{ name: "Aud" }] };
+    axios.request.mockResolvedValue(resp);
 
     return getTradeTeams(`${BASE_URL}/1919-20/1`).then((data) => {
       expect(data).toEqual(users);
@@ -21,5 +24,13 @@ describe("getTradeTeams module", () => {
     });
 
     // expect(getTradeTeams(5)).toBe(5);
+  });
+
+  test("simple test", async () => {
+    const users = [{ name: "Bob" }];
+    const resp = { data: [{ name: "Sue" }] };
+    axios.get.mockResolvedValue(resp);
+
+    return bah().then((data) => expect(data).toEqual(users));
   });
 });

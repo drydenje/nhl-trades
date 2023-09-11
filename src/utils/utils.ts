@@ -1,7 +1,7 @@
-const cheerio = require("cheerio");
+// const cheerio = require("cheerio");
+const axios = require("axios");
 
 const getTradeTeams = async (url: string) => {
-  const axios = require("axios");
   const axiosResponse = await axios.request({
     method: "GET",
     url: url,
@@ -19,4 +19,10 @@ const getTradeTeams = async (url: string) => {
   // return container;
 };
 
-export { getTradeTeams };
+async function bah() {
+  const response = await axios.get("htts://www.example.com");
+  // return "test util";
+  return response.data;
+}
+
+export { getTradeTeams, bah };
