@@ -1,7 +1,5 @@
-// import axios from "axios";
-// import { describe, expect, test } from "@jest/globals";
 import { getTradeTeams, bah } from "./utils";
-// import page from "../../public/result";
+import page from "../../public/result";
 
 const axios = require("axios");
 jest.mock("axios");
@@ -14,23 +12,17 @@ describe("getTradeTeams module", () => {
   });
 
   test.only("should get the trades from a cheerio object", async () => {
-    const users = [{ name: "Bob" }];
-    const resp = { data: [{ name: "Aud" }] };
+    const users = "page";
+    const resp = { data: page };
     axios.request.mockResolvedValue(resp);
 
     return getTradeTeams(`${BASE_URL}/1919-20/1`).then((data) => {
+      // console.log("data:", data.html());
       expect(data).toEqual(users);
+      // expect(1).toEqual(1);
       // console.log(data);
     });
 
     // expect(getTradeTeams(5)).toBe(5);
-  });
-
-  test("simple test", async () => {
-    const users = [{ name: "Bob" }];
-    const resp = { data: [{ name: "Sue" }] };
-    axios.get.mockResolvedValue(resp);
-
-    return bah().then((data) => expect(data).toEqual(users));
   });
 });

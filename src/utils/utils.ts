@@ -1,4 +1,4 @@
-// const cheerio = require("cheerio");
+const cheerio = require("cheerio");
 const axios = require("axios");
 
 const getTradeTeams = async (url: string) => {
@@ -11,18 +11,50 @@ const getTradeTeams = async (url: string) => {
     },
   });
 
-  return axiosResponse.data;
-
-  // const $ = cheerio.load(axiosResponse.data);
-  // const container = $("#container");
-
-  // return container;
+  const $ = cheerio.load(axiosResponse.data);
+  const lines = [];
+  const tables = $("#container")
+    // .find("> table")
+    .find("> table")
+    .children("tbody")
+    .each((index, trade) => {
+      //console.log(`ELEMENT: #${index}`);
+      // console.log($(trade).find("tbody > tr > td > strong").html());
+      //console.log($(trade).html());
+      lines.push(extract(trade));
+      // console.log(extract(trade))
+      // return extract(trade);
+    });
+  // .text()
+  // .trim();
+  // .toArray();
+  // console.log(lines);
+  return lines;
 };
 
-async function bah() {
-  const response = await axios.get("htts://www.example.com");
-  // return "test util";
-  return response.data;
+// define function which accepts body and cheerio as args
+function extract(input) {
+  // return object with extracted values
+  let $ = cheerio.load(input);
+  const headings = $("tbody > tr")
+    .find("td")
+    .map(function () {
+      return $(this).text().trim();
+    })
+    .toArray();
+  /*
+    	.map(function() {
+          return {
+            line: $('td', this).html().trim()
+          }
+        }).toArray();
+  	*/
+
+  //.children('strong:contains("acquire")')
+  //.html();
+  //return list;
+  // console.log(headings);
+  return headings;
 }
 
-export { getTradeTeams, bah };
+export { getTradeTeams };

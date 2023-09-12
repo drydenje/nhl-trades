@@ -21,19 +21,18 @@ async function performScraping() {
   });
 
   const $ = cheerio.load(axiosResponse.data);
-  const container = $("#container");
-  // console.log(container.html());
+  // const container = $("#container");
+  // console.log(container.find("> table").html());
 
   // const title = container()
-  // const tables = $("#container")
-  //   .find("> table")
-  //   .each((index, element) => {
-  //     console.log(`ELEMENT: #${index}`);
-  //     console.log($(element).html());
-  //   });
-  // console.log(`Trade count: ${tables.length}`);
-  // console.log(tables.html());
-  // console.log(tables);
+  const tables = $("#container")
+    .find("> table")
+    .each((index, element) => {
+      console.log(`ELEMENT: #${index}`);
+      console.log($(element).html());
+    });
+  console.log(`Trade count: ${tables.length}`);
+  // console.log(tables.html()); // only prints the first element
 }
 
 performScraping();
