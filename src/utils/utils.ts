@@ -53,9 +53,16 @@ const parseTrade = (input: string) => {
       .trim()
       .split("\n")
       .map((item) => {
-        return item.trim();
+        const playerName = item.trim();
+        const r = /([0-9])\w+/g;
+        const playerID = $(`a:contains(${playerName})`).attr("href");
+        const player = {
+          name: playerName,
+        };
+        playerID ? (player.id = playerID.match(r)[0]) : null;
+        return player;
       })
-      .filter((s) => s);
+      .filter((s) => s.name);
   }
 
   const teams = {};

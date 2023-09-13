@@ -22,10 +22,16 @@ describe("getTradeTeams module", () => {
     "date": "January 14, 1920",
     "teams": {
       "Montreal Canadiens": [
-        "Harry Cameron",
+        {
+          "id": "23517",
+          "name": "Harry Cameron",
+        },
       ],
       "Toronto Arenas": [
-        "Goldie Prodgers",
+        {
+          "id": "4394",
+          "name": "Goldie Prodgers",
+        },
       ],
     },
   },
@@ -33,10 +39,16 @@ describe("getTradeTeams module", () => {
     "date": "December 21, 1919",
     "teams": {
       "Montreal Canadiens": [
-        "Goldie Prodgers",
+        {
+          "id": "4394",
+          "name": "Goldie Prodgers",
+        },
       ],
       "Quebec Bulldogs": [
-        "Ed Carpenter",
+        {
+          "id": "29897",
+          "name": "Ed Carpenter",
+        },
       ],
     },
   },
