@@ -1,4 +1,4 @@
-import { getTradeTeams, bah } from "./utils";
+import { getTradeTeams } from "./utils";
 import page from "../../public/result";
 
 const axios = require("axios");
@@ -12,42 +12,36 @@ describe("getTradeTeams module", () => {
   });
 
   test.only("should get the trades from a cheerio object", async () => {
-    const users = "page";
     const resp = { data: page };
     axios.request.mockResolvedValue(resp);
 
     return getTradeTeams(`${BASE_URL}/1919-20/1`).then((data) => {
-      // console.log("data:", data.html());
       expect(data).toMatchInlineSnapshot(`
 [
   {
     "date": "January 14, 1920",
-    "headings": [
-      "Toronto Arenas",
-      "Montreal Canadiens",
-    ],
-    "team1": [
-      "Harry Cameron",
-    ],
-    "team2": [],
+    "teams": {
+      "Montreal Canadiens": [
+        "Harry Cameron",
+      ],
+      "Toronto Arenas": [
+        "Goldie Prodgers",
+      ],
+    },
   },
   {
     "date": "December 21, 1919",
-    "headings": [
-      "Quebec Bulldogs",
-      "Montreal Canadiens",
-    ],
-    "team1": [
-      "Goldie Prodgers",
-    ],
-    "team2": [],
+    "teams": {
+      "Montreal Canadiens": [
+        "Goldie Prodgers",
+      ],
+      "Quebec Bulldogs": [
+        "Ed Carpenter",
+      ],
+    },
   },
 ]
 `);
-      // expect(1).toEqual(1);
-      // console.log(data);
     });
-
-    // expect(getTradeTeams(5)).toBe(5);
   });
 });

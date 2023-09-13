@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1694575715791" clover="3.2.0">
-  <project timestamp="1694575715791" name="All files">
-    <metrics statements="27" coveredstatements="23" conditionals="2" coveredconditionals="2" methods="10" coveredmethods="8" elements="39" coveredelements="33" complexity="0" loc="27" ncloc="27" packages="2" files="2" classes="2"/>
+<coverage generated="1694628021204" clover="3.2.0">
+  <project timestamp="1694628021204" name="All files">
+    <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6" elements="33" coveredelements="33" complexity="0" loc="25" ncloc="25" packages="2" files="2" classes="2"/>
     <package name="public">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="result.js" path="/Users/jeremydryden/src/projects/nhl-trades/public/result.js">
@@ -10,9 +10,9 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="26" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="10" coveredmethods="8"/>
+      <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
       <file name="utils.ts" path="/Users/jeremydryden/src/projects/nhl-trades/src/utils/utils.ts">
-        <metrics statements="26" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="10" coveredmethods="8"/>
+        <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -22,23 +22,21 @@
         <line num="16" count="1" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
         <line num="62" count="2" type="stmt"/>
         <line num="63" count="2" type="stmt"/>
-        <line num="66" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="67" count="4" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
-        <line num="74" count="2" type="stmt"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="81" count="2" type="stmt"/>
-        <line num="82" count="2" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
-        <line num="89" count="2" type="stmt"/>
-        <line num="91" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
       </file>
     </package>
   </project>
