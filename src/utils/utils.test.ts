@@ -18,7 +18,32 @@ describe("getTradeTeams module", () => {
 
     return getTradeTeams(`${BASE_URL}/1919-20/1`).then((data) => {
       // console.log("data:", data.html());
-      expect(data).toEqual(users);
+      expect(data).toMatchInlineSnapshot(`
+[
+  {
+    "date": "January 14, 1920",
+    "headings": [
+      "Toronto Arenas",
+      "Montreal Canadiens",
+    ],
+    "team1": [
+      "Harry Cameron",
+    ],
+    "team2": [],
+  },
+  {
+    "date": "December 21, 1919",
+    "headings": [
+      "Quebec Bulldogs",
+      "Montreal Canadiens",
+    ],
+    "team1": [
+      "Goldie Prodgers",
+    ],
+    "team2": [],
+  },
+]
+`);
       // expect(1).toEqual(1);
       // console.log(data);
     });

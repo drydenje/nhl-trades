@@ -20,10 +20,11 @@ const getTradeTeams = async (url: string) => {
     .each((index, trade) => {
       //console.log(`ELEMENT: #${index}`);
       // console.log($(trade).find("tbody > tr > td > strong").html());
-      //console.log($(trade).html());
-      lines.push(extract(trade));
+      // console.log($(trade).html());
+      // lines.push(extract(trade));
       // console.log(extract(trade))
       // return extract(trade);
+      lines.push(parseTrade(trade));
     });
   // .text()
   // .trim();
@@ -56,5 +57,44 @@ function extract(input) {
   // console.log(headings);
   return headings;
 }
+
+const parseTrade = (input: string) => {
+  let $ = cheerio.load(input);
+  const headings = $("tbody > tr")
+    .find("td > strong")
+    .map(function () {
+      if ($(this).text() !== "Date") {
+        return $(this).text().replace(" acquire", "");
+      }
+    })
+    .toArray();
+
+  const date = $("tr:nth(1) > td:nth(1)").text().trim();
+
+  const team1 = $("table:nth(1)")
+    .text()
+    .trim()
+    .split("\n")
+    .map((item) => {
+      return item.trim();
+    })
+    .filter((s) => s);
+  const team2 = $("table:nth(2)")
+    .text()
+    .trim()
+    .split("\n")
+    .map((item) => {
+      return item.trim();
+    })
+    .filter((s) => s);
+
+  return {
+    date,
+    headings,
+    //      teams,
+    team1,
+    team2,
+  };
+};
 
 export { getTradeTeams };
