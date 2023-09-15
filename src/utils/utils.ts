@@ -14,22 +14,11 @@ const getTradeTeams = async (url: string) => {
   const $ = cheerio.load(axiosResponse.data);
   const lines = [];
   const tables = $("#container")
-    // .find("> table")
     .find("> table")
-    // .children("tbody")
     .each((index, trade) => {
-      //console.log(`ELEMENT: #${index}`);
-      // console.log($(trade).find("tbody > tr > td > strong").html());
-      // console.log($(trade).html());
-      // lines.push(extract(trade));
-      // console.log(extract(trade))
-      // return extract(trade);
       lines.push(parseTrade(trade));
     });
-  // .text()
-  // .trim();
-  // .toArray();
-  // console.log(lines);
+
   return lines;
 };
 
@@ -65,6 +54,9 @@ const parseTrade = (input: string) => {
       .filter((s) => s.name);
   }
 
+  const c = $(`.comment`).next().text();
+  //const c = null;
+  const comment = c ? c : null;
   const teams = {};
   teams[headings[0]] = roster[0];
   teams[headings[1]] = roster[1];
@@ -72,6 +64,7 @@ const parseTrade = (input: string) => {
   return {
     date,
     teams,
+    comment,
   };
 };
 

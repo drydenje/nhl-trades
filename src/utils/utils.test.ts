@@ -19,6 +19,7 @@ describe("getTradeTeams module", () => {
       expect(data).toMatchInlineSnapshot(`
 [
   {
+    "comment": null,
     "date": "January 14, 1920",
     "teams": {
       "Montreal Canadiens": [
@@ -36,6 +37,7 @@ describe("getTradeTeams module", () => {
     },
   },
   {
+    "comment": null,
     "date": "December 21, 1919",
     "teams": {
       "Montreal Canadiens": [
