@@ -115,26 +115,62 @@ async function performScraping() {
     "1919-20": "",
     "1918-19": "",
   };
-  const seasons = {
-    "2022-23": "",
-    "2021-22": "",
-    "2020-21": "",
-    "2019-20": "",
-  };
+  const seasons = ["2022-23", "2021-22", "2020-21"];
+
+  // console.log("season count:", Object.keys(seasons1).length);
+  /*
+  use try/catch
+  append data to file, not overwrite
+
+  foreach(season) {
+    1. Load the page
+    2. Pull all the trade data
+    if next isn't disabled
+      3. Click the next button (Load page from next button url?)
+  }
+
+*/
 
   try {
-    // const year = `2020-21`;
-    // let years = Object.keys(seasons);
-    // years.forEach((year) => {
-    //   const url = `${BASE_URL}/${year}/`;
-    //   const $ = cheerio.load(await getPage(url));
-    //   seasons[year] = await getPageCount($);
-    //   await writeData("public/season-list.js", JSON.stringify(seasons));
-    // });
+    let years = Object.keys(seasons);
+    // console.log(chalk.yellow.bgBlue(`Scraping: ${year}`));
+    // const url = `${BASE_URL}/${year}/`;
+    const test = resolvePromisesSeq(seasons, BASE_URL);
+    console.log("test:", test);
+    // const $ = cheerio.load(await getPage(url));
+    // seasons[year] = await getPageCount($);
+    // await writeData("public/season-list.js", JSON.stringify(seasons));
   } catch (error) {
-    console.error(error);
+    // console.error(error);
+    console.log(chalk.black.bgRed(error));
   }
 }
+
+const resolvePromisesSeq = async (items, url) => {
+  const results = [];
+  for (const item of items) {
+    setTimeout(() => {
+      console.log(`${url}/${item}`);
+    }, 5000);
+    // results.push(await task);
+    // const $ = cheerio.load(await getPage(url));
+  }
+
+  return results;
+};
+
+// const uids = ["id1", "id2"];
+// const userPromises = uids.map((uid) =>
+//   admin
+//     .auth()
+//     .getUser(uid)
+//     .then((userRecord) => {
+//       return userRecord.toJSON();
+//     })
+//     .catch(console.error)
+// );
+
+//const users = await resolvePromisesSeq(userPromises); // No longer a problem!
 
 async function getPage(url) {
   const axiosResponse = await axios.request({
@@ -163,8 +199,8 @@ async function getPageCount($) {
   return parseInt(pageCount) || 1;
 }
 
-// performScraping();
-console.log(chalk.yellow.bgBlue(`test`));
+performScraping();
+// console.log(chalk.yellow.bgBlue(`test`));
 
 // // this will grab  a list of all the nhl trade seasons
 //     let $ = cheerio.load(input);
