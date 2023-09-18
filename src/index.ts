@@ -127,6 +127,7 @@ async function performScraping() {
     2. Pull all the trade data
     if next isn't disabled
       3. Click the next button (Load page from next button url?)
+      randomize the delay (1-5 seconds) to not be detected
   }
 
 */
@@ -135,29 +136,49 @@ async function performScraping() {
     let years = Object.keys(seasons);
     // console.log(chalk.yellow.bgBlue(`Scraping: ${year}`));
     // const url = `${BASE_URL}/${year}/`;
-    const test = resolvePromisesSeq(seasons, BASE_URL);
-    console.log("test:", test);
+    // const test = await resolvePromisesSeq(seasons, BASE_URL);
+    // console.log("test:", test);
     // const $ = cheerio.load(await getPage(url));
     // seasons[year] = await getPageCount($);
     // await writeData("public/season-list.js", JSON.stringify(seasons));
+
+    const delay = 5000;
+
+    const promises = seasons.map(async (year) => {
+      return new Promise((resolve) => setTimeout(resolve, delay))
+        .then(() => getPage(`${BASE_URL}/${year}/`))
+        .then((page) => writeData(`public/source-data/${year}`, page));
+    });
+
+    let results = await Promise.all(promises);
+    // results.forEach(page => writeData())
+    // writeData
   } catch (error) {
     // console.error(error);
     console.log(chalk.black.bgRed(error));
   }
 }
 
-const resolvePromisesSeq = async (items, url) => {
-  const results = [];
-  for (const item of items) {
-    setTimeout(() => {
-      console.log(`${url}/${item}`);
-    }, 5000);
-    // results.push(await task);
-    // const $ = cheerio.load(await getPage(url));
-  }
+// const resolvePromisesSeq = async (items, url) => {
+//   const results = [];
+//   for (const item of items) {
+//     clearTimeout(0);
+//     // const d = new Date();
+//     // console.log("TIME:", d.getTime());
+//     console.log(`${url}/${item}`);
+//     const $ = cheerio.load(
+//       await getPage(url).then((data) => {
+//         setTimeout(async () => {
+//           console.log("test");
+//           return data;
+//         }, 5000);
+//       })
+//     );
+//     // results.push(await task);
+//   }
 
-  return results;
-};
+//   return results;
+// };
 
 // const uids = ["id1", "id2"];
 // const userPromises = uids.map((uid) =>
