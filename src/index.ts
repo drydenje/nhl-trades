@@ -142,7 +142,7 @@ async function performScraping() {
     // seasons[year] = await getPageCount($);
     // await writeData("public/season-list.js", JSON.stringify(seasons));
 
-    const delay = 5000;
+    const delay = 4000;
 
     const promises = seasons.map(async (year) => {
       return new Promise((resolve) => setTimeout(resolve, delay))
