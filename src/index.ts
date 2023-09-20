@@ -116,7 +116,7 @@ async function performScraping() {
     "1918-19": "",
   };
   const seasons = ["2022-23", "2021-22", "2020-21"];
-
+  const seasonsKeys = Object.keys(seasons1);
   // console.log("season count:", Object.keys(seasons1).length);
   /*
   use try/catch
@@ -141,15 +141,17 @@ async function performScraping() {
     // const $ = cheerio.load(await getPage(url));
     // seasons[year] = await getPageCount($);
     // await writeData("public/season-list.js", JSON.stringify(seasons));
-
-    const delay = 4000;
-
-    const promises = seasons.map(async (year) => {
+    let delay = 0; 
+    const delayIncrement = 1000; 
+    let pageCount = 1;
+    
+    const promises = seasonsKeys.map(async (year) => {
+      delay += delayIncrement;
       return new Promise((resolve) => setTimeout(resolve, delay))
         .then(() => getPage(`${BASE_URL}/${year}/`))
-        .then((page) => writeData(`public/source-data/${year}`, page));
+        .then((page) => )
+        .then((page) => writeData(`public/source-data/${year}.html`, page));
     });
-
     let results = await Promise.all(promises);
     // results.forEach(page => writeData())
     // writeData
