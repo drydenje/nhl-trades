@@ -134,7 +134,7 @@ async function performScraping() {
 
   try {
     let years = Object.keys(seasons);
-    // console.log(chalk.yellow.bgBlue(`Scraping: ${year}`));
+    console.log(chalk.yellow.bgBlue(`Scraping: ${years}`));
     // const url = `${BASE_URL}/${year}/`;
     // const test = await resolvePromisesSeq(seasons, BASE_URL);
     // console.log("test:", test);
@@ -144,8 +144,10 @@ async function performScraping() {
     let delay = 0; 
     const delayIncrement = 1000; 
     let pageCount = 1;
-    
-    const promises = seasonsKeys.map(async (year) => {
+    const yearOffset = 0;
+
+    // const promises = seasonsKeys.map(async (year) => {
+    const promises = (async year => {
       delay += delayIncrement;
       return new Promise((resolve) => setTimeout(resolve, delay))
         .then(() => getPage(`${BASE_URL}/${year}/`))
