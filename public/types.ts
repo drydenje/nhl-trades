@@ -34,7 +34,7 @@ type Player = {
 type Trade = {
   date: string,
   teams: {
-    ID: 
+    ID: id,
     name: 
   }[]
 }
