@@ -8,7 +8,7 @@ const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 // const url = `https://www.hockeydb.com/ihdb/draft/nhl2023e.html`;
 
 const seasons = {
-  "2022-23": [{ test: 1 }],
+  "2022-23": [],
   "2021-22": [],
   "2020-21": [],
   // "2019-20": [],
@@ -124,10 +124,11 @@ const checkArray = (arr) => {
 const getNextYear = (obj) => {
   console.log("Seasons:", obj);
   console.log("Entries:", Object.entries(obj));
-  const y = Object.entries(obj).reduce((year, arr) => {
-    console.log("YEAR:", year, "ARR:", arr);
+
+  const y = Object.entries(obj).filter((year) => {
+    console.log("YEAR:", year);
     // return checkArray(year);
-    if (checkArray(arr) === 0) {
+    if (checkArray(year[1]) === 0) {
       return year;
     }
   });
