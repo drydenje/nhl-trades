@@ -1,7 +1,4 @@
-const cheerio = require("cheerio");
-const axios = require("axios");
-
-const getTradeTeams = async (url: string) => {
+const getTradeTeams = async (url) => {
   const axiosResponse = await axios.request({
     method: "GET",
     url: url,
@@ -22,7 +19,7 @@ const getTradeTeams = async (url: string) => {
   return lines;
 };
 
-const parseTrade = (input: string) => {
+const parseTrade = (input) => {
   let $ = cheerio.load(input);
   const headings = $("tbody > tr")
     .find("td > strong")
@@ -67,5 +64,3 @@ const parseTrade = (input: string) => {
     comment,
   };
 };
-
-export { getTradeTeams };

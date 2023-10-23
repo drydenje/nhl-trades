@@ -115,58 +115,53 @@ const seasons = {
   // "1918-19": [],
 };
 
-// checks to see if an array exists and is empty.
-// Returns 0 if empty, 1 if the array has data, and 'false' if it's not an array
-const checkArray = (arr) => {
-  return Array.isArray(arr) && arr.length;
-};
-
-const getNextYear = (obj) => {
-  console.log("Seasons:", obj);
-  console.log("Entries:", Object.entries(obj));
-
-  const y = Object.entries(obj).filter((year) => {
-    console.log("YEAR:", year);
-    // return checkArray(year);
-    if (checkArray(year[1]) === 0) {
-      return year;
-    }
+const year = `1977-78`;
+const page = 4;
+const url = `${BASE_URL}/${year}/${page}`;
+fetch(url)
+  .then((response) => response.text())
+  .then((html) => {
+    // console.log(json);
+    fs.appendFile(`./public/raw-data/${year}-${page}.html`, html, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
   });
-  return y;
-};
 
-console.log("Next year to scrape:", getNextYear(seasons));
+// const test = async () => {
+//   const r = await fetch("https://jsonplaceholder.typicode.com/todos/1").then(
+//     (response) => response.json()
+//   );
+//   return r;
+// };
 
-// const seasonsKeys = Object.keys(seasons1);
+// console.log("T:", test());
 
 // console.log("Total NHL Seasons:", Object.keys(seasons).length);
+// const seasons = {
+//  "2022-23": [
+//    { trade_data },
+//  ],
+// }
 
-// const y = "2022-23";
-// console.log(`Checking data for ${y}:`, checkArray(seasons[y]));
+// Instructions for scraping the raw data
+
+// ✅ check which years haven't been scraped ( is the "2022-23" array empty?)
+// ✅ select the most recent one
+// load the page for the year (https://www.nhltradetracker.com/user/trade_list_by_season/2022-23/1)
+// save all the trades to a temp variable.
+//    - keep the data limited to the html markup of that trade
+//    - the data can be refined after it's all been scraped
+// determine the number of pages for that year
+// visit each page and scrape the data, waiting an amount of time after each one
+// after each page,
+//    - Check for max_user_connections error
+//    - append the data to the temp variable.
+// after all of the pages for the year have been scraped, add the data to the main object, and write to disk
 
 function start() {
   console.log("running");
-
-  // const seasons = {
-  //  "2022-23": [
-  //    { trade_data },
-  //  ],
-  // }
-
-  // Instructions for scraping the raw data
-
-  // check which years haven't been scraped ( is the "2022-23" array empty?)
-  // select the most recent one
-  // load the page for the year (https://www.nhltradetracker.com/user/trade_list_by_season/2022-23/1)
-  // save all the trades to a temp variable.
-  //    - keep the data limited to the html markup of that trade
-  //    - the data can be refined after it's all been scraped
-  // determine the number of pages for that year
-  // visit each page and scrape the data, waiting an amount of time after each one
-  // after each page,
-  //    - append the data to the temp variable.
-  //    - Check for max_user_connections error
-  // after all of the pages for the year have been scraped, add the data to the main object, and write to disk
 }
 
 // cron.schedule("*/1 * * * * *", start);
