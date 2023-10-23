@@ -122,11 +122,15 @@ fetch(url)
   .then((response) => response.text())
   .then((html) => {
     // console.log(json);
-    fs.appendFile(`./public/raw-data/${year}-${page}.html`, html, (err) => {
-      if (err) {
-        console.error(err);
+    fs.appendFile(
+      `./public/raw-mock-data/${year}-${page}.html`,
+      html,
+      (err) => {
+        if (err) {
+          console.error(err);
+        }
       }
-    });
+    );
   });
 
 // const test = async () => {

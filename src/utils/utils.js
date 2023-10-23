@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 // checks to see if an array exists and is empty.
 // Returns 0 if empty, 1 if the array has data, and 'false' if it's not an array
 const checkArray = (arr) => {
@@ -34,4 +36,13 @@ const getPage = async (url) => {
   return res;
 };
 
-export { checkArray, getNextYear, getPage };
+const readFile = (filePath) => {
+  try {
+    const data = fs.readFileSync(filePath, "utf8");
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { checkArray, getNextYear, getPage, readFile };

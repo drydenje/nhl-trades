@@ -1,14 +1,20 @@
-const getTradeTeams = async (url) => {
-  const axiosResponse = await axios.request({
-    method: "GET",
-    url: url,
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
-    },
-  });
+const cheerio = require("cheerio");
 
-  const $ = cheerio.load(axiosResponse.data);
+const getPageCount = async (page) => {
+  // function extract(input, cheerio) {
+  let $ = cheerio.load(page);
+  const pageCount = $(".pagination")
+    .find("a:last")
+    .prev()
+    //.find('tr')
+    //.toArray()
+    .text();
+
+  return parseInt(pageCount) || 1;
+};
+
+const getTradeTeams = async (page) => {
+  const $ = cheerio.load(page);
   const lines = [];
   const tables = $("#container")
     .find("> table")
@@ -64,3 +70,5 @@ const parseTrade = (input) => {
     comment,
   };
 };
+
+export { getPageCount };
