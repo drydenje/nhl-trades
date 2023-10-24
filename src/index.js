@@ -8,8 +8,8 @@ const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 
 const seasons = {
   "2022-23": [],
-  "2021-22": [],
-  "2020-21": [],
+  // "2021-22": [],
+  // "2020-21": [],
   // "2019-20": [],
   // "2018-19": [],
   // "2017-18": [],
