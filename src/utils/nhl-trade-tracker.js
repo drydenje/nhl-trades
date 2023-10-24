@@ -1,22 +1,18 @@
 const cheerio = require("cheerio");
 
+// Given a full html page, it will count the number of
+// pages to scrape for that year
 const getPageCount = async (page) => {
-  // function extract(input, cheerio) {
   let $ = cheerio.load(page);
-  const pageCount = $(".pagination")
-    .find("a:last")
-    .prev()
-    //.find('tr')
-    //.toArray()
-    .text();
+  const pageCount = $(".pagination").find("a:last").prev().text();
 
   return parseInt(pageCount) || 1;
 };
 
-const getTradeTeams = async (page) => {
+const getTradesFromPage = async (page) => {
   const $ = cheerio.load(page);
   const lines = [];
-  const tables = $("#container")
+  $("#container")
     .find("> table")
     .each((index, trade) => {
       lines.push(parseTrade(trade));
@@ -25,8 +21,37 @@ const getTradeTeams = async (page) => {
   return lines;
 };
 
-const parseTrade = (input) => {
-  let $ = cheerio.load(input);
+// Pull all relevent data from the specific trade, and return an object
+// {
+//     "date": "April 12, 2021",
+//     "teams": {
+//         "Washington Capitals": [
+//             {
+//                 "name": "Anthony Mantha",
+//                 "hockeyDBid": "136790"
+//             }
+//         ],
+//         "Detroit Red Wings": [
+//             {
+//                 "name": "2021 1st round pick"
+//             },
+//             {
+//                 "name": "Richard Panik",
+//                 "hockeyDBid": "108683"
+//             },
+//             {
+//                 "name": "Jakub Vrana",
+//                 "hockeyDBid": "161382"
+//             },
+//             {
+//                 "name": "2022 2nd round pick"
+//             }
+//         ]
+//     },
+//     "comment": null
+// }
+const parseTrade = (html) => {
+  let $ = cheerio.load(html);
   const headings = $("tbody > tr")
     .find("td > strong")
     .map(function () {
@@ -51,14 +76,13 @@ const parseTrade = (input) => {
         const player = {
           name: playerName,
         };
-        playerID ? (player.id = playerID.match(r)[0]) : null;
+        playerID ? (player.hockeyDBid = playerID.match(r)[0]) : null;
         return player;
       })
       .filter((s) => s.name);
   }
 
   const c = $(`.comment`).next().text();
-  //const c = null;
   const comment = c ? c : null;
   const teams = {};
   teams[headings[0]] = roster[0];
@@ -71,4 +95,23 @@ const parseTrade = (input) => {
   };
 };
 
-export { getPageCount };
+// this will grab  a list of all the nhl trade seasons
+const getSeasonList = (page) => {
+  let $ = cheerio.load(page);
+  const arr = $(".s_list > tbody")
+    .find("tr")
+    .text()
+    .split("\n")
+    .filter((s) => s)
+    .map((s) => s.trim());
+
+  const seasons = arr.reduce((accumulator, value) => {
+    return { ...accumulator, [value]: [] };
+  }, {});
+
+  return {
+    seasons,
+  };
+};
+
+export { getPageCount, getSeasonList, getTradesFromPage, parseTrade };

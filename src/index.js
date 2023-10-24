@@ -1,4 +1,3 @@
-const axios = require("axios");
 const chalk = require("chalk");
 const cheerio = require("cheerio");
 const fs = require("fs");
@@ -121,7 +120,6 @@ const url = `${BASE_URL}/${year}/${page}`;
 fetch(url)
   .then((response) => response.text())
   .then((html) => {
-    // console.log(json);
     fs.appendFile(
       `./public/raw-mock-data/${year}-${page}.html`,
       html,
@@ -153,11 +151,11 @@ fetch(url)
 
 // ✅ check which years haven't been scraped ( is the "2022-23" array empty?)
 // ✅ select the most recent one
-// load the page for the year (https://www.nhltradetracker.com/user/trade_list_by_season/2022-23/1)
+// ✅ load the page for the year (https://www.nhltradetracker.com/user/trade_list_by_season/2022-23/1)
 // save all the trades to a temp variable.
 //    - keep the data limited to the html markup of that trade
 //    - the data can be refined after it's all been scraped
-// determine the number of pages for that year
+// ✅ determine the number of pages for that year
 // visit each page and scrape the data, waiting an amount of time after each one
 // after each page,
 //    - Check for max_user_connections error

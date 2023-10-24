@@ -1,64 +1,4 @@
-import { getTradeTeams, checkArray, getNextYear } from "./utils";
-import page from "../../public/result";
-
-const axios = require("axios");
-jest.mock("axios");
-
-const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
-
-// describe("getTradeTeams module", () => {
-//   beforeEach(() => {
-//     jest.clearAllMocks();
-//   });
-
-//   test("should get the trades from a cheerio object", async () => {
-//     const resp = { data: page };
-//     axios.request.mockResolvedValue(resp);
-
-//     return getTradeTeams(`${BASE_URL}/1919-20/1`).then((data) => {
-//       expect(data).toMatchInlineSnapshot(`
-// [
-//   {
-//     "comment": null,
-//     "date": "January 14, 1920",
-//     "teams": {
-//       "Montreal Canadiens": [
-//         {
-//           "id": "23517",
-//           "name": "Harry Cameron",
-//         },
-//       ],
-//       "Toronto Arenas": [
-//         {
-//           "id": "4394",
-//           "name": "Goldie Prodgers",
-//         },
-//       ],
-//     },
-//   },
-//   {
-//     "comment": null,
-//     "date": "December 21, 1919",
-//     "teams": {
-//       "Montreal Canadiens": [
-//         {
-//           "id": "4394",
-//           "name": "Goldie Prodgers",
-//         },
-//       ],
-//       "Quebec Bulldogs": [
-//         {
-//           "id": "29897",
-//           "name": "Ed Carpenter",
-//         },
-//       ],
-//     },
-//   },
-// ]
-// `);
-//     });
-//   });
-// });
+import { checkArray, getNextYear } from "./utils";
 
 describe("checkArray function", () => {
   test("should return 1 if an array contains data", () => {
@@ -99,7 +39,7 @@ describe("checkArray function", () => {
 });
 
 describe("getNextYear function", () => {
-  test("shoud return the most recent year that doesn't contain any data", () => {
+  test("should return the most recent year that doesn't contain any data", () => {
     const seasons = {
       "2022-23": [{ data: false }],
       "2021-22": [],
@@ -111,7 +51,7 @@ describe("getNextYear function", () => {
     expect(result).toEqual("2021-22");
   });
 
-  test("shoud return 'false' when all years contain data", () => {
+  test("should return 'false' when all years contain data", () => {
     const seasons = {
       "2022-23": [{ data: false }],
       "2021-22": [{ data: false }],
@@ -123,3 +63,7 @@ describe("getNextYear function", () => {
     expect(result).toEqual(false);
   });
 });
+
+// describe("getPage function", () => {
+//   test("should asynchronously return an html page when passed a url", () => {});
+// });
