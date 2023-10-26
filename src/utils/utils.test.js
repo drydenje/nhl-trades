@@ -1,4 +1,26 @@
-import { checkArray, getNextYear } from "./utils";
+import { checkArray, getNextYear, getPage, readFile } from "./utils";
+
+const DATA_FILEPATH = `./public/raw-mock-data/`;
+global.fetch = jest.fn((url) => {
+  Promise.resolve({
+    status: 200,
+    json: async () => ({
+      token: "MOCKED_GITHUB_INSTALLATION_ACCESS_TOKEN",
+      expires_at: TOMORROW.toISOString(),
+    }),
+    // body: async () => await readFile(url),
+  });
+});
+// Promise.resolve({
+//   json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
+// })
+// );
+// .fn(() => "default")
+// .mockImplementationOnce((url) => Promise.resolve(url));
+
+beforeEach(() => {
+  fetch.mockClear();
+});
 
 describe("checkArray function", () => {
   test("should return 1 if an array contains data", () => {
@@ -64,6 +86,13 @@ describe("getNextYear function", () => {
   });
 });
 
-// describe("getPage function", () => {
-//   test("should asynchronously return an html page when passed a url", () => {});
-// });
+describe("getPage function", () => {
+  test.only("should asynchronously return an html page when passed a url", async () => {
+    // const fetch =
+    const url = `${DATA_FILEPATH}/1977-78-1.html`;
+    const result = await getPage(url);
+    // const result = await fetch("testy");
+    console.log("result:", result);
+    // console.log(fetch(url));
+  });
+});

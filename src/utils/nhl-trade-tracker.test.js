@@ -1,4 +1,6 @@
 import {
+  checkMaxUserException,
+  getAllPagesForYear,
   getPageCount,
   getSeasonList,
   getTradesFromPage,
@@ -6,15 +8,17 @@ import {
 } from "./nhl-trade-tracker";
 import { readFile } from "./utils";
 
+const DATA_FILEPATH = `./public/raw-mock-data/`;
+
 describe("getPageCount function", () => {
   test("should return the number of pages (3) to scrape for that year, given an html page", async () => {
-    const page = readFile("./public/raw-mock-data/1977-78-1.html");
+    const page = readFile(`${DATA_FILEPATH}/1977-78-1.html`);
     const result = await getPageCount(page);
     expect(result).toEqual(3);
   });
 
   test("should return the number of pages (6) to scrape for that year, given an html page", async () => {
-    const page = readFile("./public/raw-mock-data/2021-22-1.html");
+    const page = readFile(`${DATA_FILEPATH}/2021-22-1.html`);
     const result = await getPageCount(page);
     expect(result).toEqual(6);
   });
@@ -22,7 +26,7 @@ describe("getPageCount function", () => {
 
 describe("parseTrade function", () => {
   test("should create a single trade object trade data", async () => {
-    const html = readFile("./public/raw-mock-data/single-trade.html");
+    const html = readFile(`${DATA_FILEPATH}/single-trade.html`);
     const result = await parseTrade(html);
     expect(result).toMatchInlineSnapshot(`
 {
@@ -59,7 +63,7 @@ describe("parseTrade function", () => {
 
 describe("getTradesFromPage function", () => {
   test("should return an array filled with trades", async () => {
-    const page = readFile("./public/raw-mock-data/1977-78-1.html");
+    const page = readFile(`${DATA_FILEPATH}/1977-78-1.html`);
     const result = await getTradesFromPage(page);
     expect(result).toMatchInlineSnapshot(`
 [
@@ -489,9 +493,28 @@ describe("getTradesFromPage function", () => {
   });
 });
 
+describe("Error Checking", () => {
+  test("should throw a checkMaxUserException error when too many requests were submitted (given error page)", async () => {
+    const page = readFile(`${DATA_FILEPATH}/max-user-error.html`);
+    try {
+      await checkMaxUserException(page);
+      // should not fire here
+    } catch (e) {
+      // this should fire
+      expect(e.message).toBe("max_user_connections");
+    }
+  });
+
+  test("should NOT throw a checkMaxUserException error when too many requests were submitted (given normal page)", async () => {
+    const page = readFile(`${DATA_FILEPATH}/1977-78-1.html`);
+    const result = await checkMaxUserException(page);
+    expect(result).toBe(false);
+  });
+});
+
 describe("getSeasonList function", () => {
   test("should return an array of all of the NHL seasons", async () => {
-    const page = readFile("./public/raw-mock-data/1977-78-1.html");
+    const page = readFile(`${DATA_FILEPATH}/1977-78-1.html`);
     const result = await getSeasonList(page);
     expect(result).toMatchInlineSnapshot(`
 {
@@ -606,3 +629,9 @@ describe("getSeasonList function", () => {
 `);
   });
 });
+
+// describe("getAllPagesForYear function", () => {
+//   test("", async () => {
+
+//   })
+// })

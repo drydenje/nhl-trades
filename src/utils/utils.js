@@ -6,6 +6,7 @@ const checkArray = (arr) => {
   return Array.isArray(arr) && arr.length;
 };
 
+// Returns the next year to scrape
 const getNextYear = (obj) => {
   const yearToScrape = Object.entries(obj).filter((year) => {
     if (checkArray(year[1]) === 0) {
@@ -21,6 +22,7 @@ const getNextYear = (obj) => {
   }
 };
 
+// Returns a single html page from the given url
 const getPage = async (url) => {
   const res = await fetch(url)
     .then((response) => {
@@ -33,6 +35,7 @@ const getPage = async (url) => {
       console.error(`Could not fetch page: ${error}`);
     });
 
+  console.log("res:", res);
   return res;
 };
 

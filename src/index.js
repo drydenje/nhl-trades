@@ -117,28 +117,20 @@ const seasons = {
 const year = `1977-78`;
 const page = 4;
 const url = `${BASE_URL}/${year}/${page}`;
-fetch(url)
-  .then((response) => response.text())
-  .then((html) => {
-    fs.appendFile(
-      `./public/raw-mock-data/${year}-${page}.html`,
-      html,
-      (err) => {
-        if (err) {
-          console.error(err);
-        }
-      }
-    );
-  });
-
-// const test = async () => {
-//   const r = await fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-//     (response) => response.json()
+fetch(url).then((response) => console.log(response));
+// .then((response) => response.text())
+// .then((html) => {
+//   fs.appendFile(
+//     `./public/raw-mock-data/${year}-${page}.html`,
+//     html,
+//     (err) => {
+//       if (err) {
+//         console.error(err);
+//       }
+//     }
 //   );
-//   return r;
-// };
 
-// console.log("T:", test());
+// });
 
 // console.log("Total NHL Seasons:", Object.keys(seasons).length);
 // const seasons = {

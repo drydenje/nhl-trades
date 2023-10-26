@@ -9,6 +9,7 @@ const getPageCount = async (page) => {
   return parseInt(pageCount) || 1;
 };
 
+// Returns an array of trades from a single page
 const getTradesFromPage = async (page) => {
   const $ = cheerio.load(page);
   const lines = [];
@@ -114,4 +115,38 @@ const getSeasonList = (page) => {
   };
 };
 
-export { getPageCount, getSeasonList, getTradesFromPage, parseTrade };
+// parses all pages for the year and returns an array of trades
+// takes the year (string) and the base url
+const getAllPagesForYear = (year, baseUrl) => {
+  const url = `${baseUrl}/${year}`;
+  console.log("url:", url);
+
+  // load initial page 1 for the year
+  //
+
+  // return an array of trades
+  return false;
+};
+
+// this error should fire when too many requests are made too quickly
+const checkMaxUserException = async (page) => {
+  const $ = cheerio.load(page);
+  const warnings = $("[href*=function.mysql-pconnect]").text();
+
+  if (warnings === "function.mysql-pconnect") {
+    // console.log("warnings:", warnings);
+    throw new Error("max_user_connections");
+  } else {
+    // console.log("warnings:", warnings);
+    return false;
+  }
+};
+
+export {
+  checkMaxUserException,
+  getAllPagesForYear,
+  getPageCount,
+  getSeasonList,
+  getTradesFromPage,
+  parseTrade,
+};
