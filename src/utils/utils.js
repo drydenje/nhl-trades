@@ -24,28 +24,40 @@ const getNextYear = (obj) => {
 
 // Returns a single html page from the given url
 const getPage = async (url) => {
-  const res = await fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status}`);
-      }
-      return response;
-    })
-    .catch((error) => {
-      console.error(`Could not fetch page: ${error}`);
-    });
-
-  console.log("res:", res);
-  return res;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Request failed with status code ${result.status}`);
+    }
+    const data = await res;
+    return data;
+    // const data = await res.json();
+    // return data;
+  } catch (error) {
+    console.error(`Could not fetch page: ${error}`);
+  }
 };
 
 const readFile = (filePath) => {
   try {
     const data = fs.readFileSync(filePath, "utf8");
+
     return data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export { checkArray, getNextYear, getPage, readFile };
+async function convert(base, destination) {
+  try {
+    const result = await fetch(
+      `https://api.exchangeratesapi.io/latest?base=${base}`
+    );
+    const data = await result.json();
+    return data.rates[destination];
+  } catch (e) {
+    return null;
+  }
+}
+
+export { checkArray, getNextYear, getPage, readFile, convert };
