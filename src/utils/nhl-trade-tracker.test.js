@@ -1,12 +1,13 @@
 import {
   checkMaxUserException,
-  getAllPagesForYear,
+  getAllTradesForYear,
   getPageCount,
   getSeasonList,
   getTradesFromPage,
   parseTrade,
 } from "./nhl-trade-tracker";
 import { readFile } from "./utils";
+import { server, http, HttpResponse } from "../config/testServer";
 
 const DATA_FILEPATH = `./public/raw-mock-data/`;
 
@@ -630,8 +631,12 @@ describe("getSeasonList function", () => {
   });
 });
 
-// describe("getAllPagesForYear function", () => {
-//   test("", async () => {
+describe("getAllTradesForYear function", () => {
+  test.only("should return an html page when passed a url", async () => {
+    const year = `1977-78`;
+    const url = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 
-//   })
-// })
+    const result = await getAllTradesForYear(year, url);
+    expect(result).toMatchSnapshot();
+  });
+});

@@ -1,3 +1,4 @@
+import { getPage } from "./utils";
 const cheerio = require("cheerio");
 
 // Given a full html page, it will count the number of
@@ -117,14 +118,22 @@ const getSeasonList = (page) => {
 
 // parses all pages for the year and returns an array of trades
 // takes the year (string) and the base url
-const getAllPagesForYear = (year, baseUrl) => {
-  const url = `${baseUrl}/${year}`;
-  console.log("url:", url);
+const getAllTradesForYear = async (year, baseUrl) => {
+  const url = `${baseUrl}/${year}/1`;
 
   // load initial page 1 for the year
-  //
+  const mainPage = await getPage(url);
+  const pageCount = await getPageCount(mainPage);
+  console.log("pageCount:", pageCount);
 
-  // return an array of trades
+  // sequential fetch (pass an array of urls), should be in utils?
+  // if > 1
+  // from page 2 to the end
+  // make an array of promises, timeout of 7(?) secs between them
+  // parse each page
+  // add all trades to the array
+
+  // return the array of trades
   return false;
 };
 
@@ -144,7 +153,7 @@ const checkMaxUserException = async (page) => {
 
 export {
   checkMaxUserException,
-  getAllPagesForYear,
+  getAllTradesForYear,
   getPageCount,
   getSeasonList,
   getTradesFromPage,
