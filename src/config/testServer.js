@@ -14,6 +14,20 @@ const server = setupServer(
       return HttpResponse.text(page);
     }
   ),
+  http.get(
+    `https://www.nhltradetracker.com/user/trade_list_by_season/1977-78/2`,
+    ({ request, response, context }) => {
+      const page = readFile(`${DATA_FILEPATH}/1977-78-2.html`);
+      return HttpResponse.text(page);
+    }
+  ),
+  http.get(
+    `https://www.nhltradetracker.com/user/trade_list_by_season/1977-78/3`,
+    ({ request, response, context }) => {
+      const page = readFile(`${DATA_FILEPATH}/1977-78-3.html`);
+      return HttpResponse.text(page);
+    }
+  ),
   http.get(`*`, ({ request }) => {
     console.error(`Please add request handler for: ${request.url}`);
     return new HttpResponse("Not found", {
