@@ -29,10 +29,8 @@ const getPage = async (url) => {
     if (!res.ok) {
       throw new Error(`Request failed with status code ${result.status}`);
     }
-    const data = await res;
+    const data = await res.text();
     return data;
-    // const data = await res.json();
-    // return data;
   } catch (error) {
     console.error(`Could not fetch page: ${error}`);
   }
@@ -49,15 +47,18 @@ const readFile = (filePath) => {
 };
 
 async function convert(base, destination) {
-  try {
-    const result = await fetch(
-      `https://api.exchangeratesapi.io/latest?base=${base}`
-    );
-    const data = await result.json();
-    return data.rates[destination];
-  } catch (e) {
-    return null;
+  const result = await fetch(
+    `https://api.exchangeratesapi.io/latest?base=${base}`
+  );
+  if (!result.ok) {
+    throw new Error(`Request failed with status code ${result.status}`);
   }
+  const data = await result.json();
+  return data.rates[destination];
 }
+// catch (e) {
+//   throw new Error(`Request failed with status code ${e}`);
+// }
+// }
 
 export { checkArray, getNextYear, getPage, readFile, convert };
