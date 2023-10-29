@@ -632,11 +632,22 @@ describe("getSeasonList function", () => {
 });
 
 describe("getAllTradesForYear function", () => {
-  test.only("should return an html page when passed a url", async () => {
-    const year = `1977-78`;
-    const url = `https://www.nhltradetracker.com/user/trade_list_by_season`;
+  test.only(
+    "should return an html page when passed a url",
+    async () => {
+      const year = `1977-78`;
+      const url = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 
-    const result = await getAllTradesForYear(year, url);
-    await expect(result).toMatchSnapshot();
-  });
+      const startTime = new Date();
+
+      const result = await getAllTradesForYear(year, url);
+      await expect(result).toMatchSnapshot();
+
+      const endTime = new Date();
+      const elapsedTime = (endTime.getTime() - startTime.getTime()) / 1000;
+
+      console.log("Elapsed Time:", elapsedTime);
+    },
+    15 * 1000
+  );
 });

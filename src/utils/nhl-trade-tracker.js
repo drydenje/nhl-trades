@@ -124,7 +124,6 @@ const getAllTradesForYear = async (year, baseUrl) => {
   // load initial page 1 for the year
   const mainPage = await getPage(url + "/1");
   const pageCount = await getPageCount(mainPage);
-  // console.log("pageCount:", pageCount);
 
   // sequential fetch (pass an array of urls), should be in utils?
   // console.log some numbers to initially test the timing
@@ -138,16 +137,14 @@ const getAllTradesForYear = async (year, baseUrl) => {
 
   let delay = 0;
   const delayIncrement = 1000;
-  const numOfPages = 3;
-  const pages = [`${url}/1`, `${url}/2`, `${url}/3`];
 
-  const startTime = new Date();
+  const pages = [...Array(pageCount).keys()].map((i) => `${url}/${i + 1}`);
 
   // Promise.all() with delays for each promise
   let tasks = [];
   // for (let i = 0; i < 10; i++) {
   pages.forEach((page, i) => {
-    const delay = 1000 * i;
+    const delay = 5000 * i;
     tasks.push(
       new Promise(async function (resolve) {
         // the timer/delay
@@ -156,13 +153,19 @@ const getAllTradesForYear = async (year, baseUrl) => {
         // the promise you want delayed
         // (for example):
         // let result = await axios.get(...);
-        let result = await new Promise(async (r) => {
+        let result = await getPage(page).then((page) => {
+          // console.log(`Type: ${typeof page}`);
           // console.log(`Trying to parse ${page}`);
-          const newPage = await getPage(page).then((page) => {
-            return getTradesFromPage(page);
-          });
-          r(newPage); //result is delay ms for demo purposes
+          return getTradesFromPage(page);
+          // r(newPage); //result is delay ms for demo purposes
         });
+        // let result = await new Promise(async (r) => {
+        //   // console.log(`Trying to parse ${page}`);
+        //   const newPage = await getPage(page).then((page) => {
+        //     return getTradesFromPage(page);
+        //   });
+        //   r(newPage); //result is delay ms for demo purposes
+        // });
 
         //resolve outer/original promise with result
         resolve(result);
@@ -175,9 +178,6 @@ const getAllTradesForYear = async (year, baseUrl) => {
   //   return results;
   // });
 
-  const endTime = new Date();
-  const elapsedTime = (endTime.getTime() - startTime.getTime()) / 1000;
-  console.log("Elapsed Time:", elapsedTime);
   // return the array of trades
   return results;
 };
