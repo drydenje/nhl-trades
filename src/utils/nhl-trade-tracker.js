@@ -119,22 +119,67 @@ const getSeasonList = (page) => {
 // parses all pages for the year and returns an array of trades
 // takes the year (string) and the base url
 const getAllTradesForYear = async (year, baseUrl) => {
-  const url = `${baseUrl}/${year}/1`;
+  const url = `${baseUrl}/${year}`;
 
   // load initial page 1 for the year
-  const mainPage = await getPage(url);
+  const mainPage = await getPage(url + "/1");
   const pageCount = await getPageCount(mainPage);
-  console.log("pageCount:", pageCount);
+  // console.log("pageCount:", pageCount);
 
   // sequential fetch (pass an array of urls), should be in utils?
+  // console.log some numbers to initially test the timing
+  // maybe have a timing test in jest? jest built in thing?
+
   // if > 1
   // from page 2 to the end
   // make an array of promises, timeout of 7(?) secs between them
   // parse each page
   // add all trades to the array
 
+  let delay = 0;
+  const delayIncrement = 1000;
+  const numOfPages = 3;
+  const pages = [`${url}/1`, `${url}/2`, `${url}/3`];
+
+  const startTime = new Date();
+
+  // Promise.all() with delays for each promise
+  let tasks = [];
+  // for (let i = 0; i < 10; i++) {
+  pages.forEach((page, i) => {
+    const delay = 1000 * i;
+    tasks.push(
+      new Promise(async function (resolve) {
+        // the timer/delay
+        await new Promise((res) => setTimeout(res, delay));
+
+        // the promise you want delayed
+        // (for example):
+        // let result = await axios.get(...);
+        let result = await new Promise(async (r) => {
+          // console.log(`Trying to parse ${page}`);
+          const newPage = await getPage(page).then((page) => {
+            return getTradesFromPage(page);
+          });
+          r(newPage); //result is delay ms for demo purposes
+        });
+
+        //resolve outer/original promise with result
+        resolve(result);
+      })
+    );
+  });
+  let results = Promise.all(tasks);
+  // .then((results) => {
+  //   // console.log("results: " + results);
+  //   return results;
+  // });
+
+  const endTime = new Date();
+  const elapsedTime = (endTime.getTime() - startTime.getTime()) / 1000;
+  console.log("Elapsed Time:", elapsedTime);
   // return the array of trades
-  return false;
+  return results;
 };
 
 // this error should fire when too many requests are made too quickly

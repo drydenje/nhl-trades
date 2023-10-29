@@ -637,6 +637,6 @@ describe("getAllTradesForYear function", () => {
     const url = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 
     const result = await getAllTradesForYear(year, url);
-    expect(result).toMatchSnapshot();
+    await expect(result).toMatchSnapshot();
   });
 });
