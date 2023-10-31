@@ -6,7 +6,7 @@ import {
   getTradesFromPage,
   parseTrade,
 } from "./nhl-trade-tracker";
-import { readFile } from "./utils";
+import { readFile } from "./utils.mjs";
 import { server, http, HttpResponse } from "../config/testServer";
 
 const DATA_FILEPATH = `./public/raw-mock-data/`;

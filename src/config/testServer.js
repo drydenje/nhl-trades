@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
-import { readFile } from "../utils/utils";
+import { readFile } from "../utils/utils.mjs";
 const DATA_FILEPATH = `./public/raw-mock-data`;
 
 const server = setupServer(

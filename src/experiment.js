@@ -1,5 +1,5 @@
 const chalk = require("chalk");
-const getPage = require("./utils/utils");
+const getPage = require("./utils/utils.mjs");
 
 const runScrape = async () => {
   // try {

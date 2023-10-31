@@ -1,4 +1,4 @@
-import { getPage } from "./utils";
+import { getPage } from "./utils.mjs";
 const cheerio = require("cheerio");
 
 // Given a full html page, it will count the number of
@@ -140,9 +140,7 @@ const getAllTradesForYear = async (year, baseUrl) => {
 
   const pages = [...Array(pageCount).keys()].map((i) => `${url}/${i + 1}`);
 
-  // Promise.all() with delays for each promise
   let tasks = [];
-  // for (let i = 0; i < 10; i++) {
   pages.forEach((page, i) => {
     const delay = 5000 * i;
     tasks.push(
@@ -150,22 +148,10 @@ const getAllTradesForYear = async (year, baseUrl) => {
         // the timer/delay
         await new Promise((res) => setTimeout(res, delay));
 
-        // the promise you want delayed
-        // (for example):
-        // let result = await axios.get(...);
+        // the promise to be delayed
         let result = await getPage(page).then((page) => {
-          // console.log(`Type: ${typeof page}`);
-          // console.log(`Trying to parse ${page}`);
           return getTradesFromPage(page);
-          // r(newPage); //result is delay ms for demo purposes
         });
-        // let result = await new Promise(async (r) => {
-        //   // console.log(`Trying to parse ${page}`);
-        //   const newPage = await getPage(page).then((page) => {
-        //     return getTradesFromPage(page);
-        //   });
-        //   r(newPage); //result is delay ms for demo purposes
-        // });
 
         //resolve outer/original promise with result
         resolve(result);
@@ -173,10 +159,6 @@ const getAllTradesForYear = async (year, baseUrl) => {
     );
   });
   let results = Promise.all(tasks);
-  // .then((results) => {
-  //   // console.log("results: " + results);
-  //   return results;
-  // });
 
   // return the array of trades
   return results;

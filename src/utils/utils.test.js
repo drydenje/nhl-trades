@@ -1,6 +1,11 @@
-import { checkArray, getNextYear, getPage, readFile, convert } from "./utils";
+import {
+  checkArray,
+  getNextYear,
+  getPage,
+  readFile,
+  convert,
+} from "./utils.mjs";
 import { server, http, HttpResponse } from "../config/testServer";
-// import { http, HttpResponse } from "msw";
 const DATA_FILEPATH = `./public/raw-mock-data/`;
 
 describe("checkArray function", () => {

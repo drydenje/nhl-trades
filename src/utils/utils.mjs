@@ -1,4 +1,5 @@
-const fs = require("fs");
+// const fs = require("fs");
+import fs from "fs";
 
 // checks to see if an array exists and is empty.
 // Returns 0 if empty, 1 if the array has data, and 'false' if it's not an array
@@ -36,11 +37,21 @@ const getPage = async (url) => {
   }
 };
 
+// reads the file from disk
 const readFile = (filePath) => {
   try {
     const data = fs.readFileSync(filePath, "utf8");
 
     return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// writes the file to disk
+const writeFile = (filePath, data) => {
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data));
   } catch (error) {
     console.error(error);
   }
@@ -56,9 +67,5 @@ async function convert(base, destination) {
   const data = await result.json();
   return data.rates[destination];
 }
-// catch (e) {
-//   throw new Error(`Request failed with status code ${e}`);
-// }
-// }
 
-export { checkArray, getNextYear, getPage, readFile, convert };
+export { checkArray, getNextYear, getPage, readFile, writeFile, convert };
