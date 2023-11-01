@@ -10,11 +10,6 @@ import { readFile, writeFile } from "./utils/utils.mjs";
 // const writeFile = require("./utils/utils");
 const seasons = JSON.parse(readFile(`./public/scraped-data/trades.json`));
 
-// const seasons2 = {
-//   "2022-23": [{ player: "guy" }],
-//   "2021-22": [{ player: "nah" }],
-// };
-
 const trades = [
   {
     comment: null,
@@ -58,7 +53,7 @@ const trades = [
   },
 ];
 
-seasons["1977-78"] = trades;
+seasons["1977-78"] = [];
 await console.log("Seasons:", typeof seasons);
 
 const year = `1977-78`;

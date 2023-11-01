@@ -2,8 +2,7 @@
   "name": "nhl-trades",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.mjs",
   "scripts": {
     "experiment": "jest --watch -- experiment.test.js ",
     "start": "node ./src/index.js",
