@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
-import { readFile } from "../utils/utils.mjs";
+import { readFile } from "../utils/utils.js";
 const DATA_FILEPATH = `./public/raw-mock-data`;
 
 const server = setupServer(
@@ -25,6 +25,20 @@ const server = setupServer(
     `https://www.nhltradetracker.com/user/trade_list_by_season/1977-78/3`,
     ({ request, response, context }) => {
       const page = readFile(`${DATA_FILEPATH}/1977-78-3.html`);
+      return HttpResponse.text(page);
+    }
+  ),
+  http.get(
+    `https://www.nhltradetracker.com/user/trade_list_by_season/diagnostics`,
+    ({ request, response, context }) => {
+      const page = readFile(`${DATA_FILEPATH}/diagnostics.html`);
+      return HttpResponse.text(page);
+    }
+  ),
+  http.get(
+    `https://www.nhltradetracker.com/user/trade_list_by_season/missing-bracket-error`,
+    ({ request, response, context }) => {
+      const page = readFile(`${DATA_FILEPATH}/missing-bracket-error.html`);
       return HttpResponse.text(page);
     }
   ),

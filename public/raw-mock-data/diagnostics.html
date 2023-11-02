@@ -1,0 +1,1432 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>NHL trades for 2012-13 - NHL Trade Tracker</title>
+<link href="/asset/css/style.css" rel="stylesheet" type="text/css">
+<script src="https://partner.googleadservices.com/gampad/cookie.js?domain=www.nhltradetracker.com&amp;callback=_gfp_s_&amp;client=ca-pub-1410014940782819&amp;cookie=ID%3D7629ec6b72ee1c64-2298871430e1009b%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MYu0cSobMmcja7qdSKQHPs2k-qHrQ&amp;gpic=UID%3D000009c494ef2362%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MZmA0bK89HLQeFYJuAzT88XYGh_hw"></script><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.AOzoyjtjrhQ.O/m=auth/exm=plusone/rt=j/sv=1/d=1/ed=1/rs=AHpOoo9-fA1P7IZFa1fdRj158NoDqrnbYA/cb=gapi.loaded_1?le=scs" async=""></script><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.AOzoyjtjrhQ.O/m=plusone/rt=j/sv=1/d=1/ed=1/rs=AHpOoo9-fA1P7IZFa1fdRj158NoDqrnbYA/cb=gapi.loaded_0?le=scs" async=""></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202310310101/show_ads_impl_fy2021.js?bust=31079329" id="google_shimpl"></script><script type="text/javascript" async="" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" src="/asset/js/validate.js"></script>
+<script src="/asset/js/jquery-1.3.1.min.js" type="text/javascript"></script>
+<script language="javascript">
+var  i=1;
+var k =1;
+ $(document).ready(function() {
+ $(function() {
+});
+
+   
+   $('#need_add_field').click(function() {
+  //alert('k');
+  var s ='';
+ $.ajax({
+  url: "/admin/ajax_team_list",
+  success: function(html){
+  //alert(html);
+ s = html;
+ 
+  },
+
+  async:false
+});
+
+  var str ='<div id ="'+i+'"><table><tr><td class="admin_label">Select Team&nbsp;<select name="team['+i+']" class="s_text" ><option>Select Team </option>'+s+'</select></td><td class="admin_label">Player Acquired :<input type="text" name="player_acquired['+i+']" class="admin_text_mini" /></td><td class="admin_label">Isplayer<input type="checkbox" name="is_player['+i+']" class="admin_text_mini" value="1" /></td><td class="admin_label">HockeyDBID<input type="text" name="hockydbid['+i+']" class="admin_text_mini" /></td></tr><tr><td colspan="4"><a class="n_a" temp="'+i+'"  temp ="cool" href="javascript:void(0);" id ="n_a_'+i+'" onclick="test();" >[-]</a></td></tr></table></div>';
+  $('#need_field_container').append(str);
+   i++;
+ 
+  });
+  
+  click_status = true;
+  $('#need_add_field_edit').click(function() {
+  //alert('k');
+  var s ='';
+ $.ajax({
+  url: "/admin/ajax_team_list",
+  success: function(html){
+  //alert(html);
+ s = html;
+ if(click_status) {
+ k = $('#need_add_field_edit').attr('temp');
+// alert(k);
+ click_status = false;
+ }
+ // alert(k);
+ 
+  },
+
+  async:false
+});
+
+  var str ='<div id ="'+k+'"><table><tr><td class="admin_label">Select Team&nbsp;<select name="team['+k+']" class="s_text" ><option>Select Team </option>'+s+'</select></td><td class="admin_label">Player Acquired :<input type="text" name="player_acquired['+k+']" class="admin_text_mini" /></td><td class="admin_label">Isplayer<input type="checkbox" name="is_player['+k+']" value="1"  /></td><td class="admin_label">HockeyDBID<input type="text" name="hockydbid['+k+']" class="admin_text_mini" /></td></tr><tr><td colspan="4"><a class="n_a_edit" temp="'+k+'"  temp ="cool" href="javascript:void(0);" id ="n_a_edit_'+k+'" onclick="test1();" >[-]</a></td></tr></table></div>';
+  $('#need_field_container').append(str);
+  k++;
+ 
+  });
+ 
+ 
+ });
+ 
+ function test() {
+var id = $('.n_a').attr('temp');
+//alert(id);
+$('#'+id).remove();
+}
+
+function test1() {
+var id = $('.n_a_edit').attr('temp');
+//alert(id);
+$('#'+id).remove();
+}
+  
+ </script>
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-28859592-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="></head>
+
+<body>
+
+<!--header-->
+<div id="header">
+	<div id="header-inner">
+  	<!--logo-->
+    <div id="header-left-panel">
+    	<img src="/asset/images/roy.gif">
+    </div>
+	
+	<div id="header-center-panel">
+    	<h3 class="header_title">NHL TRADE TRACKER</h3>
+	<p class="header_sub_title">History of NHL trades</p>
+<p class="header_sub_title">
+<!-- Place this tag where you want the +1 button to render -->
+<div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1698869255342" name="I0_1698869255342" src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;annotation=inline&amp;origin=https%3A%2F%2Fwww.nhltradetracker.com&amp;url=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F5&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.AOzoyjtjrhQ.O%2Fd%3D1%2Frs%3DAHpOoo9-fA1P7IZFa1fdRj158NoDqrnbYA%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1698869255342&amp;_gfid=I0_1698869255342&amp;parent=https%3A%2F%2Fwww.nhltradetracker.com&amp;pfname=&amp;rpctoken=23741910" data-gapiattached="true"></iframe></div><g:plusone annotation="inline" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script></p>
+    </div>
+    <!--header right panel-->
+    <div id="header-right-panel">
+	<img src="/asset/images/gretzky.gif" style="float:right;">
+   
+    </div>
+  </div></div>
+<!--navigation-->
+<div id="nav">
+	<div id="nav-inner">
+  	<ul>
+    	<li><a href="/home" class="selected">Home</a></li>
+      <li><a href="/user/team_list" class="">Trades by team</a></li>
+      <li><a href="/user/player_list" class="">Trades by player</a></li>
+      <li><a href="/user/GM_list" class="">Trades by GM</a></li>
+      <li><a href="/user/notable_trade_list" class="">Notable deals</a></li>
+      <li><a href="/user/biggest_trade_list" class="">Biggest trades</a></li>
+      <li><a href="/user/worst_trade_list" class="">Worst trades</a></li>
+    </ul>
+  </div>
+</div>
+<!--content-->
+<div id="content-area">
+
+	<div id="content-inner">
+<div id="publicityL">
+	<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Skyscraper -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-1410014940782819" data-ad-slot="4811248883" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1410014940782819&amp;output=html&amp;h=600&amp;slotname=4811248883&amp;adk=2359416640&amp;adf=227317468&amp;pi=t.ma~as.4811248883&amp;w=160&amp;lmt=1698869255&amp;format=160x600&amp;url=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F5&amp;wgl=1&amp;uach=WyJtYWNPUyIsIjEyLjYuOCIsIng4NiIsIiIsIjExNi4wLjU4NDUuMTQwIixbXSwwLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjExNi4wLjU4NDUuMTQwIl0sWyJOb3QpQTtCcmFuZCIsIjI0LjAuMC4wIl0sWyJHb29nbGUgQ2hyb21lIiwiMTE2LjAuNTg0NS4xNDAiXV0sMF0.&amp;dt=1698869255175&amp;bpp=34&amp;bdt=257&amp;idt=179&amp;shv=r20231031&amp;mjsv=m202310310101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D7629ec6b72ee1c64-2298871430e1009b%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MYu0cSobMmcja7qdSKQHPs2k-qHrQ&amp;gpic=UID%3D000009c494ef2362%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MZmA0bK89HLQeFYJuAzT88XYGh_hw&amp;correlator=2380764764792&amp;frm=20&amp;pv=2&amp;ga_vid=841267.1694275434&amp;ga_sid=1698869211&amp;ga_hid=1488139703&amp;ga_fc=1&amp;u_tz=-240&amp;u_his=21&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1055&amp;u_aw=1920&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=69&amp;ady=206&amp;biw=1447&amp;bih=970&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C31079081%2C44798934%2C44805931%2C44807048%2C31078301%2C31079329&amp;oid=2&amp;pvsid=2598458587080337&amp;tmod=551262926&amp;uas=0&amp;nvt=1&amp;ref=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F1&amp;fc=896&amp;brdim=-1849%2C25%2C-1849%2C25%2C1920%2C25%2C1462%2C1055%2C1462%2C970&amp;vis=1&amp;rsz=%7C%7ClE%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;xpc=Zac5ME0Bnl&amp;p=https%3A//www.nhltradetracker.com&amp;dtd=211" data-google-container-id="a!1" data-google-query-id="CKLpgpTNo4IDFStCCQkdxYcJ4g" data-load-complete="true"></iframe></div></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    </div>
+  	<div id="wrapper">
+      <div class="sidebar">
+      	<!--block 1-->
+        <div class="block">
+        	
+<h3 class="trade_list">TRADES BY SEASON</h3>
+<table class="s_list">
+
+<tbody><tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2022-23/1">2022-23</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2021-22/1">2021-22</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2020-21/1">2020-21</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2019-20/1">2019-20</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2018-19/1">2018-19</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2017-18/1">2017-18</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2016-17/1">2016-17</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2015-16/1">2015-16</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2014-15/1">2014-15</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2013-14/1">2013-14</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2012-13/1" class="selec">2012-13</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2011-12/1">2011-12</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2010-11/1">2010-11</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2009-10/1">2009-10</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2008-09/1">2008-09</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2007-08/1">2007-08</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2006-07/1">2006-07</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2005-06/1">2005-06</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2004-05/1">2004-05</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2003-04/1">2003-04</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2002-03/1">2002-03</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2001-02/1">2001-02</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/2000-01/1">2000-01</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1999-00/1">1999-00</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1998-99/1">1998-99</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1997-98/1">1997-98</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1996-97/1">1996-97</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1995-96/1">1995-96</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1994-95/1">1994-95</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1993-94/1">1993-94</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1992-93/1">1992-93</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1991-92/1">1991-92</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1990-91/1">1990-91</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1989-90/1">1989-90</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1988-89/1">1988-89</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1987-88/1">1987-88</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1986-87/1">1986-87</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1985-86/1">1985-86</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1984-85/1">1984-85</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1983-84/1">1983-84</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1982-83/1">1982-83</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1981-82/1">1981-82</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1980-81/1">1980-81</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1979-80/1">1979-80</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1978-79/1">1978-79</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1977-78/1">1977-78</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1976-77/1">1976-77</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1975-76/1">1975-76</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1974-75/1">1974-75</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1973-74/1">1973-74</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1972-73/1">1972-73</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1971-72/1">1971-72</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1970-71/1">1970-71</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1969-70/1">1969-70</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1968-69/1">1968-69</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1967-68/1">1967-68</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1966-67/1">1966-67</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1965-66/1">1965-66</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1964-65/1">1964-65</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1963-64/1">1963-64</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1962-63/1">1962-63</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1961-62/1">1961-62</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1960-61/1">1960-61</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1959-60/1">1959-60</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1958-59/1">1958-59</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1957-58/1">1957-58</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1956-57/1">1956-57</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1955-56/1">1955-56</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1954-55/1">1954-55</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1953-54/1">1953-54</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1952-53/1">1952-53</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1951-52/1">1951-52</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1950-51/1">1950-51</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1949-50/1">1949-50</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1948-49/1">1948-49</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1947-48/1">1947-48</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1946-47/1">1946-47</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1945-46/1">1945-46</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1944-45/1">1944-45</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1943-44/1">1943-44</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1942-43/1">1942-43</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1941-42/1">1941-42</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1940-41/1">1940-41</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1939-40/1">1939-40</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1938-39/1">1938-39</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1937-38/1">1937-38</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1936-37/1">1936-37</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1935-36/1">1935-36</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1934-35/1">1934-35</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1933-34/1">1933-34</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1932-33/1">1932-33</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1931-32/1">1931-32</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1930-31/1">1930-31</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1929-30/1">1929-30</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1928-29/1">1928-29</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1927-28/1">1927-28</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1926-27/1">1926-27</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1925-26/1">1925-26</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1924-25/1">1924-25</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1923-24/1">1923-24</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1922-23/1">1922-23</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1921-22/1">1921-22</a>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1920-21/1">1920-21</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1919-20/1">1919-20</a>&nbsp;</td>
+
+
+<td class="s_list_td">&nbsp;<a href="/user/trade_list_by_season/1918-19/1">1918-19</a>&nbsp;</td>
+</tr>
+
+
+</tbody></table>        </div>
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Skyscraper -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-1410014940782819" data-ad-slot="4811248883" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1410014940782819&amp;output=html&amp;h=600&amp;slotname=4811248883&amp;adk=1059818774&amp;adf=3415248671&amp;pi=t.ma~as.4811248883&amp;w=160&amp;lmt=1698869255&amp;format=160x600&amp;url=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F5&amp;wgl=1&amp;uach=WyJtYWNPUyIsIjEyLjYuOCIsIng4NiIsIiIsIjExNi4wLjU4NDUuMTQwIixbXSwwLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjExNi4wLjU4NDUuMTQwIl0sWyJOb3QpQTtCcmFuZCIsIjI0LjAuMC4wIl0sWyJHb29nbGUgQ2hyb21lIiwiMTE2LjAuNTg0NS4xNDAiXV0sMF0.&amp;dt=1698869255209&amp;bpp=1&amp;bdt=291&amp;idt=313&amp;shv=r20231031&amp;mjsv=m202310310101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D7629ec6b72ee1c64-2298871430e1009b%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MYu0cSobMmcja7qdSKQHPs2k-qHrQ&amp;gpic=UID%3D000009c494ef2362%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MZmA0bK89HLQeFYJuAzT88XYGh_hw&amp;prev_fmts=160x600&amp;correlator=2380764764792&amp;frm=20&amp;pv=1&amp;ga_vid=841267.1694275434&amp;ga_sid=1698869211&amp;ga_hid=1488139703&amp;ga_fc=1&amp;u_tz=-240&amp;u_his=21&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1055&amp;u_aw=1920&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=1009&amp;ady=956&amp;biw=1447&amp;bih=970&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C31079081%2C44798934%2C44805931%2C44807048%2C31078301%2C31079329&amp;oid=2&amp;pvsid=2598458587080337&amp;tmod=551262926&amp;uas=0&amp;nvt=1&amp;ref=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F1&amp;fc=896&amp;brdim=-1849%2C25%2C-1849%2C25%2C1920%2C25%2C1462%2C1055%2C1462%2C970&amp;vis=1&amp;rsz=%7C%7CeE%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;xpc=TZMlMj12Kr&amp;p=https%3A//www.nhltradetracker.com&amp;dtd=348" data-google-container-id="a!2" data-google-query-id="CNO_lpTNo4IDFWRVCQkdL_kG8A" data-load-complete="true"></iframe></div></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+        
+      </div>
+      <!--container-->
+      <div id="container">
+      
+	  <h3 class="title">2012-13 Trades  </h3>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1410014940782819";
+/* NHLLeaderboard */
+google_ad_slot = "7081146085";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+        <p><span class="pg"></span></p><div class="pagination"><a href="/user/trade_list_by_season/2012-13/4">&lt;&lt; previous</a><a href="/user/trade_list_by_season/2012-13/1">1</a><a href="/user/trade_list_by_season/2012-13/2">2</a><a href="/user/trade_list_by_season/2012-13/3">3</a><a href="/user/trade_list_by_season/2012-13/4">4</a><span class="current">5</span><span class="disabled">next&gt;&gt;</span></div>
+<p></p>
+
+	  
+	  	  
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9411">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Florida Panthers acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Dallas Stars acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Florida_Panthers.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+	  <span class="black">2012 7th round pick (#194-Jonatan Nielsen) <br></span>
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 23, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2013 7th round pick<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Dallas_Stars.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9412">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>New York Rangers acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Nashville Predators acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/New_York_Rangers.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+	  <span class="black">2012 5th round pick (#142-Thomas Spelling) <br></span>
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 23, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2013 5th round pick<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Nashville_Predators.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9396">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>New York Islanders acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Anaheim Ducks acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/New_York_Islanders.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('51233||| Lubomir Visnovsky')"> Lubomir Visnovsky</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2013 2nd round pick<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Anaheim_Ducks.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9397">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Carolina Hurricanes acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Pittsburgh Penguins acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Carolina_Hurricanes.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('80489||| Jordan Staal')"> Jordan Staal</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('84687||| Brandon Sutter')"> Brandon Sutter</a><br></span>
+		  
+		  	  
+	  	  	     	  
+	  <span class="black">2012 1st round pick (#8-Derrick Pouliot)<br></span>
+	  	  	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('120914||| Brian Dumoulin')"> Brian Dumoulin</a><br></span>
+		  
+		  	  
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Pittsburgh_Penguins.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9398">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Arizona Coyotes acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Pittsburgh Penguins acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Arizona_Coyotes.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('55144||| Zbynek Michalek')"> Zbynek Michalek</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('95377||| Marc Cheverie')"> Marc Cheverie</a><br></span>
+		  
+		  	  
+	  	  	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('123024||| Harrison Ruopp')"> Harrison Ruopp</a><br></span>
+		  
+		  	  
+	  	  	     	  
+	  <span class="black">2012 3rd round pick (#81-Oskar Sundqvist)<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Pittsburgh_Penguins.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9399">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Washington Capitals acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Dallas Stars acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Washington_Capitals.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('35733||| Mike Ribeiro')"> Mike Ribeiro</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('99396||| Cody Eakin')"> Cody Eakin</a><br></span>
+		  
+		  	  
+	  	  	     	  
+	  <span class="black">2012 2nd round pick (#54-Mike Winther)<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Dallas_Stars.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9400">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Columbus Blue Jackets acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Philadelphia Flyers acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Columbus_Blue_Jackets.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('98874||| Sergei Bobrovsky')"> Sergei Bobrovsky</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2012 4th round pick(#117-Taylor Leier)<br></span>
+	  	  	     	  
+	  <span class="black">2012 2nd round pick #45-Anthony Stolarz)<br></span>
+	  	  	     	  
+	  <span class="black">2013 4th round pcik<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Philadelphia_Flyers.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9401">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Buffalo Sabres acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Calgary Flames acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Buffalo_Sabres.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+	  <span class="black">2012 1st round pick (#14-Zemgus Girgensons) <br></span>
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2012 1st round pick (#21-Mark Jankowski)<br></span>
+	  	  	     	  
+	  <span class="black">2012 2nd round pick (#42-Patrick Sieloff)<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Calgary_Flames.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9402">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Winnipeg Jets acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Toronto Maple Leafs acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Winnipeg_Jets.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('0||| Jonas Gustavsson')"> Jonas Gustavsson</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 22, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2013 conditional 7th round pick<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Toronto_Maple_Leafs.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9394">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Tampa Bay Lightning acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Nashville Predators acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Tampa_Bay_Lightning.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('94541||| Anders Lindback')"> Anders Lindback</a><br></span>
+		  
+		  	  
+	  	  	   	  
+	  <span class="black">2012 7th round pick <br></span>
+	  	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('71378||| Kyle Wilson')"> Kyle Wilson</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 15, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2012 2nd round pick<br></span>
+	  	  	     	  
+	  <span class="black">2012 2nd round pick<br></span>
+	  	  	     	  
+	  <span class="black">2013 3rd round pick<br></span>
+	  	  	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('43915||| Sebastien Caron')"> Sebastien Caron</a><br></span>
+		  
+		  	  
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Nashville_Predators.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9393">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>San Jose Sharks acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Detroit Red Wings acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/San_Jose_Sharks.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('28857||| Brad Stuart')"> Brad Stuart</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 10, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2014 conditionnal pick<br></span>
+	  	  	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('56776||| Andrew Murray')"> Andrew Murray</a><br></span>
+		  
+		  	  
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Detroit_Red_Wings.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9392">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Pittsburgh Penguins acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Washington Capitals acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Pittsburgh_Penguins.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('18609||| Tomas Vokoun')"> Tomas Vokoun</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">June 4, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+	  <span class="black">2012 7th round pick<br></span>
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Washington_Capitals.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  <table width="95%" align="center" style="border:1px solid #666666; margin-top:5px;">
+	  <input type="hidden" value="9391">
+	   <tbody><tr>
+	  <td width="40%" class="label" align="center"><strong>Boston Bruins acquire</strong></td>
+	   <td width="20%" class="label" align="center"><strong>Date</strong></td>
+	   <td width="40%" class="label" align="center"><strong>Washington Capitals acquire</strong></td>
+	  </tr>
+	  
+	  <tr>
+	  <td width="40%" valign="top">
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Boston_Bruins.gif" width="60" height="40">
+	  </td>
+	  <td width="75%" valign="top">
+	  	   	  
+		   
+		  
+			<span class="link"><a href="javascript:show('78707||| Chris Bourque')"> Chris Bourque</a><br></span>
+		  
+		  	  
+	  	  	  </td>
+	  
+	  </tr>
+	  
+	  </tbody></table>
+	  
+	  </td>
+	    <td width="20%" valign="top" align="center">May 26, 2012</td>
+	   <td width="40%" valign="top">
+	   
+	  <table width="100%">
+	  <tbody><tr>
+	  <td width="75%" valign="top">
+	   
+	   	     	  
+		   
+		  
+			<span class="link"><a href="javascript:show('73519||| Zach Hamill')"> Zach Hamill</a><br></span>
+		  
+		  	  
+	  	  	  
+	  </td>
+	  <td width="25%">
+	  <img src="/asset/team_logos/Washington_Capitals.gif" width="60" height="40">
+	  </td>
+	  </tr>
+	  
+	  </tbody></table>
+	   </td>
+	  </tr>
+	  
+	  
+	  	  	  
+	    	  
+	  
+	  </tbody></table>
+	  
+	  	  
+	  
+	  	  
+	  <p><span class="pg"></span></p><div class="pagination"><a href="/user/trade_list_by_season/2012-13/4">&lt;&lt; previous</a><a href="/user/trade_list_by_season/2012-13/1">1</a><a href="/user/trade_list_by_season/2012-13/2">2</a><a href="/user/trade_list_by_season/2012-13/3">3</a><a href="/user/trade_list_by_season/2012-13/4">4</a><span class="current">5</span><span class="disabled">next&gt;&gt;</span></div>
+<p></p>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1410014940782819";
+/* NHLLeaderboard */
+google_ad_slot = "7081146085";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+	  
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+<!--footer-->
+<div id="footer-area">
+	
+<div id="footer-inner">
+    <div class="footer-right">
+    	<ul>
+      	<li><a href="/user/about_us">About NHL Trade Tracker</a>&nbsp;&nbsp;</li>
+		<li><a href="/user/contact_us">Contact Us</a>&nbsp;&nbsp;</li>
+        
+      </ul>
+	  </div>
+ 
+  </div></div>
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_2_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1410014940782819&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1698869255&amp;plat=3%3A16%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;plas=239x654_r&amp;format=0x0&amp;url=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F5&amp;ea=0&amp;pra=7&amp;wgl=1&amp;easpi=0&amp;asro=0&amp;asiscm=1&amp;aslmt=0.4&amp;asamt=-1&amp;asedf=0&amp;asefa=1&amp;aseiel=1~2&amp;uach=WyJtYWNPUyIsIjEyLjYuOCIsIng4NiIsIiIsIjExNi4wLjU4NDUuMTQwIixbXSwwLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjExNi4wLjU4NDUuMTQwIl0sWyJOb3QpQTtCcmFuZCIsIjI0LjAuMC4wIl0sWyJHb29nbGUgQ2hyb21lIiwiMTE2LjAuNTg0NS4xNDAiXV0sMF0.&amp;dt=1698869255252&amp;bpp=1&amp;bdt=332&amp;idt=325&amp;shv=r20231031&amp;mjsv=m202310310101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D7629ec6b72ee1c64-2298871430e1009b%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MYu0cSobMmcja7qdSKQHPs2k-qHrQ&amp;gpic=UID%3D000009c494ef2362%3AT%3D1694275434%3ART%3D1698869212%3AS%3DALNI_MZmA0bK89HLQeFYJuAzT88XYGh_hw&amp;prev_fmts=160x600%2C160x600&amp;nras=1&amp;correlator=2380764764792&amp;frm=20&amp;pv=1&amp;ga_vid=841267.1694275434&amp;ga_sid=1698869211&amp;ga_hid=1488139703&amp;ga_fc=1&amp;u_tz=-240&amp;u_his=21&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1055&amp;u_aw=1920&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1447&amp;bih=970&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C31079081%2C44798934%2C44805931%2C44807048%2C31078301%2C31079329&amp;oid=2&amp;pvsid=2598458587080337&amp;tmod=551262926&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;ref=https%3A%2F%2Fwww.nhltradetracker.com%2Fuser%2Ftrade_list_by_season%2F2012-13%2F1&amp;fc=896&amp;brdim=-1849%2C25%2C-1849%2C25%2C1920%2C25%2C1462%2C1055%2C1462%2C970&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;ifi=3&amp;uci=a!3&amp;fsb=1&amp;dtd=457" data-google-container-id="a!3" data-load-complete="true"></iframe></div></ins><iframe name="oauth2relay1685400932" id="oauth2relay1685400932" src="https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.nhltradetracker.com&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.AOzoyjtjrhQ.O%2Fd%3D1%2Frs%3DAHpOoo9-fA1P7IZFa1fdRj158NoDqrnbYA%2Fm%3D__features__#rpctoken=525773075&amp;forcesecure=1" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20231031/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>

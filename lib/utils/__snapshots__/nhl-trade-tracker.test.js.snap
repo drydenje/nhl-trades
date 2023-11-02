@@ -13,12 +13,12 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Doug Hicks",
           },
           {
-            "name": "1980 3rd round pick #58-Marcel Frere",
+            "name": "1980 3rd round pick (#58-Marcel Frere)",
           },
         ],
         "Minnesota North Stars": [
           {
-            "name": "future considerations Pierre Plante",
+            "name": "future considerations (Pierre Plante)",
           },
           {
             "name": "rights to Ed Mio",
@@ -49,17 +49,17 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Detroit Red Wings": [
           {
-            "name": "1978 2nd round pick #31-Al Jensen",
+            "name": "1978 2nd round pick (#31-Al Jensen)",
           },
           {
-            "name": "1978 1st round pick #12-Brent Peterson",
+            "name": "1978 1st round pick (#12-Brent Peterson)",
           },
           {
             "hockeyDBid": "5383",
             "name": "Errol Thompson",
           },
           {
-            "name": "1980 1st round pick #11-Mike Blaisdell",
+            "name": "1980 1st round pick (#11-Mike Blaisdell)",
           },
         ],
         "Toronto Maple Leafs": [
@@ -68,7 +68,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Dan Maloney",
           },
           {
-            "name": "1980 2nd round pick #25-Craig Muni",
+            "name": "1980 2nd round pick (#25-Craig Muni)",
           },
         ],
       },
@@ -96,7 +96,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Detroit Red Wings": [
           {
-            "name": "future considerations cash",
+            "name": "future considerations (cash)",
           },
         ],
         "Hartford Whalers": [
@@ -147,7 +147,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Los Angeles Kings": [
           {
-            "name": "1980 2nd round pick #33-Greg Terrion",
+            "name": "1980 2nd round pick (#33-Greg Terrion)",
           },
         ],
         "St. Louis Blues": [
@@ -190,7 +190,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Jean Potvin",
           },
           {
-            "name": "1978 4th round pick not exercised due to Barons-North Stars merger in 1978",
+            "name": "1978 4th round pick (not exercised due to Barons-North Stars merger in 1978)",
           },
         ],
         "New York Islanders": [
@@ -199,10 +199,10 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Wayne Merrick",
           },
           {
-            "name": "1978 4th round pick cancelled by Barons-North Stars merger in 1978",
+            "name": "1978 4th round pick (cancelled by Barons-North Stars merger in 1978)",
           },
           {
-            "name": "future considerations Darcy Regier",
+            "name": "future considerations (Darcy Regier)",
           },
         ],
       },
@@ -213,7 +213,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Detroit Red Wings": [
           {
-            "name": "1978 3rd round pick #53-Doug Derkson",
+            "name": "1978 3rd round pick (#53-Doug Derkson)",
           },
           {
             "name": "rights to Barry Long",
@@ -288,7 +288,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Dick Redmond",
           },
           {
-            "name": "1978 2nd round pick #23-Mike Perovich",
+            "name": "1978 2nd round pick (#23-Mike Perovich)",
           },
         ],
         "St. Louis Blues": [
@@ -323,7 +323,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Bob Girard",
           },
           {
-            "name": "1978 2nd round pick #23-Paul McKinnon",
+            "name": "1978 2nd round pick (#23-Paul McKinnon)",
           },
         ],
       },
@@ -334,7 +334,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Chicago Blackhawks": [
           {
-            "name": "1980 4th round pick #67-Carey Wilson",
+            "name": "1980 4th round pick (#67-Carey Wilson)",
           },
         ],
         "Detroit Red Wings": [
@@ -373,7 +373,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Pierre Larouche",
           },
           {
-            "name": "future considerations rights to Peter Marsh",
+            "name": "future considerations (rights to Peter Marsh)",
           },
         ],
         "Pittsburgh Penguins": [
@@ -432,7 +432,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Chicago Blackhawks": [
           {
-            "name": "future considerations Murray Bannerman",
+            "name": "future considerations (Murray Bannerman)",
           },
         ],
         "Vancouver Canucks": [
@@ -467,7 +467,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Dave Schultz",
           },
           {
-            "name": "1978 4th round pick #61-Shane Pearsall",
+            "name": "1978 4th round pick (#61-Shane Pearsall)",
           },
         ],
       },
@@ -523,7 +523,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Blake Dunlop",
           },
           {
-            "name": "1978 3rd round pick #37-Gord Salt",
+            "name": "1978 3rd round pick (#37-Gord Salt)",
           },
         ],
       },
@@ -558,7 +558,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "Washington Capitals": [
           {
-            "name": "1979 1st round pick #10-Tom J. McCarthy",
+            "name": "1979 1st round pick (#10-Tom J. McCarthy)",
           },
         ],
       },
@@ -642,7 +642,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "New York Rangers": [
           {
-            "name": "future considerations 1978 3rd round pick #44-Dean Turner",
+            "name": "future considerations (1978 3rd round pick (#44-Dean Turner))",
           },
         ],
       },
@@ -653,7 +653,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1979 3rd round pick #44-Guy Carbonneau",
+            "name": "1979 3rd round pick (#44-Guy Carbonneau)",
           },
         ],
         "St. Louis Blues": [
@@ -704,7 +704,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Detroit Red Wings": [
           {
-            "name": "1979 3rd round pick #46-Boris Fistric",
+            "name": "1979 3rd round pick (#46-Boris Fistric)",
           },
           {
             "name": "rights to restricted free agent Ron Low",
@@ -716,10 +716,10 @@ exports[`getAllTradesForYear function should return an html page when passed a u
             "name": "Walt McKechnie",
           },
           {
-            "name": "1978 3rd round pick #45-Jay Johnston",
+            "name": "1978 3rd round pick (#45-Jay Johnston)",
           },
           {
-            "name": "1979 2nd round pick #24-Errol Rausse",
+            "name": "1979 2nd round pick (#24-Errol Rausse)",
           },
         ],
       },
@@ -789,7 +789,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "Philadelphia Flyers": [
           {
-            "name": "future considerations Paul Evans",
+            "name": "future considerations (Paul Evans)",
           },
         ],
       },
@@ -802,7 +802,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 9th round pick #152-Barry Borrett",
+            "name": "1977 9th round pick (#152-Barry Borrett)",
           },
         ],
         "New York Islanders": [
@@ -818,7 +818,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 tenth round pick #160-Mark Holden",
+            "name": "1977 tenth round pick (#160-Mark Holden)",
           },
         ],
         "New York Islanders": [
@@ -834,7 +834,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 thirteenth round pick #176-Mark Wells",
+            "name": "1977 thirteenth round pick (#176-Mark Wells)",
           },
         ],
         "New York Islanders": [
@@ -850,7 +850,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 twelfth round pick #173-Cary Farelli",
+            "name": "1977 twelfth round pick (#173-Cary Farelli)",
           },
         ],
         "New York Islanders": [
@@ -866,7 +866,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 14th round pick #179-Jean Belisle",
+            "name": "1977 14th round pick (#179-Jean Belisle)",
           },
         ],
         "New York Islanders": [
@@ -882,7 +882,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 8th round pick #137-Keith Hendrickson",
+            "name": "1977 8th round pick (#137-Keith Hendrickson)",
           },
         ],
         "New York Islanders": [
@@ -898,7 +898,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 eleventh round pick #167-Daniel Poulin",
+            "name": "1977 eleventh round pick (#167-Daniel Poulin)",
           },
         ],
         "New York Islanders": [
@@ -914,7 +914,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
       "teams": {
         "Montreal Canadiens": [
           {
-            "name": "1977 fifteenth round pick #182-Bob Boileau",
+            "name": "1977 fifteenth round pick (#182-Bob Boileau)",
           },
         ],
         "New York Islanders": [
@@ -935,7 +935,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "Philadelphia Flyers": [
           {
-            "name": "1977 8th round pick #136-Clint Eccles",
+            "name": "1977 8th round pick (#136-Clint Eccles)",
           },
         ],
       },
@@ -951,7 +951,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "Philadelphia Flyers": [
           {
-            "name": "1977 eleventh round pick #166-Barry Duench",
+            "name": "1977 eleventh round pick (#166-Barry Duench)",
           },
         ],
       },
@@ -967,7 +967,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "Philadelphia Flyers": [
           {
-            "name": "1977 9th round pick #151-Michel Bauman",
+            "name": "1977 9th round pick (#151-Michel Bauman)",
           },
         ],
       },
@@ -983,7 +983,7 @@ exports[`getAllTradesForYear function should return an html page when passed a u
         ],
         "Philadelphia Flyers": [
           {
-            "name": "1977 tenth round pick #159-Dave Isherwood",
+            "name": "1977 tenth round pick (#159-Dave Isherwood)",
           },
         ],
       },
