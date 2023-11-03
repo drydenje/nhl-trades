@@ -1,13 +1,12 @@
 const chalk = require("chalk");
-// const cheerio = require("cheerio");
-// const fs = require("fs");
-// const path = require("path");
-import path from "path";
 const cron = require("node-cron");
 const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
+const HOCKEY_REFERENCE_URL = `https://www.hockey-reference.com/players`;
 // const url = `https://www.hockeydb.com/ihdb/draft/nhl2023e.html`;
+
 import { getNextYear, readFile, writeFile } from "./utils/utils.js";
 import { getAllTradesForYear } from "./utils/nhl-trade-tracker.js";
+import { getAllPlayerForLetter } from "./utils/hockey-reference-id-scraper";
 // const writeFile = require("./utils/utils");
 
 const scrapeYear = async () => {
@@ -18,6 +17,23 @@ const scrapeYear = async () => {
   // await console.log("yearToScrape:", yearToScrape);
 
   writeFile("./public/scraped-data/trades.json", seasons);
+};
+
+const scrapeHRPlayers = async () => {
+  const players = JSON.parse(
+    readFile(`./public/scraped-data/hr-player-id.json`)
+  );
+  const letterToScrape = getNextYear(players);
+  if (letterToScrape) {
+    console.log(chalk.yellow.bgBlue(`Trying to scrape: ${letterToScrape}`));
+    // get the page, then getNameFromPage
+    players[letterToScrape] = await getAllPlayerForLetter(
+      HOCKEY_REFERENCE_URL,
+      letterToScrape
+    );
+
+    writeFile(`./public/scraped-data/hr-player-id.json`, players);
+  }
 };
 
 // seasons["1977-78"] = [];
@@ -49,52 +65,12 @@ const scrapeYear = async () => {
 
 // scrapeYear();
 // cron.schedule("*/2 * * * *", scrapeYear);
-cron.schedule("* * * * *", scrapeYear);
+// cron.schedule("* * * * *", scrapeYear);
+
+// scrapeHRPlayers();
+cron.schedule("*/2 * * * *", scrapeHRPlayers);
 
 // Extra stuff i might need later
-
-// const trades = [
-//   {
-//     comment: null,
-//     date: "March 14, 1978",
-//     teams: {
-//       "Chicago Blackhawks": [
-//         {
-//           hockeyDBid: "2269",
-//           name: "Doug Hicks",
-//         },
-//         {
-//           name: "1980 3rd round pick (#58-Marcel Frere)",
-//         },
-//       ],
-//       "Minnesota North Stars": [
-//         {
-//           name: "future considerations (Pierre Plante)",
-//         },
-//         {
-//           name: "rights to Ed Mio",
-//         },
-//       ],
-//     },
-//   },
-//   {
-//     comment: null,
-//     date: "March 13, 1978",
-//     teams: {
-//       "Boston Bruins": [
-//         {
-//           name: "cash",
-//         },
-//       ],
-//       "Los Angeles Kings": [
-//         {
-//           hockeyDBid: "1533",
-//           name: "Darryl Edestrand",
-//         },
-//       ],
-//     },
-//   },
-// ];
 
 // console.log(chalk.yellow.bgBlue(`test`));
 

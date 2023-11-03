@@ -1,5 +1,4 @@
 import { getPage } from "./utils.js";
-// import cheerio from "cheerio";
 const cheerio = require("cheerio");
 const chalk = require("chalk");
 
@@ -16,7 +15,7 @@ const getPageCount = async (page) => {
 const getTradesFromPage = async (page) => {
   const $ = cheerio.load(page);
   const title = $(".current").first().text();
-  console.log("Page Number:", title);
+  // console.log("Page Number:", title);
   const table = $("#container").find("> table");
   // console.log(table);
   // try {
@@ -47,13 +46,6 @@ const getTradesFromPage = async (page) => {
 //                 "name": "Richard Panik",
 //                 "hockeyDBid": "108683"
 //             },
-//             {
-//                 "name": "Jakub Vrana",
-//                 "hockeyDBid": "161382"
-//             },
-//             {
-//                 "name": "2022 2nd round pick"
-//             }
 //         ]
 //     },
 //     "comment": null

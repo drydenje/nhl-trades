@@ -42,6 +42,13 @@ const server = setupServer(
       return HttpResponse.text(page);
     }
   ),
+  http.get(
+    `https://www.hockey-reference.com/players/a/`,
+    ({ request, response, context }) => {
+      const page = readFile(`${DATA_FILEPATH}/hr-players-a.html`);
+      return HttpResponse.text(page);
+    }
+  ),
   http.get(`*`, ({ request }) => {
     console.error(`Please add request handler for: ${request.url}`);
     return new HttpResponse("Not found", {
