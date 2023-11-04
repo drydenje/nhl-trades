@@ -7,7 +7,25 @@ const HOCKEY_REFERENCE_URL = `https://www.hockey-reference.com/players`;
 import { getNextYear, readFile, writeFile } from "./utils/utils.js";
 import { getAllTradesForYear } from "./utils/nhl-trade-tracker.js";
 import { getAllPlayerForLetter } from "./utils/hockey-reference-id-scraper";
+
 // const writeFile = require("./utils/utils");
+
+// combining multiple arrays into one for each year of trade data
+// const cleanData = () => {
+//   const arr = JSON.parse(readFile(`./public/scraped-data/trades.json`));
+
+//   for (const [key, value] of Object.entries(arr)) {
+//     let merged = [];
+//     arr[key].forEach((item) => {
+//       item.forEach((trade) => {
+//         merged.push(trade);
+//       });
+//     });
+//     arr[key] = merged;
+//   }
+
+//   writeFile(`./public/scraped-data/trades.json`, arr);
+// };
 
 const scrapeYear = async () => {
   const seasons = JSON.parse(readFile(`./public/scraped-data/trades.json`));
@@ -68,7 +86,7 @@ const scrapeHRPlayers = async () => {
 // cron.schedule("* * * * *", scrapeYear);
 
 // scrapeHRPlayers();
-cron.schedule("*/2 * * * *", scrapeHRPlayers);
+// cron.schedule("*/2 * * * *", scrapeHRPlayers);
 
 // Extra stuff i might need later
 
