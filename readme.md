@@ -14,6 +14,7 @@
 ## Make the content more interesting
 
 - Reverse search, starting from specific impactful moments
+  - eg: Pick a goal, and the program will rewind through the history and find out where it all started
 - use scoresheets to automate finding moments
 - follow a player throughout his career
 
@@ -26,3 +27,38 @@
 - filter by specific teams (target a fan base)
 - filter between a time period (target an age group?)
 - important moments (goals, assists, bad penalties, more?)
+
+## Planning Stuff
+
+### Nodes
+
+- Player
+  -- hdbId
+  -- hrId
+  -- nhlId
+  -- Name
+  -- Position
+
+- Team
+  -- hdbId
+  -- hrId
+  -- nhlId
+  -- Name
+
+- DraftPick
+  -- year
+  -- overallPick
+  -- teamId ?which site, or my own teamId?
+  -- playerId
+
+- Trade
+  -- tradeDate ?
+  --
+
+- TRADED_TO
+  -- fromTeam
+  -- toTeam
+  -- tradeNumber
+  -- tradeDate ?
+
+-
