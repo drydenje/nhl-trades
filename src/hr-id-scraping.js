@@ -1,5 +1,6 @@
 import { getNextYear, readFile, writeFile } from "./utils/utils.js";
 import { getAllPlayerForLetter } from "./utils/hockey-reference-id-scraper";
+const HOCKEY_REFERENCE_URL = `https://www.hockey-reference.com/players`;
 
 const scrapeHRPlayers = async () => {
   const players = JSON.parse(

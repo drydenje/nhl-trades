@@ -1,5 +1,6 @@
 import { getNextYear, readFile, writeFile } from "./utils/utils.js";
 import { getAllTradesForYear } from "./utils/nhl-trade-tracker.js";
+const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
 
 // combining multiple arrays into one for each year of trade data
 const cleanData = () => {
