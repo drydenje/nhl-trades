@@ -1,32 +1,6 @@
-const chalk = require("chalk");
-const cron = require("node-cron");
-const BASE_URL = `https://www.nhltradetracker.com/user/trade_list_by_season`;
-const HOCKEY_REFERENCE_URL = `https://www.hockey-reference.com/players`;
+import { fetchDraftYear } from "./nhl-draft-scraping";
 
-import { getNextYear, readFile, writeFile } from "./utils/utils.js";
-const DRAFT_LIST_URL = `https://records.nhl.com/site/api/draft?cayenneExp=draftYear=`;
-const DRAFT_YEAR_START = "1963";
-const DRAFT_YEAR_END = "2023";
-
-const getDraftResults = async (year) => {
-  const url = DRAFT_LIST_URL + year;
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-};
-
-const fetchDraftYear = async () => {
-  const seasons = JSON.parse(
-    readFile(`./public/scraped-data/draft-results.json`)
-  );
-  const yearToScrape = getNextYear(seasons);
-  console.log(chalk.yellow.bgBlue(`Trying to fetch: ${yearToScrape}`));
-  seasons[yearToScrape] = await getDraftResults(yearToScrape).then(
-    (results) => results.data
-  );
-
-  writeFile("./public/scraped-data/draft-results.json", seasons);
-};
+fetchDraftYear(`./public/scraped-data/draft-results-test.json`);
 
 // cron.schedule("*/5 * * * * *", fetchDraftYear);
 
@@ -87,6 +61,6 @@ const fetchDraftYear = async () => {
 // cleanData();
 
 // Convert JSON to CSV
-const csvData = jsonToCsv(jsonData);
+// const csvData = jsonToCsv(jsonData);
 
-console.log(csvData);
+// console.log(csvData);
