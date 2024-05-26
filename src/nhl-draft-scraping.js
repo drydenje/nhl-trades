@@ -24,10 +24,33 @@ const DRAFT_YEAR_END = "2023";
 //   },
 // ];
 
-// const test = convertArrayToCSV(jsonData, {
-//   header,
-//   separator: ",",
-// });
+const convertToCSV = (jsonFilePath) => {
+  const draftResults = JSON.parse(readFile(jsonFilePath));
+  let merged = [];
+
+  for (const [key, value] of Object.entries(draftResults)) {
+    const year = key;
+    merged = [...merged, ...draftResults[year]];
+  }
+
+  const headings = ["id", "playerId", "draftedByTeamId", "teamPickHistory"];
+  const draftPickLines = merged.map((line) => {
+    return {
+      id: line.id,
+      playerId: line.playerId,
+      draftedByTeamId: line.draftedByTeamId,
+      teamPickHistory: line.teamPickHistory,
+    };
+  });
+
+  // console.log(draftPickLines);
+  const csvResult = convertArrayToCSV(draftPickLines, {
+    headings,
+    separator: ",",
+  });
+  console.log(csvResult);
+  // return 1;
+};
 
 // fs.writeFile("./public/scraped-data/draft-results-flat.csv", test, (err) => {
 //   if (err) {
@@ -47,6 +70,9 @@ const getDraftResults = async (year) => {
   return data;
 };
 
+/*
+  fetchDraftYear: Takes a path to a file, checks the object within it for which year to fetch, writes the returned data to the passed file.
+*/
 const fetchDraftYear = async (fileToWriteTo) => {
   const seasons = JSON.parse(readFile(fileToWriteTo));
   const yearToScrape = getNextYear(seasons);
@@ -58,4 +84,62 @@ const fetchDraftYear = async (fileToWriteTo) => {
   writeFile(fileToWriteTo, seasons);
 };
 
-export { fetchDraftYear };
+function jsonToCsv(jsonData) {
+  let csv = "";
+
+  // console.log(jsonData[1]);
+
+  // Extract headers
+  const headers = Object.keys(jsonData[0]);
+  csv += headers.join(",") + "\n";
+
+  // Extract values
+  // console.log(jsonData);
+  jsonData.forEach((obj) => {
+    const values = headers.map((header) => obj[header]);
+    csv += values.join(",") + "\n";
+  });
+
+  return csv;
+}
+
+const writeCSVFile = (fileName) => {
+  // load the draft results
+  const arr = JSON.parse(readFile(fileName));
+  let merged = "";
+  let res = "";
+  console.log(arr);
+
+  // for (const [key, value] of Object.entries(arr)) {
+  //   res = jsonToCsv(arr[key]);
+  //   console.log(arr[1]);
+  // console.log(typeof key);
+
+  // let merged = [];
+  // arr[key].forEach((item) => {
+  //   // const lineItem = jsonToCsv(item);
+  //   const lineItem =
+  //     `${item.playerName}` +
+  //     `${item.draftYear},` +
+  //     `${item.id},` +
+  //     `${item.triCode},` +
+  //     `${item.teamPickHistory},` +
+  //     `${item.supplementalDraft},` +
+  //     `${item.overallPickNumber},` +
+  //     `${item.pickInRound},` +
+  //     `${item.notes},` +
+  //     `${item.draftedByTeamId},` +
+  //     `${item.draftDate}\n`;
+  //   // console.log(lineItem);
+  //   merged = lineItem;
+  //   item.forEach((trade) => {
+  //     merged.push();
+  //   });
+  // });
+  // arr[key] = merged;
+  // }
+
+  // console.log(merged);
+};
+
+export { fetchDraftYear, writeCSVFile, convertToCSV };
