@@ -41,9 +41,20 @@ const convertToCSV = (jsonFilePath) => {
       draftedByTeamId: line.draftedByTeamId,
       teamPickHistory: line.teamPickHistory,
     };
+
+    // `${item.playerName}` +
+    //   `${item.draftYear},` +
+    //   `${item.id},` +
+    //   `${item.triCode},` +
+    //   `${item.teamPickHistory},` +
+    //   `${item.supplementalDraft},` +
+    //   `${item.overallPickNumber},` +
+    //   `${item.pickInRound},` +
+    //   `${item.notes},` +
+    //   `${item.draftedByTeamId},` +
+    //   `${item.draftDate}`;
   });
 
-  // console.log(draftPickLines);
   const csvResult = convertArrayToCSV(draftPickLines, {
     headings,
     separator: ",",
