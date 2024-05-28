@@ -4,7 +4,7 @@ import {
   convertToCSV,
 } from "./nhl-draft-scraping";
 
-const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results-test.json`;
+const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
 // cron.schedule("*/5 * * * * *", fetchDraftYear);
 

@@ -8,22 +8,6 @@ const DRAFT_LIST_URL = `https://records.nhl.com/site/api/draft?cayenneExp=draftY
 const DRAFT_YEAR_START = "1963";
 const DRAFT_YEAR_END = "2023";
 
-// const header = ["id", "name", "age", "department"];
-// const jsonData = [
-//   {
-//     id: 1,
-//     name: "John Doe",
-//     age: 300,
-//     department: "Engineering",
-//   },
-//   {
-//     id: 2,
-//     name: "Jane Smith",
-//     age: 28,
-//     department: "Marketing",
-//   },
-// ];
-
 const convertToCSV = (jsonFilePath) => {
   const draftResults = JSON.parse(readFile(jsonFilePath));
   let merged = [];
@@ -59,16 +43,15 @@ const convertToCSV = (jsonFilePath) => {
     headings,
     separator: ",",
   });
-  console.log(csvResult);
-  // return 1;
-};
 
-// fs.writeFile("./public/scraped-data/draft-results-flat.csv", test, (err) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log("worked");
-// });
+  const csvFilePath = jsonFilePath.replace(".json", ".csv");
+  fs.writeFile(csvFilePath, csvResult, (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(`Data written to: ${csvFilePath}`);
+  });
+};
 
 /* 
   getDraftResults: Takes a year and returns all draft picks from that year, with information from the NHL.com API
@@ -98,14 +81,11 @@ const fetchDraftYear = async (fileToWriteTo) => {
 function jsonToCsv(jsonData) {
   let csv = "";
 
-  // console.log(jsonData[1]);
-
   // Extract headers
   const headers = Object.keys(jsonData[0]);
   csv += headers.join(",") + "\n";
 
   // Extract values
-  // console.log(jsonData);
   jsonData.forEach((obj) => {
     const values = headers.map((header) => obj[header]);
     csv += values.join(",") + "\n";
@@ -113,44 +93,5 @@ function jsonToCsv(jsonData) {
 
   return csv;
 }
-
-const writeCSVFile = (fileName) => {
-  // load the draft results
-  const arr = JSON.parse(readFile(fileName));
-  let merged = "";
-  let res = "";
-  console.log(arr);
-
-  // for (const [key, value] of Object.entries(arr)) {
-  //   res = jsonToCsv(arr[key]);
-  //   console.log(arr[1]);
-  // console.log(typeof key);
-
-  // let merged = [];
-  // arr[key].forEach((item) => {
-  //   // const lineItem = jsonToCsv(item);
-  //   const lineItem =
-  //     `${item.playerName}` +
-  //     `${item.draftYear},` +
-  //     `${item.id},` +
-  //     `${item.triCode},` +
-  //     `${item.teamPickHistory},` +
-  //     `${item.supplementalDraft},` +
-  //     `${item.overallPickNumber},` +
-  //     `${item.pickInRound},` +
-  //     `${item.notes},` +
-  //     `${item.draftedByTeamId},` +
-  //     `${item.draftDate}\n`;
-  //   // console.log(lineItem);
-  //   merged = lineItem;
-  //   item.forEach((trade) => {
-  //     merged.push();
-  //   });
-  // });
-  // arr[key] = merged;
-  // }
-
-  // console.log(merged);
-};
 
 export { fetchDraftYear, writeCSVFile, convertToCSV };
