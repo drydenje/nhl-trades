@@ -1,0 +1,15 @@
+{
+  "a": [
+    { "name": "Antti Aalto", "hrID": "aaltoan01" },
+    { "name": "Juhamatti Aaltonen", "hrID": "aaltoju01" },
+    { "name": "Leevi Aaltonen", "hrID": "aaltole01" },
+    { "name": "Miro Aaltonen", "hrID": "aaltomi01" }
+  ],
+  "b": [
+    { "name": "Pete Babando", "hrID": "babanpe01" },
+    { "name": "Sergei Babariko", "hrID": "babarse01" },
+    { "name": "Anton Babchuk", "hrID": "babchan01" },
+    { "name": "Bobby Babcock", "hrID": "babcobo01" },
+    { "name": "Warren Babe", "hrID": "babewa01" }
+  ]
+}

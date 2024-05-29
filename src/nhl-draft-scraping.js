@@ -94,4 +94,4 @@ function jsonToCsv(jsonData) {
   return csv;
 }
 
-export { fetchDraftYear, writeCSVFile, convertToCSV };
+export { fetchDraftYear, convertToCSV };
