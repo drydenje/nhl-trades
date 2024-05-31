@@ -10,8 +10,13 @@ import fs from "fs";
 // writeCSVFile(`./public/scraped-data/draft-results-test.json`);
 
 // import { players } from "./player-nhl-id";
-import { hrPlayers } from "./hr-player-id-copy";
+// import { hrPlayers } from "./hr-player-id-copy";
 const headings = ["id", "name", "hrId"];
+
+// two "Greg Adams"
+
+// console.log("NHL id's:", players.length);
+// console.log("HR id's:", hrPlayers.length);
 
 const players = [
   {
@@ -32,48 +37,51 @@ const players = [
   },
 ];
 
-const hr = [
+const hrPlayers = [
   { name: "Jim Anderson", hrID: "anderji01" },
   { name: "Murray Anderson", hrID: "andermu01" },
   { name: "Pete Backor", hrID: "backope01" },
+  { name: "Mats Sundin", hrID: "sundima01" },
 ];
 
-// const h = new Set(hr);
-// const i = new Set(players);
-// const u = h.union(i);
-// console.log(h.union(i));
-const array1 = [
-  { id: 1, name: "John" },
-  { id: 2, name: "Jane" },
-];
-const array2 = [
-  { hrID: "anderji01", name: "Jane" },
-  { id: 3, name: "Doe" },
-];
-
-// Merging arrays with unique values using Map and Set
-const map = new Map([...array1, ...array2].map((obj) => [obj.name, obj]));
-const mergedArray = Array.from(map.values());
-console.log(mergedArray);
+// https://www.geeksforgeeks.org/how-to-merge-two-different-arrays-of-objects-with-unique-values-only-in-javascript/
 
 // two 'Ron Anderson's
 // const test = hrPlayers["a"].filter((player) => player.name === "Ron Anderson");
+let missingHrPlayers = [];
+let finalPlayers = [];
 
-// players.forEach((player) => {
-//   const test = hrPlayers["a"].filter(
-//     (hrPlayer) => hrPlayer.name === player.name
-//   );
+players.forEach((player) => {
+  const test = hrPlayers.filter((hrPlayer) => hrPlayer.name === player.name);
 
-//   const obj = {
-//     id: player.id,
-//     name: player.name,
-//     ...(test[0] ? { hrID: test[0].hrID } : null),
-//   };
+  const obj = {
+    id: player.id,
+    name: player.name,
+    ...(test[0] ? { hrID: test[0].hrID } : null),
+  };
 
-//   // might have multiple similar names
-//   // console.log(test);
-//   console.log(obj);
-// });
+  // might have multiple similar names
+  // console.log(test);
+  // console.log(obj);
+  finalPlayers.push(obj);
+});
+
+hrPlayers.forEach((player) => {
+  const filteredPlayer = players.filter(
+    (nhlPlayer) => nhlPlayer.name === player.name
+  );
+  if (filteredPlayer.length === 0) {
+    // console.log("NOPE:", player.name);
+    finalPlayers.push({
+      name: player.name,
+      hrID: player.hrID,
+    });
+  }
+  // console.log(filteredPlayer);
+});
+
+// should have mats sundin and jim agnew as well
+console.log(finalPlayers);
 
 // if (test.length === 1) {
 //   console.log(test[0].hrID);
