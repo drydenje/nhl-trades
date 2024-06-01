@@ -44,11 +44,10 @@ const hrPlayers = [
   { name: "Mats Sundin", hrID: "sundima01" },
 ];
 
-// https://www.geeksforgeeks.org/how-to-merge-two-different-arrays-of-objects-with-unique-values-only-in-javascript/
-
 // two 'Ron Anderson's
 // const test = hrPlayers["a"].filter((player) => player.name === "Ron Anderson");
-let missingHrPlayers = [];
+
+// let missingHrPlayers = [];
 let finalPlayers = [];
 
 players.forEach((player) => {
