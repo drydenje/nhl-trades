@@ -9,40 +9,45 @@ import fs from "fs";
 // convertToCSV(DRAFT_RESULTS_JSON);
 // writeCSVFile(`./public/scraped-data/draft-results-test.json`);
 
-import { players } from "./player-nhl-id";
-import { hrPlayers } from "./hr-player-id-copy";
+// import { players } from "./player-nhl-id";
+// import { hrPlayers } from "./hr-player-id-copy";
 const headings = ["id", "name", "hrId"];
 
 // two "Greg Adams"
 
+const players = [
+  {
+    id: 8444924,
+    name: "Jim Anderson",
+  },
+  {
+    id: 8444926,
+    name: "Murray Anderson",
+  },
+  {
+    id: 8444995,
+    name: "Pete Backor",
+  },
+  {
+    id: 8444893,
+    name: "Jim Agnew",
+  },
+  {
+    id: 8446831,
+    name: "Stephane Fiset",
+  },
+];
+
+const hrPlayers = [
+  // { name: "Jim Anderson", hrID: "anderji01" },
+  // { name: "Murray Anderson", hrID: "andermu01" },
+  // { name: "Pete Backor", hrID: "backope01" },
+  // { name: "Mats Sundin", hrID: "sundima01" },
+  { name: "Stéphane Fiset", hrID: "fisetst01" },
+];
+
 console.log("NHL id's:", players.length);
 console.log("HR id's:", hrPlayers.length);
-
-// const players = [
-//   {
-//     id: 8444924,
-//     name: "Jim Anderson",
-//   },
-//   {
-//     id: 8444926,
-//     name: "Murray Anderson",
-//   },
-//   {
-//     id: 8444995,
-//     name: "Pete Backor",
-//   },
-//   {
-//     id: 8444893,
-//     name: "Jim Agnew",
-//   },
-// ];
-
-// const hrPlayers = [
-//   { name: "Jim Anderson", hrID: "anderji01" },
-//   { name: "Murray Anderson", hrID: "andermu01" },
-//   { name: "Pete Backor", hrID: "backope01" },
-//   { name: "Mats Sundin", hrID: "sundima01" },
-// ];
 
 // two 'Ron Anderson's
 // const test = hrPlayers["a"].filter((player) => player.name === "Ron Anderson");
@@ -66,11 +71,35 @@ players.forEach((player) => {
   finalPlayers.push(obj);
 });
 
+console.log("SF:", "Stéphane Fiset".localeCompare("Stephane Fiset"));
+
 // Cycle through the hockey-reference player list
 hrPlayers.forEach((player) => {
   // Check if the player exists in the final array
   const filteredPlayer = players.filter(
-    (nhlPlayer) => nhlPlayer.name.localeCompare(player.name)
+    (nhlPlayer) =>
+      player.name.localeCompare(nhlPlayer.name, "en-US", {
+        sensitivity: "base",
+      })
+    // {
+    //   // console.log(nhlPlayer);
+    //   const a = nhlPlayer.name;
+    //   const b = player.name;
+    //   console.log("NHL Player:", a);
+    //   console.log("HR Player: ", b);
+    //   console.log(a.localeCompare(b, "en-US", { sensitivity: "base" }));
+    //   console.log(new Intl.Collator("fr").compare(a, b));
+    //   // console.log("ä".localeCompare("a", "de", { sensitivity: "base" }));
+
+    //   // console.log(nhlPlayer.name.localeCompare(player.name));
+    //   // console.log(player.name.localeCompare(nhlPlayer.name));
+
+    //   const n = nhlPlayer.name;
+    //   const compare = player.name.localeCompare(n);
+    //   // nhlPlayer.name);
+    //   // console.log("Compare:", compare);
+    //   return compare;
+    // }
     // if (nhlPlayer.name.localeCompare(player.name)) {
     //   nhlPlayer.hrID = player.hrID;
     //   return 1;
@@ -79,12 +108,15 @@ hrPlayers.forEach((player) => {
     // }
   );
 
+  console.log("FP Length:", filteredPlayer.length);
   // Add the player and hrID if they don't (no nhl.com id)
   if (filteredPlayer.length === 0) {
     finalPlayers.push({
       name: player.name,
       hrID: player.hrID,
     });
+  } else if (filteredPlayer.length > 1) {
+    // console.log("More than one:", player.name);
   } else {
     // Just add the hrID (the player already exists)
     // filteredPlayer
