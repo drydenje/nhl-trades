@@ -9,40 +9,40 @@ import fs from "fs";
 // convertToCSV(DRAFT_RESULTS_JSON);
 // writeCSVFile(`./public/scraped-data/draft-results-test.json`);
 
-// import { players } from "./player-nhl-id";
-// import { hrPlayers } from "./hr-player-id-copy";
+import { players } from "./player-nhl-id";
+import { hrPlayers } from "./hr-player-id-copy";
 const headings = ["id", "name", "hrId"];
 
 // two "Greg Adams"
 
-// console.log("NHL id's:", players.length);
-// console.log("HR id's:", hrPlayers.length);
+console.log("NHL id's:", players.length);
+console.log("HR id's:", hrPlayers.length);
 
-const players = [
-  {
-    id: 8444924,
-    name: "Jim Anderson",
-  },
-  {
-    id: 8444926,
-    name: "Murray Anderson",
-  },
-  {
-    id: 8444995,
-    name: "Pete Backor",
-  },
-  {
-    id: 8444893,
-    name: "Jim Agnew",
-  },
-];
+// const players = [
+//   {
+//     id: 8444924,
+//     name: "Jim Anderson",
+//   },
+//   {
+//     id: 8444926,
+//     name: "Murray Anderson",
+//   },
+//   {
+//     id: 8444995,
+//     name: "Pete Backor",
+//   },
+//   {
+//     id: 8444893,
+//     name: "Jim Agnew",
+//   },
+// ];
 
-const hrPlayers = [
-  { name: "Jim Anderson", hrID: "anderji01" },
-  { name: "Murray Anderson", hrID: "andermu01" },
-  { name: "Pete Backor", hrID: "backope01" },
-  { name: "Mats Sundin", hrID: "sundima01" },
-];
+// const hrPlayers = [
+//   { name: "Jim Anderson", hrID: "anderji01" },
+//   { name: "Murray Anderson", hrID: "andermu01" },
+//   { name: "Pete Backor", hrID: "backope01" },
+//   { name: "Mats Sundin", hrID: "sundima01" },
+// ];
 
 // two 'Ron Anderson's
 // const test = hrPlayers["a"].filter((player) => player.name === "Ron Anderson");
@@ -50,6 +50,9 @@ const hrPlayers = [
 // let missingHrPlayers = [];
 let finalPlayers = [];
 
+// Cycle through the nhl.com player list
+// Create an object with an id and name
+// Push the object to the final array
 players.forEach((player) => {
   const test = hrPlayers.filter((hrPlayer) => hrPlayer.name === player.name);
 
@@ -60,27 +63,37 @@ players.forEach((player) => {
   };
 
   // might have multiple similar names
-  // console.log(test);
-  // console.log(obj);
   finalPlayers.push(obj);
 });
 
+// Cycle through the hockey-reference player list
 hrPlayers.forEach((player) => {
+  // Check if the player exists in the final array
   const filteredPlayer = players.filter(
-    (nhlPlayer) => nhlPlayer.name === player.name
+    (nhlPlayer) => nhlPlayer.name.localeCompare(player.name)
+    // if (nhlPlayer.name.localeCompare(player.name)) {
+    //   nhlPlayer.hrID = player.hrID;
+    //   return 1;
+    // } else {
+    //   return 0;
+    // }
   );
+
+  // Add the player and hrID if they don't (no nhl.com id)
   if (filteredPlayer.length === 0) {
-    // console.log("NOPE:", player.name);
     finalPlayers.push({
       name: player.name,
       hrID: player.hrID,
     });
+  } else {
+    // Just add the hrID (the player already exists)
+    // filteredPlayer
+    // console.log("FP:", filteredPlayer);
   }
-  // console.log(filteredPlayer);
 });
 
 // should have mats sundin and jim agnew as well
-console.log(finalPlayers);
+// console.log(finalPlayers);
 
 // if (test.length === 1) {
 //   console.log(test[0].hrID);
@@ -94,12 +107,16 @@ console.log(finalPlayers);
 //   };
 // });
 
-// const csv = convertArrayToCSV(playerLines, {
+// console.log("Merged id's:", finalPlayers.length);
+const missing = finalPlayers.filter((player) => player.hrID === undefined);
+// console.log("Missing:", missing);
+
+// const csv = convertArrayToCSV(finalPlayers, {
 //   headings,
 //   separator: ",",
 // });
 
-// fs.writeFile("./public/final-csv-files/player-nhl-ids.csv", csv, (err) => {
+// fs.writeFile("./public/final-csv-files/player-nhl-ids-2.csv", csv, (err) => {
 //   if (err) {
 //     console.log(err);
 //   }
