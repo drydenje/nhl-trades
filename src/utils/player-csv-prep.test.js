@@ -1,7 +1,7 @@
-import { addHrIdsToPlayerList } from "./player-csv-prep-test.js";
-import { server, http, HttpResponse } from "../config/testServer";
+import { addHrIdsToPlayerList } from "./player-csv-prep.js";
+// import { server, http, HttpResponse } from "../config/testServer.js";
 
-const DATA_FILEPATH = `./public/scraped-data/`;
+// const DATA_FILEPATH = `./public/scraped-data/`;
 
 // describe("add-nhl-players function", () => {
 //   // this shouldn't return csv?
@@ -49,12 +49,28 @@ describe("add-hr-players function", () => {
       { name: "Jim Anderson", hrID: "anderji01" },
       { name: "Murray Anderson", hrID: "andermu01" },
       { name: "Pete Backor", hrID: "backope01" },
-      { name: "Mats Sundin", hrID: "sundima01" },
-      { name: "Stéphane Fiset", hrID: "fisetst01" },
     ];
 
-    // const yearToCheck = "2021-22";
-    const result = checkArray(seasons[yearToCheck]);
-    // expect(result).toEqual(1);
+    const expectedList = [
+      {
+        id: 8444924,
+        name: "Jim Anderson",
+        hrID: "anderji01",
+      },
+      {
+        id: 8444926,
+        name: "Murray Anderson",
+        hrID: "andermu01",
+      },
+      {
+        id: 8444995,
+        name: "Pete Backor",
+        hrID: "backope01",
+      },
+    ];
+
+    const result = addHrIdsToPlayerList(players, hrPlayers);
+    expect(result.length).toEqual(3);
+    expect(result).toEqual(expectedList);
   });
 });
