@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add-hr-players function should add hockey-reference.com id's to the player array when the player name contains special characters 1`] = `
+[
+  {
+    "id": 8460712,
+    "name": "Tomas Vokoun",
+    "hrID": "vokouto01",
+  },
+  {
+    "id": 8469689,
+    "name": "Tomas Mojzis",
+    "hrID": "mojzito01",
+  },
+  {
+    "id": 8478007,
+    "name": "Elvis Merzlikins",
+    "hrID": "merzlel01",
+  },
+]
+`;
+
+exports[`add-hr-players function should add hr id's to the player array 1`] = `
+[
+  {
+    "id": 8444924,
+    "name": "Jim Anderson",
+  },
+  {
+    "id": 8444926,
+    "name": "Murray Anderson",
+  },
+  {
+    "id": 8444995,
+    "name": "Pete Backor",
+  },
+]
+`;

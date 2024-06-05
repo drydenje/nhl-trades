@@ -29,7 +29,7 @@ import { addHrIdsToPlayerList } from "./player-csv-prep.js";
 // });
 
 describe("add-hr-players function", () => {
-  test("should add hockey-reference.com id's to the player array", () => {
+  test("should add hr id's to the player array", () => {
     const players = [
       {
         id: 8444924,
@@ -71,6 +71,51 @@ describe("add-hr-players function", () => {
 
     const result = addHrIdsToPlayerList(players, hrPlayers);
     expect(result.length).toEqual(3);
-    expect(result).toEqual(expectedList);
+    expect(result).toMatchSnapshot();
+  });
+
+  test("should add hockey-reference.com id's to the player array when the player name contains special characters", () => {
+    const players = [
+      {
+        id: 8460712,
+        name: "Tomas Vokoun",
+      },
+      {
+        id: 8469689,
+        name: "Tomas Mojzis",
+      },
+      {
+        id: 8478007,
+        name: "Elvis Merzlikins",
+      },
+    ];
+
+    const hrPlayers = [
+      { name: "Elvis Merzļikins", hrID: "merzlel01" },
+      { name: "Tomáš Vokoun", hrID: "vokouto01" },
+      { name: "Tomáš Mojžíš", hrID: "mojzito01" },
+    ];
+
+    const expectedList = [
+      {
+        id: 8460712,
+        name: "Tomas Vokoun",
+        hrID: "vokouto01",
+      },
+      {
+        id: 8469689,
+        name: "Tomas Mojzis",
+        hrID: "mojzito01",
+      },
+      {
+        id: 8478007,
+        name: "Elvis Merzlikins",
+        hrID: "merzlel01",
+      },
+    ];
+
+    const result = addHrIdsToPlayerList(players, hrPlayers);
+    expect(result.length).toEqual(3);
+    expect(result).toMatchSnapshot();
   });
 });
