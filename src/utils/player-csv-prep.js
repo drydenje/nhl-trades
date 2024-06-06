@@ -7,17 +7,25 @@ const addHrIdsToPlayerList = (players, hrPlayers) => {
 
     // select the player from the hr list
     const hrFindPlayer = hrPlayers.filter((hrPlayer) => {
-      // console.log("hr + nhl:", hrPlayer.name, player.name);
-      const a = hrPlayer.name.localeCompare(player.name, "en-US", {
-        sensitivity: "base",
-      });
-      // console.log("a:", a);
-      return a;
+      const a = Math.abs(
+        hrPlayer.name.localeCompare(player.name, "en-US", {
+          sensitivity: "base",
+        })
+      );
+
+      return a ? false : true;
     });
+
+    // console.log("FIND:", hrFindPlayer);
+    if (hrFindPlayer.length > 1) {
+      return {
+        ...player,
+      };
+    }
 
     return {
       ...player,
-      ...(hrFindPlayer[0] === 0 ? { hrID: hrFindPlayer[0].hrID } : null),
+      ...(hrFindPlayer[0] ? { hrID: hrFindPlayer[0].hrID } : null),
     };
   });
 
@@ -25,21 +33,3 @@ const addHrIdsToPlayerList = (players, hrPlayers) => {
 };
 
 export { addHrIdsToPlayerList };
-
-//  const expectedList = [
-//    {
-//      id: 8444924,
-//      name: "Jim Anderson",
-//      hrID: "anderji01",
-//    },
-//    {
-//      id: 8444926,
-//      name: "Murray Anderson",
-//      hrID: "andermu01",
-//    },
-//    {
-//      id: 8444995,
-//      name: "Pete Backor",
-//      hrID: "backope01",
-//    },
-//  ];

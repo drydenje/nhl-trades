@@ -3,19 +3,19 @@
 exports[`add-hr-players function should add hockey-reference.com id's to the player array when the player name contains special characters 1`] = `
 [
   {
+    "hrID": "vokouto01",
     "id": 8460712,
     "name": "Tomas Vokoun",
-    "hrID": "vokouto01",
   },
   {
+    "hrID": "mojzito01",
     "id": 8469689,
     "name": "Tomas Mojzis",
-    "hrID": "mojzito01",
   },
   {
+    "hrID": "merzlel01",
     "id": 8478007,
     "name": "Elvis Merzlikins",
-    "hrID": "merzlel01",
   },
 ]
 `;
@@ -23,16 +23,42 @@ exports[`add-hr-players function should add hockey-reference.com id's to the pla
 exports[`add-hr-players function should add hr id's to the player array 1`] = `
 [
   {
+    "hrID": "anderji01",
     "id": 8444924,
     "name": "Jim Anderson",
   },
   {
+    "hrID": "andermu01",
     "id": 8444926,
     "name": "Murray Anderson",
   },
   {
+    "hrID": "backope01",
     "id": 8444995,
     "name": "Pete Backor",
+  },
+]
+`;
+
+exports[`add-hr-players function should skip adding hockey-reference.com id's to the player array when multiple players with the same name are found 1`] = `
+[
+  {
+    "hrID": "allisra01",
+    "id": 8444913,
+    "name": "Ray Allison",
+  },
+  {
+    "id": 8444928,
+    "name": "Ron Anderson",
+  },
+  {
+    "id": 8444929,
+    "name": "Ron Anderson",
+  },
+  {
+    "hrID": "amodemi01",
+    "id": 8444923,
+    "name": "Mike Amodeo",
   },
 ]
 `;

@@ -51,24 +51,6 @@ describe("add-hr-players function", () => {
       { name: "Pete Backor", hrID: "backope01" },
     ];
 
-    const expectedList = [
-      {
-        id: 8444924,
-        name: "Jim Anderson",
-        hrID: "anderji01",
-      },
-      {
-        id: 8444926,
-        name: "Murray Anderson",
-        hrID: "andermu01",
-      },
-      {
-        id: 8444995,
-        name: "Pete Backor",
-        hrID: "backope01",
-      },
-    ];
-
     const result = addHrIdsToPlayerList(players, hrPlayers);
     expect(result.length).toEqual(3);
     expect(result).toMatchSnapshot();
@@ -96,26 +78,63 @@ describe("add-hr-players function", () => {
       { name: "Tomáš Mojžíš", hrID: "mojzito01" },
     ];
 
+    const result = addHrIdsToPlayerList(players, hrPlayers);
+    expect(result.length).toEqual(3);
+    expect(result).toMatchSnapshot();
+  });
+
+  test("should skip adding hockey-reference.com id's to the player array when multiple players with the same name are found", () => {
+    const players = [
+      {
+        id: 8444913,
+        name: "Ray Allison",
+      },
+      {
+        id: 8444928,
+        name: "Ron Anderson",
+      },
+      {
+        id: 8444929,
+        name: "Ron Anderson",
+      },
+      {
+        id: 8444923,
+        name: "Mike Amodeo",
+      },
+    ];
+
+    const hrPlayers = [
+      { name: "Ray Allison", hrID: "allisra01" },
+      { name: "Ron Anderson", hrID: "anderro01" },
+      { name: "Ron Anderson", hrID: "anderro02" },
+      { name: "Ron F. Anderson", hrID: "anderro03" },
+      { name: "Mike Amodeo", hrID: "amodemi01" },
+    ];
+
     const expectedList = [
       {
-        id: 8460712,
-        name: "Tomas Vokoun",
-        hrID: "vokouto01",
+        id: 8444913,
+        name: "Ray Allison",
+        hrID: "allisra01",
       },
       {
-        id: 8469689,
-        name: "Tomas Mojzis",
-        hrID: "mojzito01",
+        id: 8444928,
+        name: "Ron Anderson",
       },
       {
-        id: 8478007,
-        name: "Elvis Merzlikins",
-        hrID: "merzlel01",
+        id: 8444929,
+        name: "Ron Anderson",
+      },
+      {
+        id: 8444923,
+        name: "Mike Amodeo",
+        hrID: "amodemi01",
       },
     ];
 
     const result = addHrIdsToPlayerList(players, hrPlayers);
-    expect(result.length).toEqual(3);
+    // console.log(result);
+    expect(result.length).toEqual(4);
     expect(result).toMatchSnapshot();
   });
 });
