@@ -1,5 +1,5 @@
 import { convertArrayToCSV } from "convert-array-to-csv";
-
+import { writeFile, readFile } from "./utils/utils";
 import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping";
 import fs from "fs";
 
@@ -51,15 +51,34 @@ const headings = ["id", "name", "hrId"];
 //   { name: "Stéphane Fiset", hrID: "fisetst01" },
 //   // { name: "Stéphane Fiset", hrID: "fisetst01" },
 // ];
+// console.log("Adding Hr Id's");
+// console.log("NHL id's:", players.length);
+// console.log("HR id's:", hrPlayers.length);
 
-const result = addHrIdsToPlayerList(players, hrPlayers);
+// const result = addHrIdsToPlayerList(players, hrPlayers);
+// 10:30
 
-console.log("NHL id's:", players.length);
-console.log("HR id's:", hrPlayers.length);
+// writeFile(`./public/scraped-data/hr-and-nhl-player-id.json`, result);
+
+const arrToSort = JSON.parse(
+  readFile(`./public/scraped-data/duplicate-ids.json`)
+);
+// console.log(typeof arrToSort);
+const res = arrToSort.sort((a, b) => {
+  if (a.name > b.name) {
+    return 1;
+  }
+  if (a.name < b.name) {
+    return -1;
+  }
+  return 0;
+});
+writeFile(`./public/scraped-data/duplicate-ids.json`, res);
 
 // console.log("Merged id's:", finalPlayers.length);
-const missing = result.filter((player) => player.hrID === undefined);
-console.log("Missing:", missing);
+
+// const missing = result.filter((player) => player.hrID === undefined);
+// console.log("Missing:", missing);
 
 // const csv = convertArrayToCSV(finalPlayers, {
 //   headings,
