@@ -1,6 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
 import { readFile } from "../utils/utils.js";
+import { playerDetails } from "../../public/raw-mock-data/nhl-player-details.js";
 const DATA_FILEPATH = `./public/raw-mock-data`;
 
 const server = setupServer(
@@ -47,6 +48,16 @@ const server = setupServer(
     ({ request, response, context }) => {
       const page = readFile(`${DATA_FILEPATH}/hr-players-a.html`);
       return HttpResponse.text(page);
+    }
+  ),
+  // Alain Cote
+  http.get(
+    `https://api-web.nhle.com/v1/player/8446178/landing`,
+    ({ request, response, context }) => {
+      const playerInfo = playerDetails[8446178];
+      return playerInfo;
+      // const page = readFile(`${DATA_FILEPATH}/hr-players-a.html`);
+      // return HttpResponse.text(page);
     }
   ),
   http.get(`*`, ({ request }) => {
