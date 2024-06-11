@@ -5,6 +5,9 @@ import { playerDetails } from "../../public/raw-mock-data/nhl-player-details.js"
 const DATA_FILEPATH = `./public/raw-mock-data`;
 
 const server = setupServer(
+  http.get(`https://localhost/ace`, (req, res, context) => {
+    return HttpResponse.json({ rates: { CAD: 1.42 } });
+  }),
   http.get(`https://api.exchangeratesapi.io/latest`, (req, res, context) => {
     return HttpResponse.json({ rates: { CAD: 1.42 } });
   }),
@@ -54,8 +57,9 @@ const server = setupServer(
   http.get(
     `https://api-web.nhle.com/v1/player/8446178/landing`,
     ({ request, response, context }) => {
-      const playerInfo = playerDetails[8446178];
-      return playerInfo;
+      const playerInfo = playerDetails["8446178"];
+      return HttpResponse.json(playerInfo);
+      // return HttpResponse.text("ACE");
       // const page = readFile(`${DATA_FILEPATH}/hr-players-a.html`);
       // return HttpResponse.text(page);
     }
