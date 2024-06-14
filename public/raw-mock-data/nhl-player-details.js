@@ -16,7 +16,7 @@ const playerDetails = {
     heightInCentimeters: 178,
     weightInPounds: 203,
     weightInKilograms: 92,
-    birthDate: "1957-05-03",
+    birthDate: "1057-05-03",
     birthCity: {
       default: "Matane",
     },

@@ -3,16 +3,48 @@ import { writeFile, readFile } from "./utils/utils";
 import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping";
 import fs from "fs";
 
+import cron from "node-cron";
+
+import { addBirthdayToPlayer } from "./utils/nhl-birthday-scraper";
+
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
 // cron.schedule("*/5 * * * * *", fetchDraftYear);
 // convertToCSV(DRAFT_RESULTS_JSON);
 // writeCSVFile(`./public/scraped-data/draft-results-test.json`);
 
-import { addHrIdsToPlayerList } from "./utils/player-csv-prep";
-import { players } from "./player-nhl-id";
-import { hrPlayers } from "./hr-player-id-copy";
-const headings = ["id", "name", "hrId"];
+const scrapeNHLBirthdays = async () => {
+  // public\scraped-data\duplicate-ids-copy.json
+  const DUPLICATE_IDS = `./public/scraped-data/duplicate-ids-copy.json`;
+  const players = JSON.parse(
+    fs.readFileSync(DUPLICATE_IDS, "utf8")
+    // , (err, data) => {
+    //   if (err) throw err;
+    //   console.log(data);
+    // })
+  );
+  // console.log(players);
+  const newJSON = await addBirthdayToPlayer(players);
+  const remaining = newJSON.filter(
+    (player) => player.birthDate === undefined
+  ).length;
+  console.log("Remaining:", remaining);
+  fs.writeFileSync(
+    `./public/scraped-data/duplicate-ids-copy.json`,
+    JSON.stringify(newJSON),
+    (err, data) => {
+      if (err) throw err;
+      console.log("HUH", data);
+    }
+  );
+};
+
+cron.schedule("*/5 * * * * *", scrapeNHLBirthdays);
+
+// import { addHrIdsToPlayerList } from "./utils/player-csv-prep";
+// import { players } from "./player-nhl-id";
+// import { hrPlayers } from "./hr-player-id-copy";
+// const headings = ["id", "name", "hrId"];
 
 // two "Greg Adams"
 
@@ -60,20 +92,20 @@ const headings = ["id", "name", "hrId"];
 
 // writeFile(`./public/scraped-data/hr-and-nhl-player-id.json`, result);
 
-const arrToSort = JSON.parse(
-  readFile(`./public/scraped-data/duplicate-ids.json`)
-);
-// console.log(typeof arrToSort);
-const res = arrToSort.sort((a, b) => {
-  if (a.name > b.name) {
-    return 1;
-  }
-  if (a.name < b.name) {
-    return -1;
-  }
-  return 0;
-});
-writeFile(`./public/scraped-data/duplicate-ids.json`, res);
+// const arrToSort = JSON.parse(
+//   readFile(`./public/scraped-data/duplicate-ids.json`)
+// );
+// // console.log(typeof arrToSort);
+// const res = arrToSort.sort((a, b) => {
+//   if (a.name > b.name) {
+//     return 1;
+//   }
+//   if (a.name < b.name) {
+//     return -1;
+//   }
+//   return 0;
+// });
+// writeFile(`./public/scraped-data/duplicate-ids.json`, res);
 
 // console.log("Merged id's:", finalPlayers.length);
 
