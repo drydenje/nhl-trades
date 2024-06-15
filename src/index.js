@@ -5,41 +5,56 @@ import fs from "fs";
 
 import cron from "node-cron";
 
-import { addBirthdayToPlayer } from "./utils/nhl-birthday-scraper";
-
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
 // cron.schedule("*/5 * * * * *", fetchDraftYear);
 // convertToCSV(DRAFT_RESULTS_JSON);
 // writeCSVFile(`./public/scraped-data/draft-results-test.json`);
 
-const scrapeNHLBirthdays = async () => {
-  // public\scraped-data\duplicate-ids-copy.json
-  const DUPLICATE_IDS = `./public/scraped-data/duplicate-ids-copy.json`;
-  const players = JSON.parse(
-    fs.readFileSync(DUPLICATE_IDS, "utf8")
-    // , (err, data) => {
-    //   if (err) throw err;
-    //   console.log(data);
-    // })
-  );
-  // console.log(players);
-  const newJSON = await addBirthdayToPlayer(players);
-  const remaining = newJSON.filter(
-    (player) => player.birthDate === undefined
-  ).length;
-  console.log("Remaining:", remaining);
-  fs.writeFileSync(
-    `./public/scraped-data/duplicate-ids-copy.json`,
-    JSON.stringify(newJSON),
-    (err, data) => {
-      if (err) throw err;
-      console.log("HUH", data);
-    }
-  );
-};
+// 1. Load all unique names from duplicate-ids-copy
+//    (one name for multiple instances of the name)
+// 2. Map over the hr-player-id-copy.js array, and create
+//    a new array of names that contain an instance of the duplicate names
+// 3. Fetch each of these names from hockey-reference.com, and save the bday
+// 4. Combine the hr ids and birthdays with duplicate-ids file
+// 5. Add the new data to hr-and-nhl-player-id.json
+// 6. Repeat the process with hockeydb, setup for other sites as well
 
-cron.schedule("*/5 * * * * *", scrapeNHLBirthdays);
+// *******************************************
+// Add a birthdate to the duplicate id json file
+// *******************************************
+// import { addBirthdayToPlayer } from "./utils/nhl-birthday-scraper";
+
+// const scrapeNHLBirthdays = async () => {
+//   // public\scraped-data\duplicate-ids-copy.json
+//   const DUPLICATE_IDS = `./public/scraped-data/duplicate-ids-copy.json`;
+//   const players = JSON.parse(
+//     fs.readFileSync(DUPLICATE_IDS, "utf8")
+//     // , (err, data) => {
+//     //   if (err) throw err;
+//     //   console.log(data);
+//     // })
+//   );
+//   // console.log(players);
+//   const newJSON = await addBirthdayToPlayer(players);
+//   const remaining = newJSON.filter(
+//     (player) => player.birthDate === undefined
+//   ).length;
+//   console.log("Remaining:", remaining);
+//   fs.writeFileSync(
+//     `./public/scraped-data/duplicate-ids-copy.json`,
+//     JSON.stringify(newJSON),
+//     (err, data) => {
+//       if (err) throw err;
+//       console.log("HUH", data);
+//     }
+//   );
+// };
+
+// cron.schedule("*/5 * * * * *", scrapeNHLBirthdays);
+// *******************************************
+// END: Add a birthdate to the duplicate id json file
+// *******************************************
 
 // import { addHrIdsToPlayerList } from "./utils/player-csv-prep";
 // import { players } from "./player-nhl-id";
