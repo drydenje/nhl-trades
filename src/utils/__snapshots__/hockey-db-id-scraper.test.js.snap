@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getAllPlayers function when passed an array of letters and a base file path, will extract all player info 1`] = `
+[
+  Promise {},
+]
+`;
+
+exports[`getNamesFromPage function when passed an html page, will extract all of the players from it 1`] = `
+[
+  {
+    "birthDate": "12/26/1937",
+    "id": "5512",
+    "name": "Gene Ubriaco",
+  },
+  {
+    "birthDate": "12/31/1992",
+    "id": "123037",
+    "name": "Dominik Uher",
+  },
+  {
+    "birthDate": "10/01/1969",
+    "id": "5515",
+    "name": "Igor Ulanov",
+  },
+  {
+    "birthDate": "12/26/1935",
+    "id": "5516",
+    "name": "Norm Ullman",
+  },
+  {
+    "birthDate": "07/31/1993",
+    "id": "152794",
+    "name": "Linus Ullmark",
+  },
+  {
+    "birthDate": "04/22/1989",
+    "id": "112734",
+    "name": "David Ullstrom",
+  },
+  {
+    "birthDate": "04/27/1977",
+    "id": "27868",
+    "name": "Jeff Ulmer",
+  },
+  {
+    "birthDate": "09/14/1980",
+    "id": "31019",
+    "name": "Layne Ulmer",
+  },
+  {
+    "birthDate": "05/03/1982",
+    "id": "54470",
+    "name": "R.J. Umberger",
+  },
+  {
+    "birthDate": "09/16/1979",
+    "id": "41468",
+    "name": "Matt Underhill",
+  },
+  {
+    "birthDate": "12/07/1947",
+    "id": "5518",
+    "name": "Garry Unger",
+  },
+  {
+    "birthDate": "10/07/1983",
+    "id": "55361",
+    "name": "Scottie Upshall",
+  },
+  {
+    "birthDate": "12/20/1990",
+    "id": "118535",
+    "name": "Alexander Urbom",
+  },
+  {
+    "birthDate": "01/03/1974",
+    "id": "5521",
+    "name": "Stefan Ustorf",
+  },
+]
+`;

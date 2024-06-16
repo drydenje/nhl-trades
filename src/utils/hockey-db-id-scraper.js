@@ -1,8 +1,10 @@
 import { getPage } from "./utils.js";
+import { readFile } from "./utils";
 const path = require("path");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
 
+// can probably delete this
 const parsePlayer = (html) => {
   const $ = cheerio.load(html);
   // console.log(html);
@@ -22,12 +24,9 @@ const parsePlayer = (html) => {
 
 const getNamesFromPage = async (page) => {
   const $ = cheerio.load(page);
-  // body > div.tablebgl > table
-  // body > div.tablebgl > table > tbody
   const names = $(".sortable > tbody")
     .children()
     .map((index, player) => {
-      // console.log("P:", player, "I:", index);
       return {
         id: $("a", player).attr("href").match(/\d+$/)[0],
         name: $("a", player).html(),
@@ -35,8 +34,23 @@ const getNamesFromPage = async (page) => {
       };
     })
     .toArray();
-
-  console.log("names:", names);
+  // console.log("N:", names);
+  return names;
 };
 
-export { parsePlayer, getNamesFromPage };
+const getAllPlayers = async (letters, baseFilePath) => {
+  // const allPlayers = [];
+  // for each letter in the array
+  const players = letters.map((letter) => {
+    const fileToParse = `${baseFilePath}/NHL Player List -- ${letter.toUpperCase()}.html`;
+    const html = readFile(fileToParse);
+    const playersForLetter = getNamesFromPage(html);
+    return playersForLetter;
+  });
+  console.log("P:", players[0]);
+  return players;
+  // call getNamesFromPage
+  // append the array of players to a file? maybe keep this out?
+};
+
+export { getNamesFromPage, parsePlayer, getAllPlayers };
