@@ -2,7 +2,1301 @@
 
 exports[`getAllPlayers function when passed an array of letters and a base file path, will extract all player info 1`] = `
 [
-  Promise {},
+  {
+    "birthDate": "03/04/1975",
+    "hdbID": "5928",
+    "name": "Antti Aalto",
+  },
+  {
+    "birthDate": "08/03/1911",
+    "hdbID": "14591",
+    "name": "George Abbott",
+  },
+  {
+    "birthDate": "02/04/1930",
+    "hdbID": "11431",
+    "name": "Reg Abbott",
+  },
+  {
+    "birthDate": "04/30/1988",
+    "hdbID": "100199",
+    "name": "Spencer Abbott",
+  },
+  {
+    "birthDate": "02/25/1987",
+    "hdbID": "81002",
+    "name": "Justin Abdelkader",
+  },
+  {
+    "birthDate": "05/28/1900",
+    "hdbID": "18751",
+    "name": "Clarence "Taffy" Abel",
+  },
+  {
+    "birthDate": "12/25/1944",
+    "hdbID": "10017",
+    "name": "Gerry Abel",
+  },
+  {
+    "birthDate": "02/22/1918",
+    "hdbID": "5931",
+    "name": "Sid Abel",
+  },
+  {
+    "birthDate": "09/23/1993",
+    "hdbID": "139960",
+    "name": "Pontus Aberg",
+  },
+  {
+    "birthDate": "04/24/1953",
+    "hdbID": "6708",
+    "name": "Dennis Abgrall",
+  },
+  {
+    "birthDate": "03/24/1980",
+    "hdbID": "29408",
+    "name": "Ramzi Abid",
+  },
+  {
+    "birthDate": "04/12/1947",
+    "hdbID": "5933",
+    "name": "Thommy Abrahamsson",
+  },
+  {
+    "birthDate": "05/08/1998",
+    "hdbID": "186189",
+    "name": "Vitaly Abramov",
+  },
+  {
+    "birthDate": "06/04/1999",
+    "hdbID": "197711",
+    "name": "Nick Abruzzese",
+  },
+  {
+    "birthDate": "12/01/1991",
+    "hdbID": "160732",
+    "name": "Noel Acciari",
+  },
+  {
+    "birthDate": "09/07/1932",
+    "hdbID": "11142",
+    "name": "Gene Achtymichuk",
+  },
+  {
+    "birthDate": "05/15/1949",
+    "hdbID": "10475",
+    "name": "Doug Acomb",
+  },
+  {
+    "birthDate": "04/15/1958",
+    "hdbID": "5935",
+    "name": "Keith Acton",
+  },
+  {
+    "birthDate": "07/16/1987",
+    "hdbID": "90850",
+    "name": "Will Acton",
+  },
+  {
+    "birthDate": "09/07/1923",
+    "hdbID": "11560",
+    "name": "Doug Adam",
+  },
+  {
+    "birthDate": "06/18/1990",
+    "hdbID": "96396",
+    "name": "Luke Adam",
+  },
+  {
+    "birthDate": "05/05/1961",
+    "hdbID": "8812",
+    "name": "Russ Adam",
+  },
+  {
+    "birthDate": "03/20/1977",
+    "hdbID": "22031",
+    "name": "Bryan Adams",
+  },
+  {
+    "birthDate": "04/26/1977",
+    "hdbID": "25067",
+    "name": "Craig Adams",
+  },
+  {
+    "birthDate": "05/31/1960",
+    "hdbID": "6236",
+    "name": "Greg Adams",
+  },
+  {
+    "birthDate": "08/01/1963",
+    "hdbID": "6237",
+    "name": "Greg Adams",
+  },
+  {
+    "birthDate": "06/14/1895",
+    "hdbID": "23806",
+    "name": "Jack Adams",
+  },
+  {
+    "birthDate": "05/05/1920",
+    "hdbID": "5940",
+    "name": "Jack Adams",
+  },
+  {
+    "birthDate": "07/27/1946",
+    "hdbID": "6859",
+    "name": "John Adams",
+  },
+  {
+    "birthDate": "10/08/1974",
+    "hdbID": "6216",
+    "name": "Kevyn Adams",
+  },
+  {
+    "birthDate": "09/16/1904",
+    "hdbID": "18927",
+    "name": "Stewart Adams",
+  },
+  {
+    "birthDate": "04/11/2000",
+    "hdbID": "191479",
+    "name": "Calen Addison",
+  },
+  {
+    "birthDate": "01/25/1955",
+    "hdbID": "6474",
+    "name": "Rick Adduono",
+  },
+  {
+    "birthDate": "02/07/1978",
+    "hdbID": "29051",
+    "name": "David Aebischer",
+  },
+  {
+    "birthDate": "05/12/1980",
+    "hdbID": "36989",
+    "name": "Dmitry Afanasenkov",
+  },
+  {
+    "birthDate": "01/23/2001",
+    "hdbID": "209451",
+    "name": "Egor Afanasyev",
+  },
+  {
+    "birthDate": "05/05/1954",
+    "hdbID": "5944",
+    "name": "Bruce Affleck",
+  },
+  {
+    "birthDate": "09/04/1979",
+    "hdbID": "33997",
+    "name": "Maxim Afinogenov",
+  },
+  {
+    "birthDate": "03/21/1966",
+    "hdbID": "5947",
+    "name": "Jim Agnew",
+  },
+  {
+    "birthDate": "04/30/1992",
+    "hdbID": "127796",
+    "name": "Kenny Agostino",
+  },
+  {
+    "birthDate": "01/03/1991",
+    "hdbID": "106986",
+    "name": "Andrew Agozzino",
+  },
+  {
+    "birthDate": "05/18/1997",
+    "hdbID": "187479",
+    "name": "Jack Ahcan",
+  },
+  {
+    "birthDate": "02/12/1952",
+    "hdbID": "5948",
+    "name": "Fred Ahern",
+  },
+  {
+    "birthDate": "12/12/1914",
+    "hdbID": "20006",
+    "name": "Rudy Ahlin",
+  },
+  {
+    "birthDate": "07/26/1997",
+    "hdbID": "174983",
+    "name": "Sebastian Aho",
+  },
+  {
+    "birthDate": "02/17/1996",
+    "hdbID": "164509",
+    "name": "Sebastian Aho",
+  },
+  {
+    "birthDate": "05/14/1968",
+    "hdbID": "5949",
+    "name": "Peter Ahola",
+  },
+  {
+    "birthDate": "07/31/1952",
+    "hdbID": "5950",
+    "name": "Chris Ahrens",
+  },
+  {
+    "birthDate": "01/01/1932",
+    "hdbID": "45791",
+    "name": "John Aiken",
+  },
+  {
+    "birthDate": "05/11/1917",
+    "hdbID": "11445",
+    "name": "Lloyd Ailsby",
+  },
+  {
+    "birthDate": "10/30/1967",
+    "hdbID": "5952",
+    "name": "Brad Aitken",
+  },
+  {
+    "birthDate": "05/24/1978",
+    "hdbID": "19365",
+    "name": "Johnathan Aitken",
+  },
+  {
+    "birthDate": "03/06/1904",
+    "hdbID": "20023",
+    "name": "Andy Aitkenhead",
+  },
+  {
+    "birthDate": "08/06/1992",
+    "hdbID": "126409",
+    "name": "Sami Aittokallio",
+  },
+  {
+    "birthDate": "05/04/1969",
+    "hdbID": "755",
+    "name": "Micah Aivazoff",
+  },
+  {
+    "birthDate": "06/03/1990",
+    "hdbID": "111604",
+    "name": "Jason Akeson",
+  },
+  {
+    "birthDate": "06/11/1971",
+    "hdbID": "19175",
+    "name": "Mika Alatalo",
+  },
+  {
+    "birthDate": "05/21/1964",
+    "hdbID": "5955",
+    "name": "Tommy Albelin",
+  },
+  {
+    "birthDate": "01/19/1989",
+    "hdbID": "105375",
+    "name": "John Albert",
+  },
+  {
+    "birthDate": "06/30/1981",
+    "hdbID": "56749",
+    "name": "Andrew Alberts",
+  },
+  {
+    "birthDate": "02/28/1926",
+    "hdbID": "12127",
+    "name": "Clint Albright",
+  },
+  {
+    "birthDate": "03/07/1935",
+    "hdbID": "5959",
+    "name": "Gary Aldcorn",
+  },
+  {
+    "birthDate": "07/20/1973",
+    "hdbID": "5961",
+    "name": "Keith Aldridge",
+  },
+  {
+    "birthDate": "06/16/1945",
+    "hdbID": "5962",
+    "name": "Claire Alexander",
+  },
+  {
+    "birthDate": "11/08/1999",
+    "hdbID": "185890",
+    "name": "Jett Alexander",
+  },
+  {
+    "birthDate": "03/02/1909",
+    "hdbID": "18889",
+    "name": "Art Alexandre",
+  },
+  {
+    "birthDate": "09/16/2000",
+    "hdbID": "208947",
+    "name": "Nikita Alexandrov",
+  },
+  {
+    "birthDate": "12/27/1981",
+    "hdbID": "42332",
+    "name": "Nikita Alexeev",
+  },
+  {
+    "birthDate": "11/15/1999",
+    "hdbID": "196044",
+    "name": "Alexander Alexeyev",
+  },
+  {
+    "birthDate": "12/11/1972",
+    "hdbID": "18514",
+    "name": "Daniel Alfredsson",
+  },
+  {
+    "birthDate": "04/24/1989",
+    "hdbID": "89808",
+    "name": "Akim Aliu",
+  },
+  {
+    "birthDate": "05/17/1957",
+    "hdbID": "8377",
+    "name": "Jeff Allan",
+  },
+  {
+    "birthDate": "12/27/1997",
+    "hdbID": "169558",
+    "name": "Frederic Allard",
+  },
+  {
+    "birthDate": "11/14/1978",
+    "hdbID": "35505",
+    "name": "Bobby Allen",
+  },
+  {
+    "birthDate": "08/21/1980",
+    "hdbID": "25877",
+    "name": "Bryan Allen",
+  },
+  {
+    "birthDate": "05/08/1978",
+    "hdbID": "20193",
+    "name": "Chris Allen",
+  },
+  {
+    "birthDate": "01/31/1990",
+    "hdbID": "123262",
+    "name": "Conor Allen",
+  },
+  {
+    "birthDate": "07/27/1914",
+    "hdbID": "45",
+    "name": "George Allen",
+  },
+  {
+    "birthDate": "08/07/1990",
+    "hdbID": "106592",
+    "name": "Jake Allen",
+  },
+  {
+    "birthDate": "08/21/1923",
+    "hdbID": "11406",
+    "name": "Keith "Bingo" Allen",
+  },
+  {
+    "birthDate": "03/06/1970",
+    "hdbID": "10733",
+    "name": "Peter Allen",
+  },
+  {
+    "birthDate": "09/09/1916",
+    "hdbID": "14216",
+    "name": "Vivan "Squee" Allen",
+  },
+  {
+    "birthDate": "12/29/1953",
+    "hdbID": "7406",
+    "name": "Steve Alley",
+  },
+  {
+    "birthDate": "04/14/1959",
+    "hdbID": "49",
+    "name": "Dave Allison",
+  },
+  {
+    "birthDate": "05/13/1975",
+    "hdbID": "15567",
+    "name": "Jamie Allison",
+  },
+  {
+    "birthDate": "05/29/1975",
+    "hdbID": "50",
+    "name": "Jason Allison",
+  },
+  {
+    "birthDate": "03/28/1961",
+    "hdbID": "51",
+    "name": "Mike Allison",
+  },
+  {
+    "birthDate": "03/04/1959",
+    "hdbID": "52",
+    "name": "Ray Allison",
+  },
+  {
+    "birthDate": "10/14/1997",
+    "hdbID": "177775",
+    "name": "Wade Allison",
+  },
+  {
+    "birthDate": "10/09/1916",
+    "hdbID": "14230",
+    "name": "Bill Allum",
+  },
+  {
+    "birthDate": "04/26/1924",
+    "hdbID": "11434",
+    "name": "Ralph "Red" Almas",
+  },
+  {
+    "birthDate": "07/24/1989",
+    "hdbID": "89903",
+    "name": "Cody Almond",
+  },
+  {
+    "birthDate": "02/27/1991",
+    "hdbID": "123187",
+    "name": "Adam Almquist",
+  },
+  {
+    "birthDate": "06/04/2001",
+    "hdbID": "214039",
+    "name": "Hugo Alnefelt",
+  },
+  {
+    "birthDate": "05/01/1996",
+    "hdbID": "172918",
+    "name": "Olle Alsing",
+  },
+  {
+    "birthDate": "10/18/1991",
+    "hdbID": "127773",
+    "name": "Mark Alt",
+  },
+  {
+    "birthDate": "01/30/1979",
+    "hdbID": "84383",
+    "name": "Jorge Alves",
+  },
+  {
+    "birthDate": "09/24/1988",
+    "hdbID": "74658",
+    "name": "Karl Alzner",
+  },
+  {
+    "birthDate": "05/23/1939",
+    "hdbID": "56",
+    "name": "Dave Amadio",
+  },
+  {
+    "birthDate": "05/13/1996",
+    "hdbID": "160248",
+    "name": "Mike Amadio",
+  },
+  {
+    "birthDate": "02/07/2000",
+    "hdbID": "223819",
+    "name": "Nils Aman",
+  },
+  {
+    "birthDate": "09/15/1971",
+    "hdbID": "57",
+    "name": "Peter Ambroziak",
+  },
+  {
+    "birthDate": "06/22/1952",
+    "hdbID": "60",
+    "name": "Mike Amodeo",
+  },
+  {
+    "birthDate": "08/02/1970",
+    "hdbID": "62",
+    "name": "Tony Amonte",
+  },
+  {
+    "birthDate": "10/02/1989",
+    "hdbID": "111711",
+    "name": "Frederik Andersen",
+  },
+  {
+    "birthDate": "12/13/1912",
+    "hdbID": "21754",
+    "name": "Bill "Red" Anderson",
+  },
+  {
+    "birthDate": "05/21/1981",
+    "hdbID": "42354",
+    "name": "Craig Anderson",
+  },
+  {
+    "birthDate": "03/05/1932",
+    "hdbID": "11178",
+    "name": "Dale Anderson",
+  },
+  {
+    "birthDate": "10/20/1927",
+    "hdbID": "11691",
+    "name": "Doug "Andy" Anderson",
+  },
+  {
+    "birthDate": "02/24/1951",
+    "hdbID": "66",
+    "name": "Earl Anderson",
+  },
+  {
+    "birthDate": "10/02/1960",
+    "hdbID": "67",
+    "name": "Glenn Anderson",
+  },
+  {
+    "birthDate": "12/01/1930",
+    "hdbID": "10057",
+    "name": "Jim Anderson",
+  },
+  {
+    "birthDate": "06/19/1998",
+    "hdbID": "177776",
+    "name": "Joey Anderson",
+  },
+  {
+    "birthDate": "03/28/1957",
+    "hdbID": "69",
+    "name": "John Anderson",
+  },
+  {
+    "birthDate": "05/07/1994",
+    "hdbID": "138920",
+    "name": "Josh Anderson",
+  },
+  {
+    "birthDate": "07/26/1931",
+    "hdbID": "11452",
+    "name": "Lorne Anderson",
+  },
+  {
+    "birthDate": "10/31/1982",
+    "hdbID": "72064",
+    "name": "Matt Anderson",
+  },
+  {
+    "birthDate": "05/25/1999",
+    "hdbID": "187480",
+    "name": "Michael Anderson",
+  },
+  {
+    "birthDate": "08/28/1949",
+    "hdbID": "6795",
+    "name": "Murray Anderson",
+  },
+  {
+    "birthDate": "10/14/1961",
+    "hdbID": "71",
+    "name": "Perry Anderson",
+  },
+  {
+    "birthDate": "07/29/1945",
+    "hdbID": "72",
+    "name": "Ron Anderson",
+  },
+  {
+    "birthDate": "01/21/1950",
+    "hdbID": "11895",
+    "name": "Ron Anderson",
+  },
+  {
+    "birthDate": "02/12/1955",
+    "hdbID": "73",
+    "name": "Russ Anderson",
+  },
+  {
+    "birthDate": "02/07/1968",
+    "hdbID": "74",
+    "name": "Shawn Anderson",
+  },
+  {
+    "birthDate": "07/09/1911",
+    "hdbID": "14615",
+    "name": "Tommy Anderson",
+  },
+  {
+    "birthDate": "09/12/1999",
+    "hdbID": "178052",
+    "name": "Jaret Anderson-Dolan",
+  },
+  {
+    "birthDate": "08/19/1971",
+    "hdbID": "22600",
+    "name": "Erik Andersson",
+  },
+  {
+    "birthDate": "02/05/1989",
+    "hdbID": "98448",
+    "name": "Joakim Andersson",
+  },
+  {
+    "birthDate": "02/24/1981",
+    "hdbID": "45120",
+    "name": "Jonas Andersson",
+  },
+  {
+    "birthDate": "05/24/1951",
+    "hdbID": "75",
+    "name": "Kent-Erik Andersson",
+  },
+  {
+    "birthDate": "10/13/1998",
+    "hdbID": "192069",
+    "name": "Lias Andersson",
+  },
+  {
+    "birthDate": "05/10/1966",
+    "hdbID": "76",
+    "name": "Mikael Andersson",
+  },
+  {
+    "birthDate": "05/20/1971",
+    "hdbID": "77",
+    "name": "Niklas Andersson",
+  },
+  {
+    "birthDate": "03/02/1962",
+    "hdbID": "34233",
+    "name": "Peter Andersson",
+  },
+  {
+    "birthDate": "08/29/1965",
+    "hdbID": "78",
+    "name": "Peter Andersson",
+  },
+  {
+    "birthDate": "10/27/1996",
+    "hdbID": "165972",
+    "name": "Rasmus Andersson",
+  },
+  {
+    "birthDate": "02/23/2002",
+    "hdbID": "210421",
+    "name": "Emil Andrae",
+  },
+  {
+    "birthDate": "11/06/1948",
+    "hdbID": "6607",
+    "name": "Steve Andrascik",
+  },
+  {
+    "birthDate": "07/31/1941",
+    "hdbID": "79",
+    "name": "Paul Andrea",
+  },
+  {
+    "birthDate": "05/17/1991",
+    "hdbID": "106790",
+    "name": "Andy Andreoff",
+  },
+  {
+    "birthDate": "&nbsp;",
+    "hdbID": "17101",
+    "name": "Lloyd "Shrimp" Andrews",
+  },
+  {
+    "birthDate": "09/29/1963",
+    "hdbID": "80",
+    "name": "Dave Andreychuk",
+  },
+  {
+    "birthDate": "03/21/1993",
+    "hdbID": "143315",
+    "name": "Sven Andrighetto",
+  },
+  {
+    "birthDate": "08/10/1968",
+    "hdbID": "81",
+    "name": "Alexander Andrijevski",
+  },
+  {
+    "birthDate": "07/10/1953",
+    "hdbID": "82",
+    "name": "Ron Andruff",
+  },
+  {
+    "birthDate": "11/14/1969",
+    "hdbID": "83",
+    "name": "Greg Andrusak",
+  },
+  {
+    "birthDate": "06/27/1985",
+    "hdbID": "71815",
+    "name": "Mike Angelidis",
+  },
+  {
+    "birthDate": "03/06/1996",
+    "hdbID": "170268",
+    "name": "Anthony Angello",
+  },
+  {
+    "birthDate": "10/31/1971",
+    "hdbID": "6012",
+    "name": "Mel Angelstad",
+  },
+  {
+    "birthDate": "09/30/2000",
+    "hdbID": "195852",
+    "name": "Tyler Angle",
+  },
+  {
+    "birthDate": "01/16/1938",
+    "hdbID": "87",
+    "name": "Lou Angotti",
+  },
+  {
+    "birthDate": "11/23/1962",
+    "hdbID": "88",
+    "name": "Darrell Anholt",
+  },
+  {
+    "birthDate": "05/24/1988",
+    "hdbID": "95342",
+    "name": "Artem Anisimov",
+  },
+  {
+    "birthDate": "03/11/2000",
+    "hdbID": "213316",
+    "name": "Justus Annunen",
+  },
+  {
+    "birthDate": "03/23/1926",
+    "hdbID": "13310",
+    "name": "Hub Anslow",
+  },
+  {
+    "birthDate": "12/06/1992",
+    "hdbID": "132181",
+    "name": "Viktor Antipin",
+  },
+  {
+    "birthDate": "10/18/1951",
+    "hdbID": "90",
+    "name": "Mike Antonovich",
+  },
+  {
+    "birthDate": "03/25/1970",
+    "hdbID": "92",
+    "name": "Shawn Antoski",
+  },
+  {
+    "birthDate": "02/18/1980",
+    "hdbID": "36977",
+    "name": "Nikolai Antropov",
+  },
+  {
+    "birthDate": "04/10/1995",
+    "hdbID": "145017",
+    "name": "Ken Appleby",
+  },
+  {
+    "birthDate": "01/15/1996",
+    "hdbID": "177777",
+    "name": "Mason Appleton",
+  },
+  {
+    "birthDate": "01/18/1915",
+    "hdbID": "12150",
+    "name": "Syl Apps",
+  },
+  {
+    "birthDate": "08/01/1947",
+    "hdbID": "96",
+    "name": "Syl Apps",
+  },
+  {
+    "birthDate": "11/01/1932",
+    "hdbID": "97",
+    "name": "Al Arbour",
+  },
+  {
+    "birthDate": "01/26/1895",
+    "hdbID": "29888",
+    "name": "Amos Arbour",
+  },
+  {
+    "birthDate": "06/29/1896",
+    "hdbID": "22884",
+    "name": "Ernest "Ty" Arbour",
+  },
+  {
+    "birthDate": "03/07/1898",
+    "hdbID": "22844",
+    "name": "Jack Arbour",
+  },
+  {
+    "birthDate": "09/28/1945",
+    "hdbID": "98",
+    "name": "John Arbour",
+  },
+  {
+    "birthDate": "09/27/1950",
+    "hdbID": "99",
+    "name": "Michel Archambault",
+  },
+  {
+    "birthDate": "02/09/1990",
+    "hdbID": "115481",
+    "name": "Darren Archibald",
+  },
+  {
+    "birthDate": "04/14/1969",
+    "hdbID": "100",
+    "name": "Dave Archibald",
+  },
+  {
+    "birthDate": "06/06/1961",
+    "hdbID": "9478",
+    "name": "Jim Archibald",
+  },
+  {
+    "birthDate": "10/06/1992",
+    "hdbID": "143112",
+    "name": "Josh Archibald",
+  },
+  {
+    "birthDate": "08/12/1988",
+    "hdbID": "97683",
+    "name": "Mark Arcobello",
+  },
+  {
+    "birthDate": "06/13/1957",
+    "hdbID": "6241",
+    "name": "Ron Areshenkoff",
+  },
+  {
+    "birthDate": "05/19/1979",
+    "hdbID": "36988",
+    "name": "Denis Arkhipov",
+  },
+  {
+    "birthDate": "05/31/1993",
+    "hdbID": "130454",
+    "name": "Joel Armia",
+  },
+  {
+    "birthDate": "06/25/1966",
+    "hdbID": "5902",
+    "name": "Bill Armstrong",
+  },
+  {
+    "birthDate": "04/07/1931",
+    "hdbID": "104",
+    "name": "Bob Armstrong",
+  },
+  {
+    "birthDate": "06/26/1975",
+    "hdbID": "6204",
+    "name": "Chris Armstrong",
+  },
+  {
+    "birthDate": "11/23/1982",
+    "hdbID": "46427",
+    "name": "Colby Armstrong",
+  },
+  {
+    "birthDate": "04/23/1973",
+    "hdbID": "105",
+    "name": "Derek Armstrong",
+  },
+  {
+    "birthDate": "07/06/1930",
+    "hdbID": "106",
+    "name": "George Armstrong",
+  },
+  {
+    "birthDate": "01/01/1916",
+    "hdbID": "107",
+    "name": "Murray Armstrong",
+  },
+  {
+    "birthDate": "10/17/1938",
+    "hdbID": "8767",
+    "name": "Norm "Red" Armstrong",
+  },
+  {
+    "birthDate": "11/08/1984",
+    "hdbID": "68990",
+    "name": "Riley Armstrong",
+  },
+  {
+    "birthDate": "05/12/1967",
+    "hdbID": "108",
+    "name": "Tim Armstrong",
+  },
+  {
+    "birthDate": "07/15/1951",
+    "hdbID": "109",
+    "name": "Chuck Arnason",
+  },
+  {
+    "birthDate": "03/16/1979",
+    "hdbID": "42531",
+    "name": "Tyler Arnason",
+  },
+  {
+    "birthDate": "11/16/1989",
+    "hdbID": "89729",
+    "name": "Jamie Arniel",
+  },
+  {
+    "birthDate": "09/17/1962",
+    "hdbID": "110",
+    "name": "Scott Arniel",
+  },
+  {
+    "birthDate": "05/13/1992",
+    "hdbID": "123266",
+    "name": "Bill Arnold",
+  },
+  {
+    "birthDate": "10/11/1974",
+    "hdbID": "112",
+    "name": "Jason Arnott",
+  },
+  {
+    "birthDate": "07/20/1980",
+    "hdbID": "29246",
+    "name": "Dean Arsene",
+  },
+  {
+    "birthDate": "03/06/1961",
+    "hdbID": "116",
+    "name": "Fred Arthur",
+  },
+  {
+    "birthDate": "04/04/1983",
+    "hdbID": "56840",
+    "name": "Evgeny Artyukhin",
+  },
+  {
+    "birthDate": "11/04/1927",
+    "hdbID": "12117",
+    "name": "Johnny Arundel",
+  },
+  {
+    "birthDate": "11/25/1971",
+    "hdbID": "28404",
+    "name": "Magnus Arvedson",
+  },
+  {
+    "birthDate": "04/08/1993",
+    "hdbID": "139983",
+    "name": "Viktor Arvidsson",
+  },
+  {
+    "birthDate": "04/13/1978",
+    "hdbID": "19303",
+    "name": "Arron Asham",
+  },
+  {
+    "birthDate": "07/28/1939",
+    "hdbID": "117",
+    "name": "Barry Ashbee",
+  },
+  {
+    "birthDate": "03/08/1955",
+    "hdbID": "118",
+    "name": "Don Ashby",
+  },
+  {
+    "birthDate": "05/18/1960",
+    "hdbID": "119",
+    "name": "Brent Ashton",
+  },
+  {
+    "birthDate": "04/01/1991",
+    "hdbID": "100351",
+    "name": "Carter Ashton",
+  },
+  {
+    "birthDate": "10/16/1927",
+    "hdbID": "13018",
+    "name": "Frank Ashworth",
+  },
+  {
+    "birthDate": "06/16/2002",
+    "hdbID": "230532",
+    "name": "Yaroslav Askarov",
+  },
+  {
+    "birthDate": "10/04/1974",
+    "hdbID": "18214",
+    "name": "Tom Askey",
+  },
+  {
+    "birthDate": "11/17/1908",
+    "hdbID": "17123",
+    "name": "Oscar "Ossie" Asmundson",
+  },
+  {
+    "birthDate": "12/03/1997",
+    "hdbID": "176326",
+    "name": "Rasmus Asplund",
+  },
+  {
+    "birthDate": "02/07/1975",
+    "hdbID": "40069",
+    "name": "Kaspars Astashenko",
+  },
+  {
+    "birthDate": "03/30/1969",
+    "hdbID": "123",
+    "name": "Mark Astley",
+  },
+  {
+    "birthDate": "08/10/1994",
+    "hdbID": "132890",
+    "name": "Zachary Aston-Reese",
+  },
+  {
+    "birthDate": "03/29/1951",
+    "hdbID": "124",
+    "name": "Hardy Astrom",
+  },
+  {
+    "birthDate": "12/22/1922",
+    "hdbID": "13049",
+    "name": "Walt Atanas",
+  },
+  {
+    "birthDate": "04/20/1969",
+    "hdbID": "125",
+    "name": "Blair Atcheynum",
+  },
+  {
+    "birthDate": "08/06/1994",
+    "hdbID": "130614",
+    "name": "Andreas Athanasiou",
+  },
+  {
+    "birthDate": "06/05/1989",
+    "hdbID": "113815",
+    "name": "Cam Atkinson",
+  },
+  {
+    "birthDate": "10/16/1948",
+    "hdbID": "127",
+    "name": "Steve Atkinson",
+  },
+  {
+    "birthDate": "03/20/1999",
+    "hdbID": "197717",
+    "name": "Ronnie Attard",
+  },
+  {
+    "birthDate": "12/26/1959",
+    "hdbID": "7457",
+    "name": "Bob Attwell",
+  },
+  {
+    "birthDate": "02/09/1935",
+    "hdbID": "10052",
+    "name": "Ron Attwell",
+  },
+  {
+    "birthDate": "05/10/1996",
+    "hdbID": "160327",
+    "name": "Nicolas Aube-Kubel",
+  },
+  {
+    "birthDate": "07/19/1977",
+    "hdbID": "28496",
+    "name": "Jean-Sebastien Aubin",
+  },
+  {
+    "birthDate": "07/26/1960",
+    "hdbID": "129",
+    "name": "Normand Aubin",
+  },
+  {
+    "birthDate": "02/15/1975",
+    "hdbID": "18614",
+    "name": "Serge Aubin",
+  },
+  {
+    "birthDate": "04/15/1960",
+    "hdbID": "131",
+    "name": "Pierre Aubry",
+  },
+  {
+    "birthDate": "01/01/1917",
+    "hdbID": "14564",
+    "name": "Oscar Aubuchon",
+  },
+  {
+    "birthDate": "07/03/1973",
+    "hdbID": "133",
+    "name": "Adrian Aucoin",
+  },
+  {
+    "birthDate": "11/06/1978",
+    "hdbID": "59525",
+    "name": "Keith Aucoin",
+  },
+  {
+    "birthDate": "06/04/1977",
+    "hdbID": "19357",
+    "name": "Philippe Audet",
+  },
+  {
+    "birthDate": "09/23/1969",
+    "hdbID": "134",
+    "name": "Donald Audette",
+  },
+  {
+    "birthDate": "05/16/1953",
+    "hdbID": "7354",
+    "name": "Les Auge",
+  },
+  {
+    "birthDate": "05/14/1994",
+    "hdbID": "145018",
+    "name": "Justin Auger",
+  },
+  {
+    "birthDate": "11/13/1969",
+    "hdbID": "136",
+    "name": "Patrik Augusta",
+  },
+  {
+    "birthDate": "01/07/1981",
+    "hdbID": "31798",
+    "name": "Alex Auld",
+  },
+  {
+    "birthDate": "06/11/1989",
+    "hdbID": "89905",
+    "name": "Keith Aulie",
+  },
+  {
+    "birthDate": "03/15/1982",
+    "hdbID": "31167",
+    "name": "Jared Aulin",
+  },
+  {
+    "birthDate": "02/08/1905",
+    "hdbID": "137",
+    "name": "Larry Aurie",
+  },
+  {
+    "birthDate": "06/16/1993",
+    "hdbID": "122924",
+    "name": "Brady Austin",
+  },
+  {
+    "birthDate": "07/27/1989",
+    "hdbID": "101311",
+    "name": "Yohann Auvitu",
+  },
+  {
+    "birthDate": "04/10/1980",
+    "hdbID": "25942",
+    "name": "Sean Avery",
+  },
+  {
+    "birthDate": "07/18/1943",
+    "hdbID": "147",
+    "name": "Don Awrey",
+  },
+  {
+    "birthDate": "02/26/1975",
+    "hdbID": "15995",
+    "name": "P.J. Axelsson",
+  },
+  {
+    "birthDate": "08/12/1977",
+    "hdbID": "232235",
+    "name": "David Ayres",
+  },
+  {
+    "birthDate": "05/27/1909",
+    "hdbID": "149",
+    "name": "Vernon Ayres",
+  },
+  {
+    "birthDate": "12/26/1937",
+    "hdbID": "5512",
+    "name": "Gene Ubriaco",
+  },
+  {
+    "birthDate": "12/31/1992",
+    "hdbID": "123037",
+    "name": "Dominik Uher",
+  },
+  {
+    "birthDate": "10/01/1969",
+    "hdbID": "5515",
+    "name": "Igor Ulanov",
+  },
+  {
+    "birthDate": "12/26/1935",
+    "hdbID": "5516",
+    "name": "Norm Ullman",
+  },
+  {
+    "birthDate": "07/31/1993",
+    "hdbID": "152794",
+    "name": "Linus Ullmark",
+  },
+  {
+    "birthDate": "04/22/1989",
+    "hdbID": "112734",
+    "name": "David Ullstrom",
+  },
+  {
+    "birthDate": "04/27/1977",
+    "hdbID": "27868",
+    "name": "Jeff Ulmer",
+  },
+  {
+    "birthDate": "09/14/1980",
+    "hdbID": "31019",
+    "name": "Layne Ulmer",
+  },
+  {
+    "birthDate": "05/03/1982",
+    "hdbID": "54470",
+    "name": "R.J. Umberger",
+  },
+  {
+    "birthDate": "09/16/1979",
+    "hdbID": "41468",
+    "name": "Matt Underhill",
+  },
+  {
+    "birthDate": "12/07/1947",
+    "hdbID": "5518",
+    "name": "Garry Unger",
+  },
+  {
+    "birthDate": "10/07/1983",
+    "hdbID": "55361",
+    "name": "Scottie Upshall",
+  },
+  {
+    "birthDate": "12/20/1990",
+    "hdbID": "118535",
+    "name": "Alexander Urbom",
+  },
+  {
+    "birthDate": "01/03/1974",
+    "hdbID": "5521",
+    "name": "Stefan Ustorf",
+  },
 ]
 `;
 
@@ -10,72 +1304,72 @@ exports[`getNamesFromPage function when passed an html page, will extract all of
 [
   {
     "birthDate": "12/26/1937",
-    "id": "5512",
+    "hdbID": "5512",
     "name": "Gene Ubriaco",
   },
   {
     "birthDate": "12/31/1992",
-    "id": "123037",
+    "hdbID": "123037",
     "name": "Dominik Uher",
   },
   {
     "birthDate": "10/01/1969",
-    "id": "5515",
+    "hdbID": "5515",
     "name": "Igor Ulanov",
   },
   {
     "birthDate": "12/26/1935",
-    "id": "5516",
+    "hdbID": "5516",
     "name": "Norm Ullman",
   },
   {
     "birthDate": "07/31/1993",
-    "id": "152794",
+    "hdbID": "152794",
     "name": "Linus Ullmark",
   },
   {
     "birthDate": "04/22/1989",
-    "id": "112734",
+    "hdbID": "112734",
     "name": "David Ullstrom",
   },
   {
     "birthDate": "04/27/1977",
-    "id": "27868",
+    "hdbID": "27868",
     "name": "Jeff Ulmer",
   },
   {
     "birthDate": "09/14/1980",
-    "id": "31019",
+    "hdbID": "31019",
     "name": "Layne Ulmer",
   },
   {
     "birthDate": "05/03/1982",
-    "id": "54470",
+    "hdbID": "54470",
     "name": "R.J. Umberger",
   },
   {
     "birthDate": "09/16/1979",
-    "id": "41468",
+    "hdbID": "41468",
     "name": "Matt Underhill",
   },
   {
     "birthDate": "12/07/1947",
-    "id": "5518",
+    "hdbID": "5518",
     "name": "Garry Unger",
   },
   {
     "birthDate": "10/07/1983",
-    "id": "55361",
+    "hdbID": "55361",
     "name": "Scottie Upshall",
   },
   {
     "birthDate": "12/20/1990",
-    "id": "118535",
+    "hdbID": "118535",
     "name": "Alexander Urbom",
   },
   {
     "birthDate": "01/03/1974",
-    "id": "5521",
+    "hdbID": "5521",
     "name": "Stefan Ustorf",
   },
 ]

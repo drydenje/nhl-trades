@@ -99,7 +99,7 @@ const config: Config = {
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
-  modulePathIgnorePatterns: ["<rootDir>/lib/"],
+  modulePathIgnorePatterns: ["<rootDir>/lib/", "<rootDir>/public/"],
 
   // Activates notifications for test results
   // notify: false,
