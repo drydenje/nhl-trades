@@ -1,5 +1,4 @@
-import { getPage } from "./utils.js";
-import { readFile } from "./utils";
+import { readFile, removeNickname } from "./utils";
 const path = require("path");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
@@ -29,8 +28,11 @@ const getNamesFromPage = (page) => {
     .map((index, player) => {
       return {
         hdbID: $("a", player).attr("href").match(/\d+$/)[0],
-        name: $("a", player).html(),
-        birthDate: $("td:eq(2)", player).html().trim(),
+        name: removeNickname($("a", player).html()),
+        birthDate: new Date(
+          $("td:eq(2)", player).html().trim()
+        ).toLocaleDateString("en-CA"),
+        // new Date('02/04/1930').toLocaleDateString('en-CA')
       };
     })
     .toArray();
@@ -99,15 +101,9 @@ const getAllPlayers = (letters, baseFilePath) => {
     const fileToParse = `${baseFilePath}/NHL Player List -- ${letter.toUpperCase()}.html`;
     const html = readFile(fileToParse);
     const playersForLetter = getNamesFromPage(html);
-    // console.log("PL:", playersForLetter);
     allPlayers = [...allPlayers, ...playersForLetter];
   });
-  // .flat();
-  // console.log("P:", allPlayers);
-  // return ["test"];
   return allPlayers.flat(); //.flatMap(player => );
-  // call getNamesFromPage
-  // append the array of players to a file? maybe keep this out?
 };
 
 export { getNamesFromPage, parsePlayer, getAllPlayers };

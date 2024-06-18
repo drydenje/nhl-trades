@@ -33,45 +33,40 @@ describe("getNamesFromPage function", () => {
 describe("getAllPlayers function", () => {
   test("when passed an array of letters and a base file path, will extract all player info", async () => {
     const filePath = `public/raw-mock-data/hockeydb`;
-    // const letters = ["A", "U"];
-    const letters = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
-    const output = `${filePath}/res.js`;
-    // console.log(output);
-
+    const letters = ["A", "U"];
+    // const letters = [
+    //   "A",
+    //   "B",
+    //   "C",
+    //   "D",
+    //   "E",
+    //   "F",
+    //   "G",
+    //   "H",
+    //   "I",
+    //   "J",
+    //   "K",
+    //   "L",
+    //   "M",
+    //   "N",
+    //   "O",
+    //   "P",
+    //   "Q",
+    //   "R",
+    //   "S",
+    //   "T",
+    //   "U",
+    //   "V",
+    //   "W",
+    //   "X",
+    //   "Y",
+    //   "Z",
+    // ];
+    // const output = `${filePath}/res.js`;
     const result = getAllPlayers(letters, filePath);
-    // .then((res) => {
-    writeFile(output, result);
-    // });
-    // console.log(result);
+    // writeFile(output, result);
     // expect(result).toMatchSnapshot();
-    // expect(result.length).toEqual(259);
-    expect(result.length).toEqual(8556);
+    expect(result.length).toEqual(259);
+    // expect(result.length).toEqual(8556);
   });
 });

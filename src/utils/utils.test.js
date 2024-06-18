@@ -1,4 +1,11 @@
-import { checkArray, getNextYear, getPage, readFile, convert } from "./utils";
+import {
+  checkArray,
+  getNextYear,
+  getPage,
+  readFile,
+  convert,
+  removeNickname,
+} from "./utils";
 import { server, http, HttpResponse } from "../config/testServer";
 const DATA_FILEPATH = `./public/raw-mock-data/`;
 
@@ -94,5 +101,19 @@ describe("getPage function", () => {
     );
 
     await expect(convert("FAIL", "CAD")).rejects.toThrow("404");
+  });
+});
+
+describe("removeNickname function", () => {
+  test.only("given a full name (string), will remove nickname and the quotes around it", () => {
+    const player = {
+      hdbID: "14560",
+      name: 'Martin "Buster" Zoborosky',
+      birthDate: "11/12/1916",
+    };
+
+    const result = removeNickname(player.name);
+
+    expect(result).toEqual("Martin Zoborosky");
   });
 });

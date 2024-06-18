@@ -68,4 +68,19 @@ async function convert(base, destination) {
   return data.rates[destination];
 }
 
-export { checkArray, getNextYear, getPage, readFile, writeFile, convert };
+const removeNickname = (nickname) => {
+  // 1. Remove the nickname and the quotes around it
+  // 2. This leaves two whitespace characters
+  // 3. Replace the two characters with a single one
+  return nickname.replace(/"([^"]*)"/g, "").replace(/\s\s+/g, " ");
+};
+
+export {
+  checkArray,
+  getNextYear,
+  getPage,
+  readFile,
+  writeFile,
+  convert,
+  removeNickname,
+};
