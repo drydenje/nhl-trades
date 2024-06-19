@@ -106,4 +106,9 @@ const getAllPlayers = (letters, baseFilePath) => {
   return allPlayers.flat(); //.flatMap(player => );
 };
 
-export { getNamesFromPage, parsePlayer, getAllPlayers };
+// Takes two players and returns one..?
+const setHdbID = () => {
+  return false;
+};
+
+export { getNamesFromPage, parsePlayer, getAllPlayers, setHdbID };

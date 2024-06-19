@@ -3,6 +3,7 @@ import {
   getAllPlayers,
   getNamesFromPage,
   parsePlayer,
+  setHdbID,
 } from "./hockey-db-id-scraper.js";
 
 // describe("parsePlayer function", () => {
@@ -68,5 +69,28 @@ describe("getAllPlayers function", () => {
     // expect(result).toMatchSnapshot();
     expect(result.length).toEqual(259);
     // expect(result.length).toEqual(8556);
+  });
+});
+
+describe("set hdbID on player objects", () => {
+  test.only("when a single player object is found, add the hdbID to it", () => {
+    const player = {
+      id: 8444998,
+      name: "Ace Bailey",
+      hrID: "baileac01",
+      birthDate: "1903-07-03",
+    };
+
+    const expected = {
+      id: 8444998,
+      name: "Ace Bailey",
+      hrID: "baileac01",
+      hdbID: "167",
+      birthDate: "1903-07-03",
+    };
+
+    const result = setHdbID();
+
+    expect(result).toEqual(expected);
   });
 });
