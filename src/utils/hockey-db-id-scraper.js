@@ -107,8 +107,11 @@ const getAllPlayers = (letters, baseFilePath) => {
 };
 
 // Takes two players and returns one..?
-const setHdbID = () => {
-  return false;
+const setHdbID = (player, hdbID) => {
+  return {
+    ...player,
+    hdbID: hdbID ? hdbID : null,
+  };
 };
 
 export { getNamesFromPage, parsePlayer, getAllPlayers, setHdbID };

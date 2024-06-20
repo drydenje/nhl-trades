@@ -81,6 +81,12 @@ describe("set hdbID on player objects", () => {
       birthDate: "1903-07-03",
     };
 
+    const hdbIDPlayer = {
+      name: "Ace Bailey",
+      hdbID: "167",
+      birthDate: "1903-07-03",
+    };
+
     const expected = {
       id: 8444998,
       name: "Ace Bailey",
@@ -89,7 +95,7 @@ describe("set hdbID on player objects", () => {
       birthDate: "1903-07-03",
     };
 
-    const result = setHdbID();
+    const result = setHdbID(player, 167);
 
     expect(result).toEqual(expected);
   });

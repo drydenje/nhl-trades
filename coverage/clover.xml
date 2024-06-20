@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718768345454" clover="3.2.0">
-  <project timestamp="1718768345454" name="All files">
-    <metrics statements="60" coveredstatements="16" conditionals="10" coveredconditionals="0" methods="14" coveredmethods="1" elements="84" coveredelements="17" complexity="0" loc="60" ncloc="60" packages="1" files="2" classes="2"/>
+<coverage generated="1718843967093" clover="3.2.0">
+  <project timestamp="1718843967093" name="All files">
+    <metrics statements="60" coveredstatements="16" conditionals="12" coveredconditionals="1" methods="14" coveredmethods="1" elements="86" coveredelements="18" complexity="0" loc="60" ncloc="60" packages="1" files="2" classes="2"/>
     <file name="hockey-db-id-scraper.js" path="B:\Dev\src\nhl-trades\src\utils\hockey-db-id-scraper.js">
-      <metrics statements="26" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+      <metrics statements="26" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="1"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
