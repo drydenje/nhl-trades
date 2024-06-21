@@ -106,12 +106,24 @@ const getAllPlayers = (letters, baseFilePath) => {
   return allPlayers.flat(); //.flatMap(player => );
 };
 
-// Takes two players and returns one..?
-const setHdbID = (player, hdbID) => {
-  return {
-    ...player,
-    hdbID: hdbID ? hdbID : null,
-  };
+// Takes two players and returns one combined (if it's the same person)
+const setHdbID = (player, hdbPlayer) => {
+  // check that the name and birthdate match to verify it's the same person
+  if (
+    player.name === hdbPlayer.name &&
+    player.birthDate === hdbPlayer.birthDate
+  ) {
+    // it's the same person, add the hdbID
+    return {
+      ...player,
+      hdbID: hdbPlayer.hdbID ? hdbPlayer.hdbID : null,
+    };
+  } else {
+    // it's a different person, just return the first player without the hdbID
+    return {
+      ...player,
+    };
+  }
 };
 
 export { getNamesFromPage, parsePlayer, getAllPlayers, setHdbID };

@@ -2,23 +2,8 @@ import { getPage, readFile, writeFile } from "./utils";
 import {
   getAllPlayers,
   getNamesFromPage,
-  parsePlayer,
   setHdbID,
 } from "./hockey-db-id-scraper.js";
-
-// describe("parsePlayer function", () => {
-//   test("when passed a row of player data, will return an object with name, id, and birthday", () => {
-//     const html = `<td><a href=\"https://www.hockeydb.com/ihdb/stats/pdisplay.php?pid=5512\">Gene Ubriaco</a></td>\n<td>L</td>\n<td>12/26/1937</td>\n<td>Sault Ste. Marie, ONT</td>\n<td>1967-1970</td>\n<td>177</td>\n<td>39</td>\n<td>35</td>\n<td>74</td>\n<td>50</td>\n<td>3</td>`;
-//     const player = {
-//       name: "Gene Ubriaco",
-//       id: "5512",
-//       birthDate: "12/26/1937",
-//     };
-
-//     const result = parsePlayer(html);
-//     expect(result).toEqual(player);
-//   });
-// });
 
 describe("getNamesFromPage function", () => {
   test("when passed an html page, will extract all of the players from it", async () => {
@@ -73,7 +58,7 @@ describe("getAllPlayers function", () => {
 });
 
 describe("set hdbID on player objects", () => {
-  test.only("when a single player object is found, add the hdbID to it", () => {
+  test("when a players name and birthdate match, add the hdbID to it", () => {
     const player = {
       id: 8444998,
       name: "Ace Bailey",
@@ -95,7 +80,33 @@ describe("set hdbID on player objects", () => {
       birthDate: "1903-07-03",
     };
 
-    const result = setHdbID(player, 167);
+    const result = setHdbID(player, hdbIDPlayer);
+
+    expect(result).toEqual(expected);
+  });
+
+  test.only("when a players name and birthdate dont' match, don't add the hdbID to it", () => {
+    const player = {
+      id: 8444998,
+      name: "Ace Bailey",
+      hrID: "baileac01",
+      birthDate: "1903-07-03",
+    };
+
+    const hdbIDPlayer = {
+      name: "Ace Bailey",
+      hdbID: "167",
+      birthDate: "1943-07-03",
+    };
+
+    const expected = {
+      id: 8444998,
+      name: "Ace Bailey",
+      hrID: "baileac01",
+      birthDate: "1903-07-03",
+    };
+
+    const result = setHdbID(player, hdbIDPlayer);
 
     expect(result).toEqual(expected);
   });

@@ -17,6 +17,7 @@
   - eg: Pick a goal, and the program will rewind through the history and find out where it all started
 - use scoresheets to automate finding moments
 - follow a player throughout his career
+- major trades that seemed minor at the time (Ken Dryden?): You wouldn't steal a Star? (Steal a car spoof)
 
 ## Reporting Feature
 
@@ -33,17 +34,20 @@
 ### Nodes
 
 - Player
+  -- id
   -- hdbId
   -- hrId
-  -- nhlId
   -- Name
-  -- Position
+  -- birthDate
+  -- verified (bool)
+  -- nhlAPIstats
 
 - Team
   -- hdbId
   -- hrId
   -- nhlId
   -- Name
+  -- verified
 
 - DraftPick
   -- year
@@ -53,7 +57,7 @@
 
 - Trade
   -- tradeDate ?
-  --
+  -- a
 
 - TRADED_TO
   -- fromTeam
