@@ -126,4 +126,36 @@ const setHdbID = (player, hdbPlayer) => {
   }
 };
 
-export { getNamesFromPage, parsePlayer, getAllPlayers, setHdbID };
+const addHdbIDToAll = (players, hdbPlayers) => {
+  const result = players.map((player) => {
+    const findHdbPlayers = hdbPlayers.filter(
+      (hdbPlayer) => hdbPlayer.name === player.name
+    );
+    // console.log("FIND:", findHdbPlayers);
+    // console.log("FIND:", player);
+
+    // if (findHdbPlayers.length === 0) {
+    //   console.log("ZERO:", findHdbPlayers);
+    //   console.log("PL:", player);
+    // }
+    // return player;
+
+    const fPlayers = findHdbPlayers.filter(
+      (p) => p.birthDate === player.birthDate
+    );
+    // console.log("FP:", fPlayers);
+
+    return fPlayers[0] || player;
+    // return setHdbID(player, temp);
+  });
+
+  return result;
+};
+
+export {
+  getNamesFromPage,
+  parsePlayer,
+  getAllPlayers,
+  setHdbID,
+  addHdbIDToAll,
+};

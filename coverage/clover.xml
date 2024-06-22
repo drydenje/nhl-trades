@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718937024025" clover="3.2.0">
-  <project timestamp="1718937024025" name="All files">
-    <metrics statements="62" coveredstatements="17" conditionals="16" coveredconditionals="3" methods="14" coveredmethods="1" elements="92" coveredelements="21" complexity="0" loc="62" ncloc="62" packages="1" files="2" classes="2"/>
+<coverage generated="1719026610551" clover="3.2.0">
+  <project timestamp="1719026610551" name="All files">
+    <metrics statements="70" coveredstatements="23" conditionals="18" coveredconditionals="2" methods="18" coveredmethods="4" elements="106" coveredelements="29" complexity="0" loc="70" ncloc="70" packages="1" files="2" classes="2"/>
     <file name="hockey-db-id-scraper.js" path="B:\Dev\src\nhl-trades\src\utils\hockey-db-id-scraper.js">
-      <metrics statements="28" coveredstatements="10" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="1"/>
+      <metrics statements="36" coveredstatements="16" conditionals="8" coveredconditionals="2" methods="10" coveredmethods="4"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
@@ -29,9 +29,17 @@
       <line num="104" count="0" type="stmt"/>
       <line num="106" count="0" type="stmt"/>
       <line num="110" count="1" type="stmt"/>
-      <line num="112" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="112" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="117" count="0" type="stmt"/>
-      <line num="123" count="1" type="stmt"/>
+      <line num="123" count="0" type="stmt"/>
+      <line num="129" count="1" type="stmt"/>
+      <line num="130" count="1" type="stmt"/>
+      <line num="131" count="5" type="stmt"/>
+      <line num="132" count="40" type="stmt"/>
+      <line num="143" count="5" type="stmt"/>
+      <line num="144" count="8" type="stmt"/>
+      <line num="148" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="152" count="1" type="stmt"/>
     </file>
     <file name="utils.js" path="B:\Dev\src\nhl-trades\src\utils\utils.js">
       <metrics statements="34" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="0"/>
