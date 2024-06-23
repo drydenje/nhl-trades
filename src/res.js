@@ -1,4 +1,4 @@
-[
+const hdbPlayers = [
   { hdbID: "5928", name: "Antti Aalto", birthDate: "1975-03-04" },
   { hdbID: "14591", name: "George Abbott", birthDate: "1911-08-03" },
   { hdbID: "11431", name: "Reg Abbott", birthDate: "1930-02-04" },
@@ -8564,3 +8564,5 @@
   { hdbID: "160415", name: "Valentin Zykov", birthDate: "1995-05-15" },
   { hdbID: "19374", name: "Andrei Zyuzin", birthDate: "1978-01-21" },
 ];
+
+export default hdbPlayers;

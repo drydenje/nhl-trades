@@ -127,11 +127,17 @@ const setHdbID = (player, hdbPlayer) => {
 };
 
 const addHdbIDToAll = (players, hdbPlayers) => {
+  // if (typeof hdbPlayers.isObject) {
+  //   console.log(hdbPlayers);
+  //   throw "Not an array";
+  // }
+
+  // for each player in the nhl array
   const result = players.map((player) => {
+    // find player(s) in the hdb array with the same name
     const findHdbPlayers = hdbPlayers.filter(
       (hdbPlayer) => hdbPlayer.name === player.name
     );
-    // console.log("FIND:", findHdbPlayers);
     // console.log("FIND:", player);
 
     // if (findHdbPlayers.length === 0) {
@@ -140,15 +146,19 @@ const addHdbIDToAll = (players, hdbPlayers) => {
     // }
     // return player;
 
-    const fPlayers = findHdbPlayers.filter(
+    // refine the array further by comparing birthdates
+    let fPlayers = findHdbPlayers.filter(
       (p) => p.birthDate === player.birthDate
     );
-    // console.log("FP:", fPlayers);
 
-    return fPlayers[0] || player;
-    // return setHdbID(player, temp);
+    // return the final player object to the result array
+    return {
+      ...player,
+      hdbID: fPlayers[0]?.hdbID ? fPlayers[0].hdbID : null,
+    };
   });
 
+  // return the result array
   return result;
 };
 

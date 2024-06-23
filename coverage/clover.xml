@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1719026610551" clover="3.2.0">
-  <project timestamp="1719026610551" name="All files">
-    <metrics statements="70" coveredstatements="23" conditionals="18" coveredconditionals="2" methods="18" coveredmethods="4" elements="106" coveredelements="29" complexity="0" loc="70" ncloc="70" packages="1" files="2" classes="2"/>
+<coverage generated="1719088608511" clover="3.2.0">
+  <project timestamp="1719088608511" name="All files">
+    <metrics statements="70" coveredstatements="41" conditionals="18" coveredconditionals="7" methods="18" coveredmethods="11" elements="106" coveredelements="59" complexity="0" loc="70" ncloc="70" packages="1" files="2" classes="2"/>
     <file name="hockey-db-id-scraper.js" path="B:\Dev\src\nhl-trades\src\utils\hockey-db-id-scraper.js">
-      <metrics statements="36" coveredstatements="16" conditionals="8" coveredconditionals="2" methods="10" coveredmethods="4"/>
+      <metrics statements="36" coveredstatements="30" conditionals="8" coveredconditionals="7" methods="10" coveredmethods="9"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
@@ -15,34 +15,34 @@
       <line num="15" count="0" type="stmt"/>
       <line num="21" count="0" type="stmt"/>
       <line num="24" count="1" type="stmt"/>
-      <line num="25" count="0" type="stmt"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="29" count="0" type="stmt"/>
-      <line num="40" count="0" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
+      <line num="26" count="3" type="stmt"/>
+      <line num="29" count="273" type="stmt"/>
+      <line num="40" count="3" type="stmt"/>
       <line num="43" count="1" type="stmt"/>
       <line num="97" count="1" type="stmt"/>
-      <line num="98" count="0" type="stmt"/>
-      <line num="100" count="0" type="stmt"/>
-      <line num="101" count="0" type="stmt"/>
-      <line num="102" count="0" type="stmt"/>
-      <line num="103" count="0" type="stmt"/>
-      <line num="104" count="0" type="stmt"/>
-      <line num="106" count="0" type="stmt"/>
+      <line num="98" count="1" type="stmt"/>
+      <line num="100" count="1" type="stmt"/>
+      <line num="101" count="2" type="stmt"/>
+      <line num="102" count="2" type="stmt"/>
+      <line num="103" count="2" type="stmt"/>
+      <line num="104" count="2" type="stmt"/>
+      <line num="106" count="1" type="stmt"/>
       <line num="110" count="1" type="stmt"/>
-      <line num="112" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="117" count="0" type="stmt"/>
-      <line num="123" count="0" type="stmt"/>
+      <line num="112" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="117" count="1" type="stmt"/>
+      <line num="123" count="1" type="stmt"/>
       <line num="129" count="1" type="stmt"/>
-      <line num="130" count="1" type="stmt"/>
-      <line num="131" count="5" type="stmt"/>
-      <line num="132" count="40" type="stmt"/>
-      <line num="143" count="5" type="stmt"/>
-      <line num="144" count="8" type="stmt"/>
-      <line num="148" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="152" count="1" type="stmt"/>
+      <line num="131" count="1" type="stmt"/>
+      <line num="133" count="5" type="stmt"/>
+      <line num="134" count="40" type="stmt"/>
+      <line num="145" count="5" type="stmt"/>
+      <line num="146" count="8" type="stmt"/>
+      <line num="150" count="5" type="stmt"/>
+      <line num="157" count="1" type="stmt"/>
     </file>
     <file name="utils.js" path="B:\Dev\src\nhl-trades\src\utils\utils.js">
-      <metrics statements="34" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <metrics statements="34" coveredstatements="11" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="2"/>
       <line num="1" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
       <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -62,9 +62,9 @@
       <line num="34" count="0" type="stmt"/>
       <line num="36" count="0" type="stmt"/>
       <line num="41" count="1" type="stmt"/>
-      <line num="42" count="0" type="stmt"/>
-      <line num="43" count="0" type="stmt"/>
-      <line num="45" count="0" type="stmt"/>
+      <line num="42" count="3" type="stmt"/>
+      <line num="43" count="3" type="stmt"/>
+      <line num="45" count="3" type="stmt"/>
       <line num="47" count="0" type="stmt"/>
       <line num="52" count="1" type="stmt"/>
       <line num="53" count="0" type="stmt"/>
@@ -76,7 +76,7 @@
       <line num="67" count="0" type="stmt"/>
       <line num="68" count="0" type="stmt"/>
       <line num="71" count="1" type="stmt"/>
-      <line num="75" count="0" type="stmt"/>
+      <line num="75" count="273" type="stmt"/>
     </file>
   </project>
 </coverage>

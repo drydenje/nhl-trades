@@ -1,6 +1,6 @@
 import { convertArrayToCSV } from "convert-array-to-csv";
-import { writeFile, readFile } from "./utils/utils";
-import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping";
+import { writeFile, readFile } from "./utils/utils.js";
+import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
 import fs from "fs";
 
 import cron from "node-cron";
@@ -54,6 +54,38 @@ import cron from "node-cron";
 // cron.schedule("*/5 * * * * *", scrapeNHLBirthdays);
 // *******************************************
 // END: Add a birthdate to the duplicate id json file
+// *******************************************
+
+// *******************************************
+// Add hdbID's to the duplicate id json file
+// *******************************************
+import { addHdbIDToAll } from "./utils/hockey-db-id-scraper.js";
+// import { hdbPlayers } from "../public/raw-mock-data/hockeydb/res.js";
+import hdbPlayers from "./res.js";
+
+const addHdbID = async () => {
+  // public\scraped-data\duplicate-ids-copy.json
+  const DUPLICATE_IDS = `./public/scraped-data/duplicate-ids-copy.json`;
+  const players = JSON.parse(fs.readFileSync(DUPLICATE_IDS, "utf8"));
+
+  // console.log(players);
+  // console.log(hdbPlayers);
+  const newJSON = addHdbIDToAll(players, hdbPlayers);
+
+  fs.writeFileSync(
+    `./public/scraped-data/duplicate-ids-copy2.json`,
+    JSON.stringify(newJSON),
+    (err, data) => {
+      if (err) throw err;
+      console.log("ERROR:", data);
+    }
+  );
+};
+
+addHdbID();
+
+// *******************************************
+// END: Add hdbID's to the duplicate id json file
 // *******************************************
 
 // import { addHrIdsToPlayerList } from "./utils/player-csv-prep";

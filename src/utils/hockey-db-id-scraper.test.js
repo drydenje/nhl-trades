@@ -52,7 +52,7 @@ describe("getAllPlayers function", () => {
     // const output = `${filePath}/res.js`;
     const result = getAllPlayers(letters, filePath);
     // writeFile(output, result);
-    // expect(result).toMatchSnapshot();
+    expect(result).toMatchSnapshot();
     expect(result.length).toEqual(259);
     // expect(result.length).toEqual(8556);
   });
@@ -112,7 +112,7 @@ describe("set hdbID on player objects", () => {
     expect(result).toEqual(expected);
   });
 
-  test.only("add all hdbIDs to an array of players", () => {
+  test("add all hdbIDs to an array of players", () => {
     const players = [
       {
         id: 8444998,
@@ -162,6 +162,7 @@ describe("set hdbID on player objects", () => {
         id: 8444998,
         name: "Ace Bailey",
         hrID: "baileac01",
+        hdbID: null,
         birthDate: "1903-07-03",
       },
       {
@@ -195,7 +196,7 @@ describe("set hdbID on player objects", () => {
     ];
 
     const result = addHdbIDToAll(players, hdbPlayers);
-    // console.log("FINAL:", result);
+    console.log("FINAL:", result);
 
     expect(result).toEqual(expected);
   });
