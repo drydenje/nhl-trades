@@ -100,54 +100,63 @@
   {
     "id": 8449737,
     "name": "Bob Murdoch",
+    "hrID": "murdobo02",
     "birthDate": "1954-01-29",
     "hdbID": "7318"
   },
   {
     "id": 8449736,
     "name": "Bob Murdoch",
+    "hrID": "murdobo01",
     "birthDate": "1946-11-20",
     "hdbID": null
   },
   {
     "id": 8447925,
     "name": "Bob Murray",
+    "hrID": "murrabo01",
     "birthDate": "1948-07-16",
     "hdbID": "7875"
   },
   {
     "id": 8449769,
     "name": "Bob Murray",
+    "hrID": "murrabo02",
     "birthDate": "1954-11-26",
     "hdbID": "3861"
   },
   {
     "id": 8446959,
     "name": "Brent Hughes",
+    "hrID": "hughebr01",
     "birthDate": "1943-06-17",
     "hdbID": "8517"
   },
   {
     "id": 8448053,
     "name": "Brent Hughes",
+    "hrID": "hughebr02",
     "birthDate": "1966-04-05",
     "hdbID": "759"
   },
   {
     "id": 8462161,
     "name": "Brent Johnson",
+    "hrID": "johnsbr02",
     "birthDate": "1977-03-12",
     "hdbID": "24078"
   },
   {
     "id": 8450341,
     "name": "Brent Peterson",
+    "hrID": "peterbr01",
     "birthDate": "1958-02-15",
     "hdbID": "4262"
   },
   {
     "id": 8459415,
     "name": "Brent Peterson",
+    "hrID": "peterbr02",
     "birthDate": "1972-07-20",
     "hdbID": "16006"
   },
