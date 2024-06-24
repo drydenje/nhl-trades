@@ -59,33 +59,65 @@ import cron from "node-cron";
 // *******************************************
 // Add hdbID's to the duplicate id json file
 // *******************************************
-import { addHdbIDToAll } from "./utils/hockey-db-id-scraper.js";
-// import { hdbPlayers } from "../public/raw-mock-data/hockeydb/res.js";
-import hdbPlayers from "./res.js";
+// import { addHdbIDToAll } from "./utils/hockey-db-id-scraper.js";
+// // import { hdbPlayers } from "../public/raw-mock-data/hockeydb/res.js";
+// import hdbPlayers from "./res.js";
 
-const addHdbID = async () => {
-  // public\scraped-data\duplicate-ids-copy.json
-  const DUPLICATE_IDS = `./public/scraped-data/duplicate-ids-copy.json`;
-  const players = JSON.parse(fs.readFileSync(DUPLICATE_IDS, "utf8"));
+// const addHdbID = async () => {
+//   // public\scraped-data\duplicate-ids-copy.json
+//   const DUPLICATE_IDS = `./public/scraped-data/duplicate-ids-copy.json`;
+//   const players = JSON.parse(fs.readFileSync(DUPLICATE_IDS, "utf8"));
 
-  // console.log(players);
-  // console.log(hdbPlayers);
-  const newJSON = addHdbIDToAll(players, hdbPlayers);
+//   // console.log(players);
+//   // console.log(hdbPlayers);
+//   const newJSON = addHdbIDToAll(players, hdbPlayers);
 
-  fs.writeFileSync(
-    `./public/scraped-data/duplicate-ids-copy2.json`,
-    JSON.stringify(newJSON),
-    (err, data) => {
-      if (err) throw err;
-      console.log("ERROR:", data);
-    }
-  );
-};
+//   fs.writeFileSync(
+//     `./public/scraped-data/duplicate-ids-copy2.json`,
+//     JSON.stringify(newJSON),
+//     (err, data) => {
+//       if (err) throw err;
+//       console.log("ERROR:", data);
+//     }
+//   );
+// };
 
-addHdbID();
+// addHdbID();
 
 // *******************************************
 // END: Add hdbID's to the duplicate id json file
+// *******************************************
+
+// *******************************************
+// Add duplicate players with hdbID to main player list
+// *******************************************
+// import { addHdbIDToAll } from "./utils/hockey-db-id-scraper.js";
+// // import { hdbPlayers } from "../public/raw-mock-data/hockeydb/res.js";
+// import hdbPlayers from "./res.js";
+
+const addDuplicatePlayers = async () => {
+  // 182 duplicates
+  const duplicatePlayers = JSON.parse(
+    fs.readFileSync("./src/duplicate-ids-copy2.json", "utf8")
+  );
+  console.log(duplicatePlayers.length);
+
+  // const newJSON = addHdbIDToAll(players, hdbPlayers);
+
+  // fs.writeFileSync(
+  //   `./public/scraped-data/duplicate-ids-copy2.json`,
+  //   JSON.stringify(newJSON),
+  //   (err, data) => {
+  //     if (err) throw err;
+  //     console.log("ERROR:", data);
+  //   }
+  // );
+};
+
+addDuplicatePlayers();
+
+// *******************************************
+// END: Add duplicate players with hdbID to main player list
 // *******************************************
 
 // import { addHrIdsToPlayerList } from "./utils/player-csv-prep";

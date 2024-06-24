@@ -163,294 +163,343 @@
   {
     "id": 8445672,
     "name": "Brian Bradley",
+    "hrID": "bradlbr01",
     "birthDate": "1965-01-21",
     "hdbID": "542"
   },
   {
     "id": 8476207,
     "name": "Brian Gibbons",
+    "hrID": "gibbobr01",
     "birthDate": "1988-02-26",
     "hdbID": "107688"
   },
   {
     "id": 8449063,
     "name": "Brian Smith",
+    "hrID": "smithbr01",
     "birthDate": "1937-12-06",
     "hdbID": "10560"
   },
   {
     "id": 8449061,
     "name": "Brian Smith",
+    "hrID": "smithbr02",
     "birthDate": "1940-09-06",
     "hdbID": "5028"
   },
   {
     "id": 8447330,
     "name": "Claude Larose",
+    "hrID": "laroscl01",
     "birthDate": "1942-03-02",
     "hdbID": null
   },
   {
     "id": 8448692,
     "name": "Claude Larose",
+    "hrID": "laroscl02",
     "birthDate": "1955-05-17",
     "hdbID": "12047"
   },
   {
     "id": 8465005,
     "name": "Colin White",
+    "hrID": "whiteco01",
     "birthDate": "1977-12-12",
     "hdbID": "28500"
   },
   {
     "id": 8478400,
     "name": "Colin White",
+    "hrID": "whiteco02",
     "birthDate": "1997-01-30",
     "hdbID": "170355"
   },
   {
     "id": 8458943,
     "name": "Cory Stillman",
+    "hrID": "stillco01",
     "birthDate": "1973-12-20",
     "hdbID": "5203"
   },
   {
     "id": 8469550,
     "name": "Cory Stillman",
+    "hrID": "stillco02",
     "birthDate": "1983-03-02",
     "hdbID": null
   },
   {
     "id": 8476549,
     "name": "Daniil Tarasov",
+    "hrID": "tarasda01",
     "birthDate": "1991-06-20",
     "hdbID": "124256"
   },
   {
     "id": 8480193,
     "name": "Daniil Tarasov",
+    "hrID": "tarasda02",
     "birthDate": "1999-03-27",
     "hdbID": "204722"
   },
   {
     "id": 8448307,
     "name": "Dave Reid",
+    "hrID": "reidda01",
     "birthDate": "1934-01-11",
     "hdbID": "11388"
   },
   {
     "id": 8450773,
     "name": "Dave Reid",
+    "hrID": "reidda02",
     "birthDate": "1964-05-15",
     "hdbID": "4518"
   },
   {
     "id": 8448274,
     "name": "David Jensen",
+    "hrID": "jenseda02",
     "birthDate": "1961-05-03",
     "hdbID": "9244"
   },
   {
     "id": 8448272,
     "name": "David Jensen",
+    "hrID": "jenseda03",
     "birthDate": "1965-08-19",
     "hdbID": "2532"
   },
   {
     "id": 8451513,
     "name": "Derek Smith",
+    "hrID": "smithde02",
     "birthDate": "1954-07-31",
     "hdbID": "5032"
   },
   {
     "id": 8473953,
     "name": "Derek Smith",
+    "hrID": "smithde05",
     "birthDate": "1984-10-13",
     "hdbID": "84871"
   },
   {
     "id": 8449072,
     "name": "Don Smith",
+    "hrID": "smithdo01",
     "birthDate": "1888-06-03",
     "hdbID": null
   },
   {
     "id": 8449073,
     "name": "Don Smith",
+    "hrID": "smithdo02",
     "birthDate": "1929-05-04",
     "hdbID": "5035"
   },
   {
     "id": 8447016,
     "name": "Earl Ingarfield",
+    "hrID": "ingarea01",
     "birthDate": "1934-10-25",
     "hdbID": "10751"
   },
   {
     "id": 8448144,
     "name": "Earl Ingarfield",
+    "hrID": "ingarea02",
     "birthDate": "1959-01-30",
     "hdbID": "6410"
   },
   {
     "id": 8480012,
     "name": "Elias Pettersson",
+    "hrID": "petteel01",
     "birthDate": "1998-11-12",
     "hdbID": "186266"
   },
   {
     "id": 8475640,
     "name": "Erik Gustafsson",
+    "hrID": "gustaer01",
     "birthDate": "1988-12-15",
     "hdbID": "107692"
   },
   {
     "id": 8476979,
     "name": "Erik Gustafsson",
+    "hrID": "gustaer02",
     "birthDate": "1992-03-14",
     "hdbID": "144637"
   },
   {
     "id": 8474578,
     "name": "Erik Karlsson",
+    "hrID": "karlser01",
     "birthDate": "1990-05-31",
     "hdbID": "112742"
   },
   {
     "id": 8476973,
     "name": "Erik Karlsson",
+    "hrID": "karlser02",
     "birthDate": "1994-07-28",
     "hdbID": null
   },
   {
     "id": 8444898,
     "name": "Greg Adams",
+    "hrID": "adamsgr01",
     "birthDate": "1960-05-31",
     "hdbID": "6236"
   },
   {
     "id": 8444894,
     "name": "Greg Adams",
+    "hrID": "adamsgr02",
     "birthDate": "1963-08-15",
     "hdbID": null
   },
   {
     "id": 8449369,
     "name": "Harry Watson",
+    "hrID": "watsoha02",
     "birthDate": "1923-05-06",
     "hdbID": "5653"
   },
   {
     "id": 8445056,
     "name": "Harvey Bennett",
+    "hrID": "benneha02",
     "birthDate": "1952-08-09",
     "hdbID": "323"
   },
   {
     "id": 8449819,
     "name": "Harvey Bennett",
+    "hrID": "benneha01",
     "birthDate": "1925-07-23",
     "hdbID": "12856"
   },
   {
     "id": 8448071,
     "name": "Jack Hughes",
+    "hrID": "hugheja02",
     "birthDate": "1957-07-20",
     "hdbID": "7462"
   },
   {
     "id": 8481559,
     "name": "Jack Hughes",
+    "hrID": "hugheja03",
     "birthDate": "2001-05-14",
     "hdbID": "209479"
   },
   {
     "id": 8447761,
     "name": "Jack McDonald",
+    "hrID": "mcdonja01",
     "birthDate": "1887-02-28",
     "hdbID": null
   },
   {
     "id": 8447762,
     "name": "Jack McDonald",
+    "hrID": "mcdonja02",
     "birthDate": "1921-11-24",
     "hdbID": null
   },
   {
     "id": 8447773,
     "name": "Jack McGill",
+    "hrID": "mcgilja02",
     "birthDate": "1920-09-19",
     "hdbID": null
   },
   {
     "id": 8447777,
     "name": "Jack McGill",
+    "hrID": "mcgilja01",
     "birthDate": "1910-11-03",
     "hdbID": "81372"
   },
   {
     "id": 8447509,
     "name": "Jacques Locas",
+    "hrID": "locasja01",
     "birthDate": "1926-02-12",
     "hdbID": "12141"
   },
   {
     "id": 8450163,
     "name": "Jacques Locas",
+    "hrID": "locasja02",
     "birthDate": "1954-01-17",
     "hdbID": null
   },
   {
     "id": 8458954,
     "name": "Jason Smith",
+    "hrID": "smithja01",
     "birthDate": "1973-11-02",
     "hdbID": "5044"
   },
   {
     "id": 8459520,
     "name": "Jason Smith",
+    "hrID": "null",
     "birthDate": "1974-11-19",
     "hdbID": null
   },
   {
     "id": 8470789,
     "name": "Jason Smith",
+    "hrID": "smithja02",
     "birthDate": "1985-07-17",
     "hdbID": null
   },
   {
     "id": 8447099,
     "name": "Jim Johnson",
+    "hrID": "johnsji01",
     "birthDate": "1942-11-07",
     "hdbID": "9995"
   },
   {
     "id": 8448303,
     "name": "Jim Johnson",
+    "hrID": "johnsji02",
     "birthDate": "1962-09-08",
     "hdbID": null
   },
   {
     "id": 8449477,
     "name": "Jim McKenzie",
+    "hrID": "mckenji02",
     "birthDate": "1969-11-03",
     "hdbID": "3595"
   },
   {
     "id": 8471353,
     "name": "Jim McKenzie",
+    "hrID": "mckenji03",
     "birthDate": "1984-06-10",
     "hdbID": null
   },
   {
     "id": 8448137,
     "name": "Jimmy Peters",
+    "hrID": "peterji02",
     "birthDate": "1944-06-20",
     "hdbID": null
   },
   {
     "id": 8448136,
     "name": "Jimmy Peters",
+    "hrID": "peterji01",
     "birthDate": "1922-10-02",
     "hdbID": null
   },
