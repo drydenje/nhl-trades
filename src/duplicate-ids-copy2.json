@@ -506,660 +506,777 @@
   {
     "id": 8445543,
     "name": "Joe Cooper",
+    "hrID": "coopejo01",
     "birthDate": "1914-12-14",
     "hdbID": "13321"
   },
   {
     "id": 8471431,
     "name": "Joe Cooper",
+    "hrID": "coopejo02",
     "birthDate": "1985-06-07",
     "hdbID": null
   },
   {
     "id": 8447637,
     "name": "Joe Matte",
+    "hrID": "mattejo01",
     "birthDate": "1893-03-06",
     "hdbID": null
   },
   {
     "id": 8447638,
     "name": "Joe Matte",
+    "hrID": "mattejo02",
     "birthDate": "1909-03-15",
     "hdbID": null
   },
   {
     "id": 8450043,
     "name": "Joe Miller",
+    "hrID": "millejo01",
     "birthDate": "1900-10-06",
     "hdbID": null
   },
   {
     "id": 8475728,
     "name": "Johan Larsson",
+    "hrID": "millejo02",
     "birthDate": "1992-07-25",
     "hdbID": "127786"
   },
   {
     "id": 8444862,
     "name": "John Adams",
+    "hrID": "adamsjo01",
     "birthDate": "1920-05-05",
     "hdbID": null
   },
   {
     "id": 8449783,
     "name": "John Adams",
+    "hrID": "adamsjo02",
     "birthDate": "1946-07-27",
     "hdbID": "6859"
   },
   {
     "id": 8470157,
     "name": "John Adams",
+    "hrID": "adamsjo03",
     "birthDate": "1982-12-21",
     "hdbID": null
   },
   {
     "id": 8480239,
     "name": "John Adams",
+    "hrID": null,
     "birthDate": "1997-02-05",
     "hdbID": null
   },
   {
     "id": 8445989,
     "name": "John Carter",
+    "hrID": "cartejo01",
     "birthDate": "1963-05-03",
     "hdbID": "848"
   },
   {
     "id": 8471502,
     "name": "John Carter",
+    "hrID": "cartejo02",
     "birthDate": "1986-02-08",
     "hdbID": null
   },
   {
     "id": 8447161,
     "name": "John Gibson",
+    "hrID": "gibsojo01",
     "birthDate": "1959-07-02",
     "hdbID": null
   },
   {
     "id": 8476434,
     "name": "John Gibson",
+    "hrID": "gibsojo02",
     "birthDate": "1993-07-14",
     "hdbID": "123445"
   },
   {
     "id": 8451710,
     "name": "John Stevens",
+    "hrID": "stevejo01",
     "birthDate": "1966-05-04",
     "hdbID": "5176"
   },
   {
     "id": 8479962,
     "name": "John Stevens",
+    "hrID": "stevejo02",
     "birthDate": "1994-04-17",
     "hdbID": null
   },
   {
     "id": 8449185,
     "name": "John Stewart",
+    "hrID": "stewajo01",
     "birthDate": "1950-05-16",
     "hdbID": "10232"
   },
   {
     "id": 8451720,
     "name": "John Stewart",
+    "hrID": "stewajo02",
     "birthDate": "1954-01-02",
     "hdbID": "5193"
   },
   {
     "id": 8470150,
     "name": "Jonas Johansson",
+    "hrID": "johanjo02",
     "birthDate": "1984-03-18",
     "hdbID": "62723"
   },
   {
     "id": 8477992,
     "name": "Jonas Johansson",
+    "hrID": "johanjo03",
     "birthDate": "1995-09-19",
     "hdbID": "170670"
   },
   {
     "id": 8476981,
     "name": "Josh Anderson",
+    "hrID": "anderjo05",
     "birthDate": "1994-05-07",
     "hdbID": "138920"
   },
   {
     "id": 8479340,
     "name": "Josh Anderson",
+    "hrID": "anderjo06",
     "birthDate": "1998-08-29",
     "hdbID": null
   },
   {
     "id": 8471783,
     "name": "Juraj Mikus",
+    "hrID": "mikusju01",
     "birthDate": "1987-02-22",
     "hdbID": null
   },
   {
     "id": 8474088,
     "name": "Juraj Mikus",
+    "hrID": "mikusju02",
     "birthDate": "1988-11-30",
     "hdbID": null
   },
   {
     "id": 8447892,
     "name": "Ken Hodge",
+    "hrID": "hodgeke01",
     "birthDate": "1944-06-25",
     "hdbID": "2310"
   },
   {
     "id": 8470717,
     "name": "Konstantin Volkov",
+    "hrID": "volkoko01",
     "birthDate": "1985-02-07",
     "hdbID": null
   },
   {
     "id": 8479549,
     "name": "Konstantin Volkov",
+    "hrID": "volkoko01",
     "birthDate": "1997-09-20",
     "hdbID": null
   },
   {
     "id": 8447145,
     "name": "Larry Keenan",
+    "hrID": "keenala01",
     "birthDate": "1940-10-01",
     "hdbID": "2666"
   },
   {
     "id": 8446333,
     "name": "Lee Fogolin",
+    "hrID": "fogolle01",
     "birthDate": "1926-02-27",
     "hdbID": "11182"
   },
   {
+    "id": 8446871,
+    "name": "Lee Fogolin Jr.",
+    "hrID": "fogolle02",
+    "birthDate": "1955-02-07",
+    "hdbID": "1726"
+  },
+  {
     "id": 8459437,
     "name": "Mats Lindgren",
+    "hrID": "lindgma01",
     "birthDate": "1974-10-01",
     "hdbID": "3154"
   },
   {
     "id": 8457232,
     "name": "Matt Martin",
+    "hrID": "martima01",
     "birthDate": "1971-04-30",
     "hdbID": "3428"
   },
   {
     "id": 8474709,
     "name": "Matt Martin",
+    "hrID": "martima02",
     "birthDate": "1989-05-08",
     "hdbID": "96752"
   },
   {
     "id": 8476899,
     "name": "Matt Murray",
+    "hrID": "murrama02",
     "birthDate": "1994-05-25",
     "hdbID": "130608"
   },
   {
     "id": 8448700,
     "name": "Michel Larocque",
+    "hrID": "larocmi01",
     "birthDate": "1952-04-06",
     "hdbID": "2981"
   },
   {
     "id": 8465091,
     "name": "Michel Larocque",
+    "hrID": "larocmi02",
     "birthDate": "1976-10-03",
     "hdbID": "27631"
   },
   {
     "id": 8445112,
     "name": "Mike Boland",
+    "hrID": "bolanmi01",
     "birthDate": "1949-12-16",
     "hdbID": "6829"
   },
   {
     "id": 8445590,
     "name": "Mike Boland",
+    "hrID": "bolanmi02",
     "birthDate": "1954-10-29",
     "hdbID": "10465"
   },
   {
     "id": 8466155,
     "name": "Mike Brown",
+    "hrID": "brownmi01",
     "birthDate": "1979-04-27",
     "hdbID": null
   },
   {
     "id": 8470745,
     "name": "Mike Brown",
+    "hrID": "brownmi02",
     "birthDate": "1985-03-04",
     "hdbID": null
   },
   {
     "id": 8471371,
     "name": "Mike Brown",
+    "hrID": "brownmi03",
     "birthDate": "1985-06-24",
     "hdbID": "78351"
   },
   {
     "id": 8468436,
     "name": "Mike Green",
+    "hrID": "greenmi02",
     "birthDate": "1979-08-23",
     "hdbID": null
   },
   {
     "id": 8471242,
     "name": "Mike Green",
+    "hrID": "greenmi03",
     "birthDate": "1985-10-12",
     "hdbID": "58069"
   },
   {
     "id": 8447917,
     "name": "Mike Hoffman",
+    "hrID": "hoffmmi01",
     "birthDate": "1963-02-26",
     "hdbID": "2317"
   },
   {
     "id": 8471140,
     "name": "Mike Hoffman",
+    "hrID": "hoffmmi02",
     "birthDate": "1980-09-20",
     "hdbID": null
   },
   {
     "id": 8474884,
     "name": "Mike Hoffman",
+    "hrID": null,
     "birthDate": "1989-11-24",
     "hdbID": "102284"
   },
   {
     "id": 8447804,
     "name": "Mike McMahon",
+    "hrID": "mcmahmi01",
     "birthDate": "1915-02-01",
     "hdbID": null
   },
   {
     "id": 8449744,
     "name": "Mike Murphy",
+    "hrID": "murphmi01",
     "birthDate": "1950-09-12",
     "hdbID": "3857"
   },
   {
     "id": 8474729,
     "name": "Mike Murphy",
+    "hrID": "murphmi02",
     "birthDate": "1989-01-15",
     "hdbID": "90954"
   },
   {
     "id": 8450293,
     "name": "Mike Peluso",
+    "hrID": "pelusmi01",
     "birthDate": "1965-11-08",
     "hdbID": "4224"
   },
   {
     "id": 8460739,
     "name": "Mike Peluso",
+    "hrID": "pelusmi02",
     "birthDate": "1974-09-02",
     "hdbID": "27845"
   },
   {
     "id": 8451041,
     "name": "Mike Rucinski",
+    "hrID": "rucinmi01",
     "birthDate": "1963-12-12",
     "hdbID": "4696"
   },
   {
     "id": 8451712,
     "name": "Mike Stevens",
+    "hrID": "stevemi01",
     "birthDate": "1965-12-30",
     "hdbID": "5178"
   },
   {
     "id": 8458155,
     "name": "Mike Sullivan",
+    "hrID": "sullimi01",
     "birthDate": "1968-02-27",
     "hdbID": "5244"
   },
   {
     "id": 8459054,
     "name": "Mike Sullivan",
+    "hrID": null,
     "birthDate": "1973-10-16",
     "hdbID": null
   },
   {
     "id": 8470833,
     "name": "Mike Sullivan",
+    "hrID": "sullimi02",
     "birthDate": "1984-09-14",
     "hdbID": null
   },
   {
     "id": 8470242,
     "name": "Mike Walsh",
+    "hrID": "walshmi02",
     "birthDate": "1983-01-12",
     "hdbID": null
   },
   {
     "id": 8469714,
     "name": "Mikko Lehtonen",
+    "hrID": "lehtomi01",
     "birthDate": "1978-06-12",
     "hdbID": "56043"
   },
   {
     "id": 8471747,
     "name": "Mikko Lehtonen",
+    "hrID": "lehtomi02",
     "birthDate": "1987-04-01",
     "hdbID": "87863"
   },
   {
     "id": 8467347,
     "name": "Milan Kraft",
+    "hrID": "kraftmi01",
     "birthDate": "1980-01-17",
     "hdbID": "45185"
   },
   {
     "id": 8468503,
     "name": "Nathan Smith",
+    "hrID": "smithna02",
     "birthDate": "1982-02-09",
     "hdbID": "45224"
   },
   {
     "id": 8476568,
     "name": "Nathan Smith",
+    "hrID": null,
     "birthDate": "1993-04-27",
     "hdbID": null
   },
   {
     "id": 8480979,
     "name": "Nathan Smith",
+    "hrID": "smithna03",
     "birthDate": "1998-10-19",
     "hdbID": "200252"
   },
   {
     "id": 8448518,
     "name": "Neil Komadoski",
+    "hrID": "komadne01",
     "birthDate": "1951-11-05",
     "hdbID": "2775"
   },
   {
     "id": 8469530,
     "name": "Neil Komadoski",
+    "hrID": "komadne02",
     "birthDate": "1982-02-10",
     "hdbID": null
   },
   {
     "id": 8466320,
     "name": "Niklas Nordgren",
+    "hrID": "nordgni01",
     "birthDate": "1979-06-28",
     "hdbID": "36964"
   },
   {
     "id": 8480875,
     "name": "Niklas Nordgren",
+    "hrID": "nordgni02",
     "birthDate": "2000-05-04",
     "hdbID": null
   },
   {
     "id": 8446174,
     "name": "Paul Evans",
+    "hrID": "evanspa01",
     "birthDate": "1955-02-24",
     "hdbID": "30246"
   },
   {
     "id": 8449760,
     "name": "Paul Thompson",
+    "hrID": null,
     "birthDate": "1970-07-01",
     "hdbID": null
   },
   {
     "id": 8449232,
     "name": "Paul Thompson",
+    "hrID": "thomppa01",
     "birthDate": "1906-11-02",
     "hdbID": null
   },
   {
     "id": 8458216,
     "name": "Paul Thompson",
+    "hrID": null,
     "birthDate": "1968-05-06",
     "hdbID": null
   },
   {
     "id": 8476200,
     "name": "Paul Thompson",
+    "hrID": "thomppa02",
     "birthDate": "1988-11-30",
     "hdbID": "107793"
   },
   {
     "id": 8444962,
     "name": "Peter Andersson",
+    "hrID": "anderpe02",
     "birthDate": "1962-03-02",
     "hdbID": "34233"
   },
   {
     "id": 8455441,
     "name": "Peter Andersson",
+    "hrID": "anderpe03",
     "birthDate": "1965-08-29",
     "hdbID": "78"
   },
   {
     "id": 8475257,
     "name": "Peter Andersson",
+    "hrID": "anderpe04",
     "birthDate": "1991-04-13",
     "hdbID": null
   },
   {
     "id": 8451789,
     "name": "Petr Svoboda",
+    "hrID": "svobope01",
     "birthDate": "1966-02-14",
     "hdbID": "5272"
   },
   {
     "id": 8467510,
     "name": "Petr Svoboda",
+    "hrID": "svobope02",
     "birthDate": "1980-06-20",
     "hdbID": "36981"
   },
   {
     "id": 8460465,
     "name": "Petr Sykora",
+    "hrID": "sykorpe01",
     "birthDate": "1976-11-19",
     "hdbID": "10760"
   },
   {
     "id": 8466208,
     "name": "Petr Sykora",
+    "hrID": "sykorpe02",
     "birthDate": "1978-12-21",
     "hdbID": "36953"
   },
   {
     "id": 8444928,
     "name": "Ron Anderson",
+    "hrID": "anderro01",
     "birthDate": "1945-07-29",
     "hdbID": "72"
   },
   {
     "id": 8444929,
     "name": "Ron Anderson",
+    "hrID": "anderro02",
     "birthDate": "1950-01-21",
     "hdbID": "11895"
   },
   {
     "id": 8452495,
     "name": "Ron Wilson",
+    "hrID": "wilsoro03",
     "birthDate": "1956-05-13",
     "hdbID": "5760"
   },
   {
     "id": 8452484,
     "name": "Ron Wilson",
+    "hrID": "wilsoro02",
     "birthDate": "1955-05-28",
     "hdbID": "7913"
   },
   {
     "id": 8460527,
     "name": "Ryan Johnson",
+    "hrID": "johnsry01",
     "birthDate": "1976-06-14",
     "hdbID": "20431"
   },
   {
     "id": 8481564,
     "name": "Ryan Johnson",
+    "hrID": "johnsry03",
     "birthDate": "2001-07-24",
     "hdbID": "217060"
   },
   {
     "id": 8471323,
     "name": "Ryan Jones",
+    "hrID": "jonesry01",
     "birthDate": "1984-06-14",
     "hdbID": "78667"
   },
   {
     "id": 8479527,
     "name": "Ryan Jones",
+    "hrID": "jonesry02",
     "birthDate": "1996-05-26",
     "hdbID": null
   },
   {
     "id": 8475158,
     "name": "Ryan O'Reilly",
+    "hrID": "oreilry01",
     "birthDate": "1991-02-07",
     "hdbID": "105153"
   },
   {
     "id": 8481026,
     "name": "Ryan O'Reilly",
+    "hrID": "oreilry02",
     "birthDate": "2000-03-21",
     "hdbID": null
   },
   {
     "id": 8457436,
     "name": "Scott Morrow",
+    "hrID": "morrosc01",
     "birthDate": "1969-06-18",
     "hdbID": "5979"
   },
   {
     "id": 8470042,
     "name": "Sean Collins",
+    "hrID": "collise03",
     "birthDate": "1983-02-09",
     "hdbID": null
   },
   {
     "id": 8473913,
     "name": "Sean Collins",
+    "hrID": "collise01",
     "birthDate": "1983-10-30",
     "hdbID": "73058"
   },
   {
     "id": 8474744,
     "name": "Sean Collins",
+    "hrID": "collise02",
     "birthDate": "1988-12-29",
     "hdbID": "93321"
   },
   {
     "id": 8478427,
     "name": "Sebastian Aho",
+    "hrID": "ahose01",
     "birthDate": "1997-07-26",
     "hdbID": "174983"
   },
   {
     "id": 8480222,
     "name": "Sebastian Aho",
+    "hrID": "ahose02",
     "birthDate": "1996-02-17",
     "hdbID": "164509"
   },
   {
     "id": 8450825,
     "name": "Stephane Richer",
+    "hrID": "richest02",
     "birthDate": "1966-06-07",
     "hdbID": "4558"
   },
   {
     "id": 8457803,
     "name": "Stephane Richer",
+    "hrID": "richest01",
     "birthDate": "1966-04-23",
     "hdbID": null
   },
   {
     "id": 8451558,
     "name": "Steve Smith",
+    "hrID": "smithst04",
     "birthDate": "1963-04-30",
     "hdbID": "5923"
   },
   {
     "id": 8451556,
     "name": "Steve Smith",
+    "hrID": null,
     "birthDate": "1961-11-18",
     "hdbID": null
   },
   {
     "id": 8449086,
     "name": "Stu Smith",
+    "hrID": "smithst02",
     "birthDate": "1918-09-25",
     "hdbID": null
   },
   {
     "id": 8444954,
     "name": "Syl Apps",
+    "hrID": "appssy01",
     "birthDate": "1915-01-18",
     "hdbID": "12150"
   },
   {
     "id": 8468303,
     "name": "Syl Apps",
+    "hrID": null,
     "birthDate": "1976-06-02",
     "hdbID": null
   },
   {
     "id": 8447463,
     "name": "Taylor Hall",
+    "hrID": "hallta01",
     "birthDate": "1964-02-20",
     "hdbID": "2100"
   },
   {
     "id": 8475791,
     "name": "Taylor Hall",
+    "hrID": "hallta02",
     "birthDate": "1991-11-14",
     "hdbID": "106818"
   },
   {
     "id": 8462039,
     "name": "Terry Ryan",
+    "hrID": "ryante01",
     "birthDate": "1977-01-14",
     "hdbID": "17657"
   },
   {
     "id": 8447629,
     "name": "Tom Martin",
+    "hrID": "martito01",
     "birthDate": "1947-10-16",
     "hdbID": "8759"
   },
   {
     "id": 8449280,
     "name": "Tom Martin",
+    "hrID": "martito02",
     "birthDate": "1964-05-11",
     "hdbID": "3435"
   },
   {
     "id": 8447676,
     "name": "Tom McCarthy",
+    "hrID": "mccarto01",
     "birthDate": "1934-09-15",
     "hdbID": "10047"
   },
   {
     "id": 8449348,
     "name": "Tom McCarthy",
+    "hrID": "mccarto02",
     "birthDate": "1960-07-31",
     "hdbID": "3514"
   },
   {
     "id": 8451083,
     "name": "Vladimir Ruzicka",
+    "hrID": "ruzicvl01",
     "birthDate": "1963-06-06",
     "hdbID": "4716"
   },
   {
     "id": 8474159,
     "name": "Vladimir Ruzicka",
+    "hrID": "ruzicvl02",
     "birthDate": "1989-02-17",
     "hdbID": null
   }
