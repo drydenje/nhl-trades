@@ -8565,4 +8565,4 @@ const hdbPlayers = [
   { hdbID: "19374", name: "Andrei Zyuzin", birthDate: "1978-01-21" },
 ];
 
-export default hdbPlayers;
+export { hdbPlayers };
