@@ -118,7 +118,7 @@ const findHrPlayer = (name) => {
 };
 
 const addDuplicatePlayers = async () => {
-  console.log("Duplicate players count:", duplicatePlayers.length);
+  // console.log("Duplicate players count:", duplicatePlayers.length);
 
   const newPlayerArray = players.map((player) => {
     const duplicatePlayer = findPlayer(player.id);
@@ -136,9 +136,24 @@ const addDuplicatePlayers = async () => {
     return duplicatePlayer ? duplicatePlayer : regularPlayer;
   });
 
+  // Total Players: 20238
+  // Players without hrID's: 10431
+  // Players with hrID's: 9807
+  // Players without birthDates: 12584
+  // Players without hdbID's: 12643
+
+  console.log("Total Players:", newPlayerArray.length);
   console.log(
-    "Players with hdbID's:",
-    newPlayerArray.filter((player) => player?.hdbID !== null).length
+    "Players without hrID's:",
+    newPlayerArray.filter((player) => player?.hrID === null).length
+  );
+  console.log(
+    "Players without birthDates:",
+    newPlayerArray.filter((player) => player?.birthDate === null).length
+  );
+  console.log(
+    "Players without hdbID's:",
+    newPlayerArray.filter((player) => player?.hdbID === null).length
   );
 
   fs.writeFileSync(
