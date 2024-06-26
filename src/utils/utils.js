@@ -1,4 +1,5 @@
 const fs = require("fs");
+import cheerio from "cheerio";
 // import fs from "fs";
 
 // checks to see if an array exists and is empty.
@@ -75,6 +76,26 @@ const removeNickname = (nickname) => {
   return nickname.replace(/"([^"]*)"/g, "").replace(/\s\s+/g, " ");
 };
 
+const parsePlayersFromHR = (html) => {
+  // return object with extracted values
+  let $ = cheerio.load(html);
+  const players = [];
+  $("#stats tbody")
+    .find("tr")
+    .each((index, element) => {
+      const regex = /\w+(?=.html)/gm;
+      const player = {
+        name: $(element).find("td a").text(),
+        id: $(element).find("td a").attr("href"), //.match(regex)[0],
+        birthDate: $(element).find('td[data-stat="birth_date"]').text(),
+      };
+      if (player.name && player.id.trim() !== "") {
+        players.push(player);
+      }
+    });
+  return players;
+};
+
 export {
   checkArray,
   getNextYear,
@@ -83,4 +104,5 @@ export {
   writeFile,
   convert,
   removeNickname,
+  parsePlayersFromHR,
 };
