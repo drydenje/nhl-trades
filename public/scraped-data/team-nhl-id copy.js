@@ -463,8 +463,6 @@ const teams = [
   {
     id: 58,
     name: "TORONTO ST. PATRICKS",
-    start: "1919",
-    end: "1927",
     abbreviation: "TSP",
     nicknames: [],
     colors: ["#046A38", "#FFF"],
@@ -586,8 +584,6 @@ const teams = [
   {
     id: 41,
     name: "MONTREAL WANDERERS",
-    start: "",
-    end: "",
     abbreviation: "MWN",
     nicknames: [],
     colors: ["#FFF", "#E4002B"],
@@ -599,8 +595,6 @@ const teams = [
   {
     id: 42,
     name: "QUEBEC BULLDOGS",
-    start: null,
-    end: null,
     abbreviation: "QBD",
     nicknames: [],
     colors: ["#3E5EFF", "#FFF"],
@@ -612,8 +606,6 @@ const teams = [
   {
     id: 57,
     name: "TORONTO ARENAS",
-    start: "1917",
-    end: "1918",
     abbreviation: "TAN",
     nicknames: [],
     colors: ["#003087"],
@@ -625,8 +617,6 @@ const teams = [
   {
     id: 39,
     name: "PHILADELPHIA QUAKERS",
-    start: "1930",
-    end: "1931",
     abbreviation: "QUA",
     nicknames: [],
     colors: ["#000", "#F87A36", "#FFF"],
@@ -638,8 +628,6 @@ const teams = [
   {
     id: 48,
     name: "KANSAS CITY SCOUTS",
-    start: "1974",
-    end: "1976",
     abbreviation: "KCS",
     nicknames: [],
     colors: ["#003087", "#C8102e", "#FFC72C", "#FFF"],
@@ -650,9 +638,9 @@ const teams = [
   },
   {
     id: 45,
-    name: "ST. LOUIS EAGLES",
     start: "1934",
     end: "1935",
+    name: "ST. LOUIS EAGLES",
     abbreviation: "SLE",
     nicknames: [],
     colors: ["#C60C30", "#FFF"],
@@ -664,8 +652,6 @@ const teams = [
   {
     id: 43,
     name: "MONTREAL MAROONS",
-    start: "1924",
-    end: "1938",
     abbreviation: "MMR",
     nicknames: [],
     colors: ["#FFF", "#6F263D"],

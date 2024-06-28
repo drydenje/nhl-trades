@@ -1,5 +1,12 @@
 # Program Domain
 
+## Thoughts
+
+- Need birthDates on the NHL id's
+- Work through the current active teams, original 6 first
+- Then go through the remaining ones, largest/recent first
+- Then start to query the remaining individual players
+
 ## Improve Time to Greenlight
 
 [] Check stats recursively
