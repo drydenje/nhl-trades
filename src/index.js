@@ -1,13 +1,17 @@
 import { convertArrayToCSV } from "convert-array-to-csv";
 import { writeFile, readFile } from "./utils/utils.js";
 // import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
-import { scrapeHRPlayers } from "./hr-id-scraping.js";
+import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
 import fs from "fs";
+import { players } from "./player-data/player-nhl-id.js";
 
 import cron from "node-cron";
 
+console.log("LEN:", players.length);
+
 // cron.schedule("*/5 * * * * *", scrapeHRPlayers);
-scrapeHRPlayers();
+// scrapeHRPlayers();
+// convertToCSV();
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
