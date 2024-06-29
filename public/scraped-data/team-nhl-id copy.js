@@ -638,8 +638,6 @@ const teams = [
   },
   {
     id: 45,
-    start: "1934",
-    end: "1935",
     name: "ST. LOUIS EAGLES",
     abbreviation: "SLE",
     nicknames: [],

@@ -4,14 +4,21 @@ import { writeFile, readFile } from "./utils/utils.js";
 import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
 import fs from "fs";
 import { players } from "./player-data/player-nhl-id.js";
+import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 
 import cron from "node-cron";
 
-console.log("LEN:", players.length);
+// console.log("LEN:", players.length);
 
 // cron.schedule("*/5 * * * * *", scrapeHRPlayers);
 // scrapeHRPlayers();
 // convertToCSV();
+
+// const res = scrapeNhlRoster("MWN", "19171918").then((r) => console.log(r));
+// const res = scrapeNhlRoster("TOR", "20232024").then((r) => console.log(r));
+// console.log(res);
+
+scrapeNHLTeams();
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);

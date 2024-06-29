@@ -586,8 +586,8 @@ const teams = [
   {
     id: 41,
     name: "MONTREAL WANDERERS",
-    start: "",
-    end: "",
+    start: "1917",
+    end: "1918",
     abbreviation: "MWN",
     nicknames: [],
     colors: ["#FFF", "#E4002B"],
