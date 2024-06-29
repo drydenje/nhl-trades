@@ -1,3 +1,4 @@
+const _ = require("lodash");
 import fs from "fs";
 import { writeFile, readFile } from "./utils/utils.js";
 
@@ -23,10 +24,41 @@ const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {
 
 const scrapeNHLTeams = () => {
   // check
-  const teams = JSON.parse(readFile(`./src/player-data/nhl-id-scraping.json`))
+  const teamToScrape = JSON.parse(
+    readFile(`./src/player-data/nhl-id-scraping.json`)
+  )
     .filter((team) => team.isActive === true)
     .filter((team) => team.start !== null)
-    .filter((team) => team.data.length === 0);
+    .find((team) => team.data.length === 0);
+
+  // for enddate to startdate
+  // fetch the roster
+
+  // Array.from({ length: parseInt(teamToScrape.start) }, (v, k) => k - 10001);
+
+  let years = [];
+  console.log(teamToScrape);
+  for (
+    let year = parseInt(teamToScrape.end);
+    year >= parseInt(teamToScrape.start);
+    year = year - 10001
+  ) {
+    console.log(year);
+    years.push(`${year}`);
+  }
+
+  teamToScrape.data["20212022"] : { test: "testy" };
+  // _.range(
+  //   20232024,
+  //   // parseInt(teamToScrape.end),
+  //   20172018,
+  //   // parseInt(teamToScrape.start),
+  //   -10001
+  // );
+  // const years = _.range(teamToScrape.end, teamToScrape.start, 10001);
+
+  // Array.from({ length: 5 }, (v, k) => k + 1);
+  // [1,2,3,4,5]
 
   // +10,001 to cycle each year (or subtract and check for failure)
   // .map((team) => {
@@ -38,8 +70,8 @@ const scrapeNHLTeams = () => {
   //   };
   // });
 
-  console.log(teams);
-  console.log(teams.length);
+  console.log(teamToScrape);
+  console.log("var:", years);
 };
 
 export { scrapeNhlRoster, scrapeNHLTeams };
