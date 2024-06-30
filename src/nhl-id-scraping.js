@@ -1,6 +1,7 @@
-const _ = require("lodash");
+// const _ = require("lodash");
 import fs from "fs";
 import { writeFile, readFile } from "./utils/utils.js";
+const chalk = require("chalk");
 
 const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {
   const TEAM_ROSTER_URL = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${yearToScrape}`;
@@ -22,43 +23,40 @@ const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {
   return result;
 };
 
-const scrapeNHLTeams = () => {
+const scrapeNHLTeams = async () => {
   // check
   const teamToScrape = JSON.parse(
     readFile(`./src/player-data/nhl-id-scraping.json`)
   )
     .filter((team) => team.isActive === true)
     .filter((team) => team.start !== null)
-    .find((team) => team.data.length === 0);
+    .find(
+      (team) =>
+        Object.keys(team.data).length === 0 && team.data.constructor === Object
+    );
 
   // for enddate to startdate
   // fetch the roster
 
-  // Array.from({ length: parseInt(teamToScrape.start) }, (v, k) => k - 10001);
-
   let years = [];
-  console.log(teamToScrape);
+  // console.log(teamToScrape);
+
   for (
     let year = parseInt(teamToScrape.end);
     year >= parseInt(teamToScrape.start);
     year = year - 10001
   ) {
-    console.log(year);
+    // console.log(year);
     years.push(`${year}`);
   }
+  // let s = "20212022";
 
-  teamToScrape.data["20212022"] : { test: "testy" };
-  // _.range(
-  //   20232024,
-  //   // parseInt(teamToScrape.end),
-  //   20172018,
-  //   // parseInt(teamToScrape.start),
-  //   -10001
-  // );
-  // const years = _.range(teamToScrape.end, teamToScrape.start, 10001);
-
-  // Array.from({ length: 5 }, (v, k) => k + 1);
-  // [1,2,3,4,5]
+  years.forEach(async (year) => {
+    console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
+    await scrapeNhlRoster(teamToScrape.abbreviation, year).then((roster) => {
+      teamToScrape.data[year] = roster;
+    });
+  });
 
   // +10,001 to cycle each year (or subtract and check for failure)
   // .map((team) => {
@@ -71,7 +69,7 @@ const scrapeNHLTeams = () => {
   // });
 
   console.log(teamToScrape);
-  console.log("var:", years);
+  console.log("years:", years);
 };
 
 export { scrapeNhlRoster, scrapeNHLTeams };
