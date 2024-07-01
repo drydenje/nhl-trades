@@ -53,9 +53,15 @@ const scrapeNHLTeams = async () => {
 
   years.forEach(async (year) => {
     console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
-    await scrapeNhlRoster(teamToScrape.abbreviation, year).then((roster) => {
-      teamToScrape.data[year] = roster;
-    });
+    teamToScrape.data[year] = await scrapeNhlRoster(
+      teamToScrape.abbreviation,
+      year
+    );
+    await delay(10000);
+    // await
+    // then((roster) => {
+    //    = roster;
+    // });
   });
 
   // +10,001 to cycle each year (or subtract and check for failure)
@@ -70,6 +76,10 @@ const scrapeNHLTeams = async () => {
 
   console.log(teamToScrape);
   console.log("years:", years);
+};
+
+const delay = function (ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 export { scrapeNhlRoster, scrapeNHLTeams };
