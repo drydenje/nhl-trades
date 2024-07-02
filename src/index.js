@@ -5,6 +5,7 @@ import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
 import fs from "fs";
 import { players } from "./player-data/player-nhl-id.js";
 import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
+import { runScrape } from "./experiment.js";
 
 import cron from "node-cron";
 
@@ -18,7 +19,9 @@ import cron from "node-cron";
 // const res = scrapeNhlRoster("TOR", "20232024").then((r) => console.log(r));
 // console.log(res);
 
-scrapeNHLTeams();
+// scrapeNHLTeams();
+
+runScrape();
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);

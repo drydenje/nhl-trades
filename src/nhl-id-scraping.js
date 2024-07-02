@@ -24,12 +24,15 @@ const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {
 };
 
 const scrapeNHLTeams = async () => {
-  // check
+  // decide which team to scrape rosters from
   const teamToScrape = JSON.parse(
     readFile(`./src/player-data/nhl-id-scraping.json`)
   )
+    // search only the active teams (temporary, need to remove for historical teams)
     .filter((team) => team.isActive === true)
+    // teams with a franchise start date
     .filter((team) => team.start !== null)
+    // check if there's any scraped data stored in the team object
     .find(
       (team) =>
         Object.keys(team.data).length === 0 && team.data.constructor === Object
@@ -51,18 +54,26 @@ const scrapeNHLTeams = async () => {
   }
   // let s = "20212022";
 
-  years.forEach(async (year) => {
-    console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
-    teamToScrape.data[year] = await scrapeNhlRoster(
-      teamToScrape.abbreviation,
-      year
-    );
-    await delay(10000);
-    // await
-    // then((roster) => {
-    //    = roster;
-    // });
-  });
+  const getTeamRoster = (endpoint) =>
+    async function* () {
+      const year = "20212022";
+      console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
+      const response = await scrapeNhlRoster(teamToScrape.abbreviation, year);
+    };
+
+  //
+  // years.forEach(async (year) => {
+  //   console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
+  //   teamToScrape.data[year] = await scrapeNhlRoster(
+  //     teamToScrape.abbreviation,
+  //     year
+  //   );
+  //   await delay(10000);
+  //   // await
+  //   // then((roster) => {
+  //   //    = roster;
+  //   // });
+  // });
 
   // +10,001 to cycle each year (or subtract and check for failure)
   // .map((team) => {
