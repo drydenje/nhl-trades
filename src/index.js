@@ -5,7 +5,7 @@ import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
 import fs from "fs";
 import { players } from "./player-data/player-nhl-id.js";
 import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
-import { runScrape } from "./experiment.js";
+import { runScrape, getTeamRosters } from "./experiment.js";
 
 import cron from "node-cron";
 
@@ -21,7 +21,36 @@ import cron from "node-cron";
 
 // scrapeNHLTeams();
 
-runScrape();
+// getTeamRosters("VGK", "20232024");
+const hockey = {
+  roster: {
+    [Symbol.asyncIterator]: getTeamRosters("VGK", "19201921"),
+    // [Symbol.asyncIterator]: getTeamRosters("VGK", "20232024"),
+  },
+};
+
+(async function () {
+  console.log("fetching");
+  const response = await fetch(
+    `https://api-web.nhle.com/v1/roster/VGK/20002001`
+  );
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
+  const json = await response.json();
+  // .then(
+  //   (res) => console.log("R:", res)
+  // );
+})();
+
+// (async function () {
+//   const results = [];
+//   for await (const r of hockey.roster) {
+//     console.log(r);
+//     results.push(r);
+//     // yield results;
+//   }
+// })();
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);

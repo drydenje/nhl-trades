@@ -17,17 +17,20 @@ const runScrape = async () => {
   console.log("timeElapsed:", timeElapsed);
 };
 
-getTeamRosters = (teamToScrape, startYear) =>
+const getTeamRosters = (teamToScrape, startYear) =>
   async function* () {
     let year = startYear;
     let url = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`;
-    while (url) {
+    console.log(teamToScrape);
+    console.log(url);
+    while (year) {
       const response = await fetch(url);
-      const data = await response.json();
+      const data = await response.json().then((res) => console.log(res));
+
       // if there is a '404', set to null
       url = null;
       yield* data.results;
     }
   };
 
-export { runScrape };
+export { runScrape, getTeamRosters };
