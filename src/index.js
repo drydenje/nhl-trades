@@ -18,30 +18,32 @@ import cron from "node-cron";
 // const res = scrapeNhlRoster("MWN", "19171918").then((r) => console.log(r));
 // const res = scrapeNhlRoster("TOR", "20232024").then((r) => console.log(r));
 // console.log(res);
-
-// scrapeNHLTeams();
+(async function () {
+  scrapeNHLTeams();
+})();
 
 // getTeamRosters("VGK", "20232024");
-const hockey = {
-  roster: {
-    [Symbol.asyncIterator]: getTeamRosters("VGK", "19201921"),
-    // [Symbol.asyncIterator]: getTeamRosters("VGK", "20232024"),
-  },
-};
+// const hockey = {
+//   roster: {
+//     [Symbol.asyncIterator]: getTeamRosters("VGK", "19201921"),
+//     // [Symbol.asyncIterator]: getTeamRosters("VGK", "20232024"),
+//   },
+// };
 
-(async function () {
-  console.log("fetching");
-  const response = await fetch(
-    `https://api-web.nhle.com/v1/roster/VGK/20002001`
-  );
-  if (!response.ok) {
-    throw new Error(`Response status: ${response.status}`);
-  }
-  const json = await response.json();
-  // .then(
-  //   (res) => console.log("R:", res)
-  // );
-})();
+// (async function () {
+//   console.log("fetching");
+//   const response = await fetch(
+//     `https://api-web.nhle.com/v1/roster/VGK/20232024`
+//   );
+//   if (!response.ok) {
+//     throw new Error(`Response status: ${response.status}`);
+//   }
+//   const json = await response.json();
+//   console.log(json);
+//   // .then(
+//   //   (res) => console.log("R:", res)
+//   // );
+// })();
 
 // (async function () {
 //   const results = [];
