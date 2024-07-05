@@ -19,9 +19,9 @@ import cron from "node-cron";
 // const res = scrapeNhlRoster("TOR", "20232024").then((r) => console.log(r));
 // console.log(res);
 
-// (async function () {
-//   scrapeNHLTeams();
-// })();
+(async function () {
+  scrapeNHLTeams();
+})();
 
 // getTeamRosters("VGK", "20232024");
 // const hockey = {
@@ -343,44 +343,58 @@ import cron from "node-cron";
 
 // combining multiple arrays into one for each year of trade data
 
-(async function () {
-  teamRosterScrape("SEA", "20232024");
-})();
+////////////////////////////////////////////
+// const rosters = {
+//   data: {
+//     [Symbol.asyncIterator]: teamRosterScrape("SEA", "20232024"),
+//   },
+// };
 
-/// @mpj: using-async-generators-to-stream-data
-function teamRosterScrape(team) {
-  // return a promise after X seconds
-  const delay = (seconds) =>
-    new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+// /// @mpj: using-async-generators-to-stream-data
+// function teamRosterScrape(team) {
+//   // return a promise after X seconds
+//   const delay = (seconds) =>
+//     new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 
-  function teamRosterScrape(team, yearToStart) {
-    let year = yearToStart;
-    return fetch(`https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`)
-      .then((response) => response.json())
-      .then((players) => [...res.forwards, ...res.defensemen, ...res.goalies])
-      .then((players) =>
-        players.map((player) => {
-          return {
-            ...player,
-            hrID: null,
-            hdbID: null,
-            verified: false,
-          };
-        })
-      );
-  }
+//   function teamRosterScrape(team, yearToStart) {
+//     let year = yearToStart;
+//     console.log(team, year);
+//     return fetch(`https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`)
+//       .then((response) => response.json())
+//       .then((players) => [...res.forwards, ...res.defensemen, ...res.goalies])
+//       .then((players) =>
+//         players.map((player) => {
+//           return {
+//             ...player,
+//             hrID: null,
+//             hdbID: null,
+//             verified: false,
+//           };
+//         })
+//       );
+//   }
 
-  return {
-    [Symbol.asyncIterator]: async function* () {
-      let year = "20232024";
-      while (true) {
-        const rosterData = await teamRosterScrape(team, year);
-        for (const roster of rosterData) {
-          await delay(5);
-          yield roster;
-        }
-        year = year - 10001;
-      }
-    },
-  };
-}
+//   return {
+//     [Symbol.asyncIterator]: async function* () {
+//       let year = "20232024";
+//       while (true) {
+//         const rosterData = await teamRosterScrape(team, year);
+//         for (const roster of rosterData) {
+//           await delay(5);
+//           yield roster;
+//         }
+//         year = year - 10001;
+//       }
+//     },
+//   };
+// }
+
+// (async function* () {
+//   console.log("Starting to scrape");
+//   for await (const roster of rosters) {
+//     console.log(roster);
+//     yield roster;
+//   }
+//   // const temp = teamRosterScrape("SEA", "20232024");
+//   // console.log(temp);
+// })();

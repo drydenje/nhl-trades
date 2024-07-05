@@ -68,6 +68,8 @@ const scrapeNHLTeams = async () => {
         Object.keys(team.data).length === 0 && team.data.constructor === Object
     );
 
+  console.log(teamToScrape);
+
   // .then((team) => {
   //   return {
   //     ...team,
@@ -91,10 +93,10 @@ const scrapeNHLTeams = async () => {
 
   const results = [];
 
-  (async function () {
+  (async function* () {
     for await (const players of roster.data) {
       results.push(players);
-      yield results
+      yield results;
     }
   })();
 
