@@ -25,29 +25,27 @@ const notUsedDeleteLater = true;
 // }
 
 (async function () {
-  for await (const roster of nhlTeamRosters("SEA", "20232025")) {
+  for await (const roster of nhlTeamRosters("SEA", "20232024")) {
     console.log(roster[0]);
   }
 })();
 
 async function* nhlTeamRosters(teamToScrape, startYear) {
   let year = startYear;
-  let url = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`;
   while (year) {
+    let url = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`;
     console.log(
       chalk.yellow.bgBlue(`Trying to scrape: [${teamToScrape}] -> ${year}`)
     );
+    console.log(chalk.yellow.bgBlue(`Trying to scrape: ${url}`));
 
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        year = null;
-        console.log("NOPE");
-        // throw new Error(`Response status: ${response.status}`);
-      } else {
-        year = year - 10001;
-      }
-
+    // try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      year = null;
+      console.log("NOPE");
+      // throw new Error(`Response status: ${response.status}`);
+    } else {
       const data = await response
         .json()
         .then((res) => [...res.forwards, ...res.defensemen, ...res.goalies])
@@ -62,11 +60,15 @@ async function* nhlTeamRosters(teamToScrape, startYear) {
           })
         );
 
+      year = year - 10001;
       await delay(3);
       yield data;
-    } catch (error) {
-      console.error(error.message);
     }
+
+    // }
+    // catch (error) {
+    //   console.error(error.message);
+    // }
 
     // if there is a '404', set to null
   }
