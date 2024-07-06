@@ -10,7 +10,7 @@
   "goalHornSong": "",
   "isActive": true,
   "data": {
-    "20202021": [
+    "20212022": [
       {
         "id": 8478891,
         "headshot": "https://assets.nhle.com/mugs/nhl/20212022/SEA/8478891.png",
@@ -792,7 +792,7 @@
         "verified": false
       }
     ],
-    "20212022": [
+    "20222023": [
       {
         "id": 8482665,
         "headshot": "https://assets.nhle.com/mugs/nhl/20222023/SEA/8482665.png",
@@ -1405,7 +1405,7 @@
         "verified": false
       }
     ],
-    "20222023": [
+    "20232024": [
       {
         "id": 8482665,
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/SEA/8482665.png",
@@ -1754,5 +1754,6 @@
         "verified": false
       }
     ]
-  }
+  },
+  "scrapeTime": 9.719
 }

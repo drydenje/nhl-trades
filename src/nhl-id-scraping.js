@@ -48,22 +48,39 @@ async function* scrapeNhlRoster(teamToScrape, startYear) {
           })
         );
 
-      year = year - 10001;
       await delay(3);
       yield {
         year,
         data,
       };
-      // maybe return an object with roster AND the year?
+
+      year = year - 10001;
+      // Dealing with the lockout year
+      // (Thanks Gary)
+      if (year === 20042005) {
+        year = year - 10001;
+      }
     }
   }
 }
 
 const scrapeNHLTeams = async () => {
+  const startTime = new Date();
+
   // decide which team to scrape rosters from
-  const teamToScrape = JSON.parse(
+  const allTeams = JSON.parse(
     readFile(`./src/player-data/nhl-id-scraping.json`)
-  )
+  );
+
+  const remainingTeamsToScrape = allTeams
+    .filter((team) => team.isActive === true)
+    .filter(
+      (team) =>
+        Object.keys(team.data).length === 0 && team.data.constructor === Object
+    );
+  console.log("Remaining teams to scrape:", remainingTeamsToScrape);
+
+  const teamToScrape = allTeams
     // search only the active teams (temporary, need to remove for historical teams)
     .filter((team) => team.isActive === true)
     // teams with a franchise start date
@@ -75,6 +92,10 @@ const scrapeNHLTeams = async () => {
     );
 
   // console.log(teamToScrape);
+
+  if (!teamToScrape) {
+    throw new Error("There are no more teams to scrape");
+  }
 
   let rosters = {};
   let temp = [];
@@ -89,12 +110,21 @@ const scrapeNHLTeams = async () => {
     };
   }
 
+  const endTime = new Date();
+  const timeElapsed = (endTime - startTime) / 1000;
+  console.log("timeElapsed:", timeElapsed);
+
   const result = {
     ...teamToScrape,
     data: rosters,
+    scrapeTime: timeElapsed,
   };
 
-  writeFile("./rosterTest.json", result);
+  const newTeamArray = allTeams.map((team) =>
+    team.id === result.id ? result : team
+  );
+
+  writeFile("./src/player-data/nhl-id-scraping.json", newTeamArray);
 };
 
 // Used to delay the time between fetches, so we don't get blocked

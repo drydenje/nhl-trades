@@ -16,7 +16,9 @@ import cron from "node-cron";
 // convertToCSV();
 
 (async function () {
-  scrapeNHLTeams();
+  while (true) {
+    await scrapeNHLTeams();
+  }
 })();
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
