@@ -455,8 +455,7 @@
     "goalHorn": "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/horns/vgk.m4a",
     "goalHornSong": "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/songs/vgk.mp3",
     "isActive": true,
-    "start": "20172018",
-    "end": "20182019",
+    "start": null,
     "data": {}
   },
   {
@@ -740,6 +739,19 @@
     "goalHorn": "",
     "goalHornSong": "",
     "isActive": false,
+    "data": {}
+  },
+  {
+    "id": 55,
+    "name": "SEATTLE KRAKEN",
+    "start": "20232024",
+    "abbreviation": "SEA",
+    "nicknames": [],
+    "colors": [],
+    "logo": null,
+    "goalHorn": "",
+    "goalHornSong": "",
+    "isActive": true,
     "data": {}
   }
 ]

@@ -23,35 +23,39 @@ const chalk = require("chalk");
 //   return result;
 // };
 
-const scrapeNhlRoster = (teamToScrape, yearToScrape) =>
-  async function* () {
-    let year = yearToScrape;
-    const TEAM_ROSTER_URL = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`;
+async function* scrapeNhlRoster(teamToScrape, startYear) {
+  let year = startYear;
+  while (year) {
+    let url = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`;
+    // console.log(
+    //   chalk.yellow.bgBlue(`Trying to scrape: [${teamToScrape}] -> ${year}`)
+    // );
+    console.log(chalk.yellow.bgBlue(`Trying to scrape: ${url}`));
 
-    console.log(
-      chalk.yellow.bgBlue(`Trying to scrape: [${teamToScrape}] -> ${year}`)
-    );
-    const result = await fetch(TEAM_ROSTER_URL)
-      .then((res) => res.json())
-      .then((res) => [...res.forwards, ...res.defensemen, ...res.goalies])
-      .then((res) =>
-        res.map((player) => {
-          return {
-            ...player,
-            hrID: null,
-            hdbID: null,
-            verified: false,
-          };
-        })
-      );
+    const response = await fetch(url);
+    if (!response.ok) {
+      year = null;
+    } else {
+      const data = await response
+        .json()
+        .then((res) => [...res.forwards, ...res.defensemen, ...res.goalies])
+        .then((res) =>
+          res.map((player) => {
+            return {
+              ...player,
+              hrID: null,
+              hdbID: null,
+              verified: false,
+            };
+          })
+        );
 
-    yield* result;
-    // set the next url to scrape
-
-    //
-
-    // return result;
-  };
+      year = year - 10001;
+      yield data;
+      await delay(3);
+    }
+  }
+}
 
 const scrapeNHLTeams = async () => {
   // decide which team to scrape rosters from
@@ -68,82 +72,28 @@ const scrapeNHLTeams = async () => {
         Object.keys(team.data).length === 0 && team.data.constructor === Object
     );
 
-  console.log(teamToScrape);
+  // console.log(teamToScrape);
 
-  // .then((team) => {
-  //   return {
-  //     ...team,
-  //     // data: {
-  //     //   [Symbol.asyncIterator]: scrapeNhlRoster(
-  //     //     team.abbreviation,
-  //     //     team.start
-  //     //   ),
-  //     // },
-  //   };
-  // });
+  const rosters = {};
+  let temp = [];
 
-  const roster = {
-    data: {
-      [Symbol.asyncIterator]: scrapeNhlRoster(
-        teamToScrape.abbreviation,
-        teamToScrape.start
-      ),
-    },
+  for await (const roster of scrapeNhlRoster(
+    teamToScrape.abbreviation,
+    teamToScrape.start
+  )) {
+    temp.push(roster);
+    rosters[teamToScrape.start] = roster;
+  }
+
+  const result = {
+    ...teamToScrape,
+    // teamToScrape[`data`]: rosters
   };
 
-  const results = [];
-
-  (async function* () {
-    for await (const players of roster.data) {
-      results.push(players);
-      yield results;
-    }
-  })();
-
-  console.log(results);
-
-  // for startdate, counting backwards until you get a 404 response
-  // fetch the roster
-  // subtract 10,001 from the current year to scrape after each fetch
-
-  // let years = [];
-  // console.log(teamToScrape);
-
-  // const getTeamRoster = (endpoint) =>
-  //   async function* () {
-  //     const year = "20212022";
-  //     console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
-  //     const response = await scrapeNhlRoster(teamToScrape.abbreviation, year);
-  //   };
-
-  //
-  // years.forEach(async (year) => {
-  //   console.log(chalk.yellow.bgBlue(`Trying to scrape:${year}`));
-  //   teamToScrape.data[year] = await scrapeNhlRoster(
-  //     teamToScrape.abbreviation,
-  //     year
-  //   );
-  //   await delay(10000);
-  //   // await
-  //   // then((roster) => {
-  //   //    = roster;
-  //   // });
-  // });
-
-  // +10,001 to cycle each year (or subtract and check for failure)
-  // .map((team) => {
-  //   return {
-  //     ...team,
-  //     start: null,
-  //     end: null,
-  //     data: [],
-  //   };
-  // });
-
-  // console.log(teamToScrape);
-  // console.log("years:", years);
+  writeFile("./rosterTest.json", temp);
 };
 
+// Used to delay the time between fetches, so we don't get blocked
 const delay = function (ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };

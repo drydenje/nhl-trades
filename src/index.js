@@ -5,7 +5,7 @@ import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
 import fs from "fs";
 import { players } from "./player-data/player-nhl-id.js";
 import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
-import { runScrape, getTeamRosters } from "./experiment.js";
+// import { runScrape, getTeamRosters } from "./experiment.js";
 
 import cron from "node-cron";
 
@@ -15,45 +15,9 @@ import cron from "node-cron";
 // scrapeHRPlayers();
 // convertToCSV();
 
-// const res = scrapeNhlRoster("MWN", "19171918").then((r) => console.log(r));
-// const res = scrapeNhlRoster("TOR", "20232024").then((r) => console.log(r));
-// console.log(res);
-
 (async function () {
   scrapeNHLTeams();
 })();
-
-// getTeamRosters("VGK", "20232024");
-// const hockey = {
-//   roster: {
-//     [Symbol.asyncIterator]: getTeamRosters("VGK", "19201921"),
-//     // [Symbol.asyncIterator]: getTeamRosters("VGK", "20232024"),
-//   },
-// };
-
-// (async function () {
-//   console.log("fetching");
-//   const response = await fetch(
-//     `https://api-web.nhle.com/v1/roster/VGK/20232024`
-//   );
-//   if (!response.ok) {
-//     throw new Error(`Response status: ${response.status}`);
-//   }
-//   const json = await response.json();
-//   console.log(json);
-//   // .then(
-//   //   (res) => console.log("R:", res)
-//   // );
-// })();
-
-// (async function () {
-//   const results = [];
-//   for await (const r of hockey.roster) {
-//     console.log(r);
-//     results.push(r);
-//     // yield results;
-//   }
-// })();
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
@@ -342,59 +306,3 @@ import cron from "node-cron";
 // console.log(csv);
 
 // combining multiple arrays into one for each year of trade data
-
-////////////////////////////////////////////
-// const rosters = {
-//   data: {
-//     [Symbol.asyncIterator]: teamRosterScrape("SEA", "20232024"),
-//   },
-// };
-
-// /// @mpj: using-async-generators-to-stream-data
-// function teamRosterScrape(team) {
-//   // return a promise after X seconds
-//   const delay = (seconds) =>
-//     new Promise((resolve) => setTimeout(resolve, seconds * 1000));
-
-//   function teamRosterScrape(team, yearToStart) {
-//     let year = yearToStart;
-//     console.log(team, year);
-//     return fetch(`https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`)
-//       .then((response) => response.json())
-//       .then((players) => [...res.forwards, ...res.defensemen, ...res.goalies])
-//       .then((players) =>
-//         players.map((player) => {
-//           return {
-//             ...player,
-//             hrID: null,
-//             hdbID: null,
-//             verified: false,
-//           };
-//         })
-//       );
-//   }
-
-//   return {
-//     [Symbol.asyncIterator]: async function* () {
-//       let year = "20232024";
-//       while (true) {
-//         const rosterData = await teamRosterScrape(team, year);
-//         for (const roster of rosterData) {
-//           await delay(5);
-//           yield roster;
-//         }
-//         year = year - 10001;
-//       }
-//     },
-//   };
-// }
-
-// (async function* () {
-//   console.log("Starting to scrape");
-//   for await (const roster of rosters) {
-//     console.log(roster);
-//     yield roster;
-//   }
-//   // const temp = teamRosterScrape("SEA", "20232024");
-//   // console.log(temp);
-// })();
