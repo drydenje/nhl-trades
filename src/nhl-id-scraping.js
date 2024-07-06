@@ -27,9 +27,7 @@ async function* scrapeNhlRoster(teamToScrape, startYear) {
   let year = startYear;
   while (year) {
     let url = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${year}`;
-    // console.log(
-    //   chalk.yellow.bgBlue(`Trying to scrape: [${teamToScrape}] -> ${year}`)
-    // );
+
     console.log(chalk.yellow.bgBlue(`Trying to scrape: ${url}`));
 
     const response = await fetch(url);
@@ -51,8 +49,12 @@ async function* scrapeNhlRoster(teamToScrape, startYear) {
         );
 
       year = year - 10001;
-      yield data;
       await delay(3);
+      yield {
+        year,
+        data,
+      };
+      // maybe return an object with roster AND the year?
     }
   }
 }
@@ -74,28 +76,29 @@ const scrapeNHLTeams = async () => {
 
   // console.log(teamToScrape);
 
-  const rosters = {};
+  let rosters = {};
   let temp = [];
 
   for await (const roster of scrapeNhlRoster(
     teamToScrape.abbreviation,
     teamToScrape.start
   )) {
-    temp.push(roster);
-    rosters[teamToScrape.start] = roster;
+    rosters = {
+      ...rosters,
+      [roster.year]: roster.data,
+    };
   }
 
   const result = {
     ...teamToScrape,
-    // teamToScrape[`data`]: rosters
+    data: rosters,
   };
 
-  writeFile("./rosterTest.json", temp);
+  writeFile("./rosterTest.json", result);
 };
 
 // Used to delay the time between fetches, so we don't get blocked
-const delay = function (ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
+const delay = (seconds) =>
+  new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 
 export { scrapeNhlRoster, scrapeNHLTeams };
