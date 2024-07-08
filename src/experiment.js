@@ -7,15 +7,10 @@ const chalk = require("chalk");
 //   const delayIncrement = 1000;
 //   const startTime = new Date();
 
-//   // let results = Promise.all(tasks).then((results) => {
-//   //   console.log("results: " + results);
-//   // });
-
 //   const endTime = new Date();
 //   const timeElapsed = (endTime - startTime) / 1000;
 //   console.log("timeElapsed:", timeElapsed);
 // };
-const notUsedDeleteLater = true;
 
 // Star Wars characters example
 // for await (const page of starWarsCharacters()) {
@@ -39,12 +34,9 @@ async function* nhlTeamRosters(teamToScrape, startYear) {
     );
     console.log(chalk.yellow.bgBlue(`Trying to scrape: ${url}`));
 
-    // try {
     const response = await fetch(url);
     if (!response.ok) {
       year = null;
-      console.log("NOPE");
-      // throw new Error(`Response status: ${response.status}`);
     } else {
       const data = await response
         .json()
@@ -64,13 +56,6 @@ async function* nhlTeamRosters(teamToScrape, startYear) {
       await delay(3);
       yield data;
     }
-
-    // }
-    // catch (error) {
-    //   console.error(error.message);
-    // }
-
-    // if there is a '404', set to null
   }
 }
 

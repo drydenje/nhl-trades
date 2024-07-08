@@ -9,17 +9,51 @@ import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 
 import cron from "node-cron";
 
-// console.log("LEN:", players.length);
-
+/////////////////////////////////////////////
+// Scraping NHL Reference
+/////////////////////////////////////////////
 // cron.schedule("*/5 * * * * *", scrapeHRPlayers);
 // scrapeHRPlayers();
 // convertToCSV();
 
-(async function () {
-  while (true) {
-    await scrapeNHLTeams();
-  }
-})();
+/////////////////////////////////////////////
+// Scraping NHL Rosters
+/////////////////////////////////////////////
+// (async function () {
+//   while (true) {
+//     await scrapeNHLTeams();
+//   }
+// })();
+
+/////////////////////////////////////////////
+const teams = JSON.parse(
+  readFile(`./src/player-data/nhl-id-scraping.json`)
+  // readFile(`./src/player-data/nhl-id-scraping copy.json`)
+  // readFile(`./src/player-data/nhl-id-scraping copy 2.json`)
+);
+
+// Extract all player data and flatten into one array
+const allPlayers = teams
+  .map((team) => {
+    const players = Object.values(team.data).map((player) => {
+      return player;
+    });
+    return players;
+  })
+  .flat(2);
+
+// Remove all of the duplicate entries
+const uniquePlayerList = allPlayers.filter(
+  (obj1, i, arr) => arr.findIndex((obj2) => obj2.id === obj1.id) === i
+);
+
+writeFile(`./src/player-data/nhl-id-scraping-unique.json`, uniquePlayerList);
+
+// console.log("Players:", allPlayers);
+console.log("Total Number of Players:", allPlayers.length);
+console.log("Total Unique Players:", uniquePlayerList.length);
+
+/////////////////////////////////////////////
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
@@ -36,9 +70,9 @@ import cron from "node-cron";
 // 5. Add the new data to hr-and-nhl-player-id.json
 // 6. Repeat the process with hockeydb, setup for other sites as well
 
-// *******************************************
+/////////////////////////////////////////////
 // Add a birthdate to the duplicate id json file
-// *******************************************
+/////////////////////////////////////////////
 // import { addBirthdayToPlayer } from "./utils/nhl-birthday-scraper";
 
 // const scrapeNHLBirthdays = async () => {
