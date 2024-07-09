@@ -1,13 +1,12 @@
-import { convertArrayToCSV } from "convert-array-to-csv";
-import { writeFile, readFile } from "./utils/utils.js";
-// import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
-import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
 import fs from "fs";
-import { players } from "./player-data/player-nhl-id.js";
-import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
-// import { runScrape, getTeamRosters } from "./experiment.js";
-
+import { writeFile, readFile } from "./utils/utils.js";
 import cron from "node-cron";
+
+// import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
+// import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
+// import { players } from "./player-data/player-nhl-id.js";
+// import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
+// import { runScrape, getTeamRosters } from "./experiment.js";
 
 /////////////////////////////////////////////
 // Scraping NHL Reference
@@ -26,34 +25,126 @@ import cron from "node-cron";
 // })();
 
 /////////////////////////////////////////////
-const teams = JSON.parse(
-  readFile(`./src/player-data/nhl-id-scraping.json`)
-  // readFile(`./src/player-data/nhl-id-scraping copy.json`)
-  // readFile(`./src/player-data/nhl-id-scraping copy 2.json`)
-);
+// Taking NHL Rosters and removing duplicates
+/////////////////////////////////////////////
+// const teams = JSON.parse(
+//   readFile(`./src/player-data/nhl-id-scraping.json`)
+//   // readFile(`./src/player-data/nhl-id-scraping copy.json`)
+//   // readFile(`./src/player-data/nhl-id-scraping copy 2.json`)
+// );
 
-// Extract all player data and flatten into one array
-const allPlayers = teams
-  .map((team) => {
-    const players = Object.values(team.data).map((player) => {
-      return player;
-    });
-    return players;
-  })
-  .flat(2);
+// // Extract all player data and flatten into one array
+// const allPlayers = teams
+//   .map((team) => {
+//     const players = Object.values(team.data).map((player) => {
+//       return player;
+//     });
+//     return players;
+//   })
+//   .flat(2);
 
-// Remove all of the duplicate entries
-const uniquePlayerList = allPlayers.filter(
-  (obj1, i, arr) => arr.findIndex((obj2) => obj2.id === obj1.id) === i
-);
+// // Remove all of the duplicate entries
+// const uniquePlayerList = allPlayers.filter(
+//   (obj1, i, arr) => arr.findIndex((obj2) => obj2.id === obj1.id) === i
+// );
 
-writeFile(`./src/player-data/nhl-id-scraping-unique.json`, uniquePlayerList);
+// writeFile(`./src/player-data/nhl-id-scraping-unique.json`, uniquePlayerList);
 
-// console.log("Players:", allPlayers);
-console.log("Total Number of Players:", allPlayers.length);
-console.log("Total Unique Players:", uniquePlayerList.length);
+// console.log("Total Number of Players:", allPlayers.length);
+// console.log("Total Unique Players:", uniquePlayerList.length);
 
 /////////////////////////////////////////////
+// Convert NHL ids to CSV
+/////////////////////////////////////////////
+// import { convertArrayToCSV } from "convert-array-to-csv";
+
+// const players = JSON.parse(
+//   readFile(`./src/player-data/nhl-id-scraping-unique.json`)
+// ).map((player) => {
+//   return {
+//     ...player,
+//     firstName: player.firstName.default,
+//     lastName: player.lastName.default,
+//     birthCity: player.birthCity?.default,
+//     birthStateProvince: player.birthStateProvince?.default,
+//     name: `${player.firstName.default} ${player.lastName.default}`,
+//   };
+// });
+
+// const headings = [
+//   "id",
+//   "headshot",
+//   "firstName",
+//   "lastName",
+//   "sweaterNumber",
+//   "positionCode",
+//   "shootsCatches",
+//   "heightInInches",
+//   "weightInPounds",
+//   "heightInCentimeters",
+//   "weightInKilograms",
+//   "birthDate",
+//   "birthCity",
+//   "birthCountry",
+//   "birthStateProvince",
+//   "hrID",
+//   "hdbID",
+//   "verified",
+//   "name",
+// ];
+
+// const csv = convertArrayToCSV(players, {
+//   headings,
+//   separator: ",",
+// });
+
+// writeFile(`./src/player-data/nhl-id-scraping-unique.csv`, csv);
+
+/////////////////////////////////////////////
+// Convert NHL Teams to CSV
+/////////////////////////////////////////////
+// import { convertArrayToCSV } from "convert-array-to-csv";
+// // import teams from "../public/scraped-data/team-nhl-id";
+
+// import { teams } from "./player-data/team-nhl-id";
+
+// // console.log(teams[0]);
+
+// const headings = [
+//   "id",
+//   "name",
+//   "abbreviation",
+//   "nicknames",
+//   "colors",
+//   "logo",
+//   "goalHorn",
+//   "goalHornSong",
+//   "isActive",
+//   "start",
+//   "end",
+// ];
+
+// const csv = convertArrayToCSV(teams, {
+//   headings,
+//   separator: ",",
+// });
+
+// writeFile(`./src/player-data/nhl-team-ids.csv`, csv);
+
+/////////////////////////////////////////////
+// Convert NHL Trades to CSV
+/////////////////////////////////////////////
+const trades = JSON.parse(readFile(`./src/trades/trades.json`));
+
+let result = [];
+Object.entries(trades).forEach(([key, value]) => {
+  result.push(value);
+});
+// .map(function (key) {
+//   return [Number(key), obj[key]];
+// });
+
+console.log(result[0]);
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
