@@ -134,16 +134,19 @@ import cron from "node-cron";
 /////////////////////////////////////////////
 // Convert NHL Trades to CSV
 /////////////////////////////////////////////
-const trades = JSON.parse(readFile(`./src/trades/trades.json`));
+// const trades = JSON.parse(readFile(`./src/trades/trades.json`));
 
-let result = [];
-Object.entries(trades).forEach(([key, value]) => {
-  result.push(value);
-});
+// let result = [];
+// Object.entries(trades).forEach(([key, value]) => {
+//   result.push(value);
+// });
 
-result = result.flat();
+// result = result.flat();
 
-console.log(result.length);
+// console.log(result.length);
+// console.log(result[0]);
+
+/////////////
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
