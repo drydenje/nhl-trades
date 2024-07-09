@@ -140,11 +140,10 @@ let result = [];
 Object.entries(trades).forEach(([key, value]) => {
   result.push(value);
 });
-// .map(function (key) {
-//   return [Number(key), obj[key]];
-// });
 
-console.log(result[0]);
+result = result.flat();
+
+console.log(result.length);
 
 // const DRAFT_RESULTS_JSON = `./public/scraped-data/draft-results.json`;
 // fetchDraftYear(DRAFT_RESULTS_JSON);
