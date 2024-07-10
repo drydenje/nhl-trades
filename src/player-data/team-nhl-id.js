@@ -13,7 +13,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 2,
@@ -29,7 +28,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 3,
@@ -45,7 +43,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 4,
@@ -61,7 +58,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 5,
@@ -77,7 +73,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 6,
@@ -93,7 +88,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 7,
@@ -109,7 +103,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 8,
@@ -125,7 +118,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 9,
@@ -141,7 +133,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 10,
@@ -157,7 +148,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 11,
@@ -173,7 +163,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 12,
@@ -189,7 +178,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 13,
@@ -205,7 +193,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 14,
@@ -221,7 +208,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 15,
@@ -237,7 +223,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 16,
@@ -262,7 +247,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 17,
@@ -278,7 +262,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 18,
@@ -294,7 +277,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 19,
@@ -310,7 +292,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 20,
@@ -326,7 +307,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 21,
@@ -342,7 +322,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 22,
@@ -358,7 +337,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 23,
@@ -374,7 +352,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 24,
@@ -399,7 +376,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 25,
@@ -415,7 +391,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 26,
@@ -431,7 +406,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 53,
@@ -455,7 +429,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 28,
@@ -471,7 +444,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 29,
@@ -487,7 +459,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 30,
@@ -503,7 +474,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 54,
@@ -518,7 +488,6 @@ const teams = [
       "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/songs/vgk.mp3",
     isActive: true,
     start: null,
-    data: {},
   },
   {
     id: 52,
@@ -542,7 +511,6 @@ const teams = [
     isActive: true,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 38,
@@ -556,7 +524,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 58,
@@ -570,7 +537,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 49,
@@ -584,7 +550,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 46,
@@ -598,7 +563,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 44,
@@ -612,7 +576,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 56,
@@ -626,7 +589,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 34,
@@ -651,7 +613,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 47,
@@ -665,7 +626,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 31,
@@ -679,7 +639,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 32,
@@ -693,7 +652,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 37,
@@ -707,7 +665,6 @@ const teams = [
     isActive: false,
     start: null,
     end: null,
-    data: {},
   },
   {
     id: 41,
@@ -721,7 +678,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 42,
@@ -735,7 +691,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 57,
@@ -749,7 +704,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 39,
@@ -763,7 +717,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 48,
@@ -777,7 +730,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 45,
@@ -791,7 +743,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 43,
@@ -805,7 +756,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: false,
-    data: {},
   },
   {
     id: 55,
@@ -818,7 +768,6 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: true,
-    data: {},
   },
 ];
 

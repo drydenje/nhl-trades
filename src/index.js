@@ -98,38 +98,53 @@ import cron from "node-cron";
 //   separator: ",",
 // });
 
-// writeFile(`./src/player-data/nhl-id-scraping-unique.csv`, csv);
+// fs.writeFile("./src/player-data/nhl-id-scraping-unique.csv", csv, (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+// });
 
 /////////////////////////////////////////////
 // Convert NHL Teams to CSV
 /////////////////////////////////////////////
-// import { convertArrayToCSV } from "convert-array-to-csv";
-// // import teams from "../public/scraped-data/team-nhl-id";
+import { convertArrayToCSV } from "convert-array-to-csv";
+// import teams from "../public/scraped-data/team-nhl-id";
 
-// import { teams } from "./player-data/team-nhl-id";
+import { teams } from "./player-data/team-nhl-id";
 
-// // console.log(teams[0]);
+const headings = [
+  "id",
+  "name",
+  "abbreviation",
+  "nicknames",
+  "colors",
+  "logo",
+  "goalHorn",
+  "goalHornSong",
+  "isActive",
+  "start",
+  "end",
+];
 
-// const headings = [
-//   "id",
-//   "name",
-//   "abbreviation",
-//   "nicknames",
-//   "colors",
-//   "logo",
-//   "goalHorn",
-//   "goalHornSong",
-//   "isActive",
-//   "start",
-//   "end",
-// ];
+const temp = teams.map((team) => {
+  return {
+    ...team,
+    nicknames: team.nicknames.join("/"),
+    colors: team.colors.join("/"),
+  };
+});
 
-// const csv = convertArrayToCSV(teams, {
-//   headings,
-//   separator: ",",
-// });
+const csv = convertArrayToCSV(temp, {
+  headings,
+  separator: ",",
+});
 
 // writeFile(`./src/player-data/nhl-team-ids.csv`, csv);
+fs.writeFile("./src/player-data/nhl-team-ids.csv", csv, (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
 
 /////////////////////////////////////////////
 // Convert NHL Trades to CSV
