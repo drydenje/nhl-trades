@@ -8,6 +8,42 @@ import cron from "node-cron";
 // import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 // import { runScrape, getTeamRosters } from "./experiment.js";
 
+import cliProgress from "cli-progress";
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+(async function () {
+  // const cliProgress = require("cli-progress");
+
+  // create new container
+  const multibar = new cliProgress.MultiBar(
+    {
+      clearOnComplete: false,
+      hideCursor: true,
+      format: " {bar} | {filename} | {value}/{total}",
+    },
+    cliProgress.Presets.shades_grey
+  );
+
+  // add bars
+  const b1 = multibar.create(100, 0);
+  const b2 = multibar.create(1000, 0);
+
+  let t = 0;
+
+  // control bars
+  b1.increment();
+  b1.update(20, { filename: "helloworld.txt" });
+  b2.update(20, { filename: "test1.txt" });
+  while (t <= 100) {
+    b1.update(t, { filename: "helloworld.txt" });
+    await sleep(1000);
+    t = t + 10;
+  }
+
+  // stop all bars
+  multibar.stop();
+})();
+
 /////////////////////////////////////////////
 // Scraping NHL Reference
 /////////////////////////////////////////////
@@ -107,44 +143,44 @@ import cron from "node-cron";
 /////////////////////////////////////////////
 // Convert NHL Teams to CSV
 /////////////////////////////////////////////
-import { convertArrayToCSV } from "convert-array-to-csv";
-// import teams from "../public/scraped-data/team-nhl-id";
+// import { convertArrayToCSV } from "convert-array-to-csv";
+// // import teams from "../public/scraped-data/team-nhl-id";
 
-import { teams } from "./player-data/team-nhl-id";
+// import { teams } from "./player-data/team-nhl-id";
 
-const headings = [
-  "id",
-  "name",
-  "abbreviation",
-  "nicknames",
-  "colors",
-  "logo",
-  "goalHorn",
-  "goalHornSong",
-  "isActive",
-  "start",
-  "end",
-];
+// const headings = [
+//   "id",
+//   "name",
+//   "abbreviation",
+//   "nicknames",
+//   "colors",
+//   "logo",
+//   "goalHorn",
+//   "goalHornSong",
+//   "isActive",
+//   "start",
+//   "end",
+// ];
 
-const temp = teams.map((team) => {
-  return {
-    ...team,
-    nicknames: team.nicknames.join("/"),
-    colors: team.colors.join("/"),
-  };
-});
+// const temp = teams.map((team) => {
+//   return {
+//     ...team,
+//     nicknames: team.nicknames.join("/"),
+//     colors: team.colors.join("/"),
+//   };
+// });
 
-const csv = convertArrayToCSV(temp, {
-  headings,
-  separator: ",",
-});
+// const csv = convertArrayToCSV(temp, {
+//   headings,
+//   separator: ",",
+// });
 
-// writeFile(`./src/player-data/nhl-team-ids.csv`, csv);
-fs.writeFile("./src/player-data/nhl-team-ids.csv", csv, (err) => {
-  if (err) {
-    console.log(err);
-  }
-});
+// // writeFile(`./src/player-data/nhl-team-ids.csv`, csv);
+// fs.writeFile("./src/player-data/nhl-team-ids.csv", csv, (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+// });
 
 /////////////////////////////////////////////
 // Convert NHL Trades to CSV
