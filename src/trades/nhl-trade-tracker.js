@@ -1,4 +1,4 @@
-import { getPage } from "./utils.js";
+import { getPage } from "../utils/utils.js";
 const cheerio = require("cheerio");
 const chalk = require("chalk");
 

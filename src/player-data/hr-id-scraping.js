@@ -4,9 +4,9 @@ import {
   readFile,
   writeFile,
   parsePlayersFromHR,
-} from "./utils/utils.js";
+} from "../utils/utils.js";
 import { convertArrayToCSV } from "convert-array-to-csv";
-import { getAllPlayerForLetter } from "./utils/hockey-reference-id-scraper";
+import { getAllPlayerForLetter } from "../utils/hockey-reference-id-scraper.js";
 import fs from "fs";
 const HOCKEY_REFERENCE_URL = `https://www.hockey-reference.com/players`;
 const chalk = require("chalk");

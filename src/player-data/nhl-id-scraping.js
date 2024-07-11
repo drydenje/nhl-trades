@@ -1,6 +1,6 @@
 // const _ = require("lodash");
 import fs from "fs";
-import { writeFile, readFile } from "./utils/utils.js";
+import { writeFile, readFile } from "../utils/utils.js";
 const chalk = require("chalk");
 
 // const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {

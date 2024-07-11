@@ -7,7 +7,7 @@ import {
   parseTrade,
 } from "./nhl-trade-tracker";
 // const { readFile } = require("./utils.mjs");
-import { readFile } from "./utils";
+import { readFile } from "../utils/utils";
 import { server, http, HttpResponse } from "../config/testServer";
 
 const DATA_FILEPATH = `./public/raw-mock-data/`;

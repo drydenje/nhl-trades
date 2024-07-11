@@ -1,4 +1,4 @@
-import { readFile, removeNickname } from "./utils";
+import { readFile, removeNickname } from "../utils/utils";
 const path = require("path");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
