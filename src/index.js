@@ -1,5 +1,5 @@
 import fs from "fs";
-import { writeFile, readFile } from "./utils/utils.js";
+import { combineSiteIds, writeFile, readFile } from "./utils/utils.js";
 import cron from "node-cron";
 
 // import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
@@ -8,41 +8,50 @@ import cron from "node-cron";
 // import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 // import { runScrape, getTeamRosters } from "./experiment.js";
 
-import cliProgress from "cli-progress";
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const p = combineSiteIds(
+  // "./src/nhl-id-scraping-unique.json",
+  "./src/player-data/nhl-id-scraping-unique.json",
+  "./src/player-data/results/hdbID.json",
+  "./src/player-data/results/hr-player-id-final.json"
+);
 
-(async function () {
-  // const cliProgress = require("cli-progress");
+console.log(p.find((player) => player.id === 8446993));
 
-  // create new container
-  const multibar = new cliProgress.MultiBar(
-    {
-      clearOnComplete: false,
-      hideCursor: true,
-      format: " {bar} | {filename} | {value}/{total}",
-    },
-    cliProgress.Presets.shades_grey
-  );
+// import cliProgress from "cli-progress";
+// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  // add bars
-  const b1 = multibar.create(100, 0);
-  const b2 = multibar.create(1000, 0);
+// (async function () {
+//   // const cliProgress = require("cli-progress");
 
-  let t = 0;
+//   // create new container
+//   const multibar = new cliProgress.MultiBar(
+//     {
+//       clearOnComplete: false,
+//       hideCursor: true,
+//       format: " {bar} | {filename} | {value}/{total}",
+//     },
+//     cliProgress.Presets.shades_grey
+//   );
 
-  // control bars
-  b1.increment();
-  b1.update(20, { filename: "helloworld.txt" });
-  b2.update(20, { filename: "test1.txt" });
-  while (t <= 100) {
-    b1.update(t, { filename: "helloworld.txt" });
-    await sleep(1000);
-    t = t + 10;
-  }
+//   // add bars
+//   const b1 = multibar.create(100, 0);
+//   const b2 = multibar.create(1000, 0);
 
-  // stop all bars
-  multibar.stop();
-})();
+//   let t = 0;
+
+//   // control bars
+//   b1.increment();
+//   b1.update(20, { filename: "helloworld.txt" });
+//   b2.update(20, { filename: "test1.txt" });
+//   while (t <= 100) {
+//     b1.update(t, { filename: "helloworld.txt" });
+//     await sleep(1000);
+//     t = t + 10;
+//   }
+
+//   // stop all bars
+//   multibar.stop();
+// })();
 
 /////////////////////////////////////////////
 // Scraping NHL Reference

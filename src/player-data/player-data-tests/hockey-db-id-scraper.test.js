@@ -4,7 +4,7 @@ import {
   getNamesFromPage,
   setHdbID,
   addHdbIDToAll,
-} from "./hockey-db-id-scraper.js";
+} from "../hockey-db-id-scraper.js";
 
 describe("getNamesFromPage function", () => {
   test("when passed an html page, will extract all of the players from it", async () => {
