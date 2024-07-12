@@ -1,63 +1,54 @@
 import fs from "fs";
 import { combineSiteIds, writeFile, readFile } from "./utils/utils.js";
 import cron from "node-cron";
+import latinize from "latinize";
 
 // import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
-// import { scrapeHRPlayers, convertToCSV } from "./hr-id-scraping.js";
+import { scrapeHRPlayers } from "./player-data/hr-id-scraping.js";
 // import { players } from "./player-data/player-nhl-id.js";
 // import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 // import { runScrape, getTeamRosters } from "./experiment.js";
 
+// console.log(latinize("Paul Gagné"));
+
+// missing hr: 633, hdb: 1205
+
 const p = combineSiteIds(
-  // "./src/nhl-id-scraping-unique.json",
   "./src/player-data/nhl-id-scraping-unique.json",
   "./src/player-data/results/hdbID.json",
-  "./src/player-data/results/hr-player-id-final.json"
+  "./src/player-data/results/hr-player-id.json"
 );
 
-console.log(p.find((player) => player.id === 8446993));
+const missingHR = p.filter((player) => player.hrID === null);
+const missingHDB = p.filter((player) => player.hdbID === null);
 
-// import cliProgress from "cli-progress";
-// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+console.log("Total:", p.length);
+console.log("Missing HR:", missingHR.length);
+writeFile("./src/player-data/results/hr-missing.json", missingHR);
+console.log(missingHR[0]);
+console.log("Missing HDB:", missingHDB.length);
+writeFile("./src/player-data/results/hdb-missing.json", missingHDB);
+console.log(missingHDB[0]);
 
-// (async function () {
-//   // const cliProgress = require("cli-progress");
-
-//   // create new container
-//   const multibar = new cliProgress.MultiBar(
-//     {
-//       clearOnComplete: false,
-//       hideCursor: true,
-//       format: " {bar} | {filename} | {value}/{total}",
-//     },
-//     cliProgress.Presets.shades_grey
-//   );
-
-//   // add bars
-//   const b1 = multibar.create(100, 0);
-//   const b2 = multibar.create(1000, 0);
-
-//   let t = 0;
-
-//   // control bars
-//   b1.increment();
-//   b1.update(20, { filename: "helloworld.txt" });
-//   b2.update(20, { filename: "test1.txt" });
-//   while (t <= 100) {
-//     b1.update(t, { filename: "helloworld.txt" });
-//     await sleep(1000);
-//     t = t + 10;
-//   }
-
-//   // stop all bars
-//   multibar.stop();
-// })();
+// console.log(p.find((player) => player.id === 8446993));
 
 /////////////////////////////////////////////
 // Scraping NHL Reference
 /////////////////////////////////////////////
-// cron.schedule("*/5 * * * * *", scrapeHRPlayers);
-// scrapeHRPlayers();
+// const hrPlayerResults = `./src/player-data/results/hr-player-id.json`;
+
+// cron.schedule(
+//   "*/5 * * * * *",
+//   (path) => {
+//     scrapeHRPlayers(hrPlayerResults);
+//   },
+//   [hrPlayerResults]
+// );
+
+// scrapeHRPlayers(hrPlayerResults);
+
+// check finishing condition (it's trying to scrape a player)
+// rename this to hrToCSV(), put in hr-id-scraping, remove from index.js
 // convertToCSV();
 
 /////////////////////////////////////////////

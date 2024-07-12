@@ -103,7 +103,7 @@ const getAllPlayers = (letters, baseFilePath) => {
     const playersForLetter = getNamesFromPage(html);
     allPlayers = [...allPlayers, ...playersForLetter];
   });
-  return allPlayers.flat(); //.flatMap(player => );
+  return allPlayers.flat();
 };
 
 // Takes two players and returns one combined (if it's the same person)

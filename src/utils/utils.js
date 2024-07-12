@@ -1,7 +1,7 @@
 const fs = require("fs");
 import cliProgress from "cli-progress";
 import cheerio from "cheerio";
-// import fs from "fs";
+import latinize from "latinize";
 
 // checks to see if an array exists and is empty.
 // Returns 0 if empty, 1 if the array has data, and 'false' if it's not an array
@@ -59,17 +59,6 @@ const writeFile = (filePath, data) => {
   }
 };
 
-async function convert(base, destination) {
-  const result = await fetch(
-    `https://api.exchangeratesapi.io/latest?base=${base}`
-  );
-  if (!result.ok) {
-    throw new Error(`Request failed with status code ${result.status}`);
-  }
-  const data = await result.json();
-  return data.rates[destination];
-}
-
 const removeNickname = (nickname) => {
   // 1. Remove the nickname and the quotes around it
   // 2. This leaves two whitespace characters
@@ -77,68 +66,30 @@ const removeNickname = (nickname) => {
   return nickname.replace(/"([^"]*)"/g, "").replace(/\s\s+/g, " ");
 };
 
-const parsePlayersFromHR = (html) => {
-  // return object with extracted values
-  let $ = cheerio.load(html);
-  const players = [];
-  $("#stats tbody")
-    .find("tr")
-    .each((index, element) => {
-      const regex = /\w+(?=.html)/gm;
-      const player = {
-        name: $(element).find("td a").text(),
-        id: $(element).find("td a").attr("href"), //.match(regex)[0],
-        birthDate: $(element).find('td[data-stat="birth_date"]').text(),
-      };
-      if (player.name && player.id.trim() !== "") {
-        players.push(player);
-      }
-    });
-  return players;
-};
-
 const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
   const players = JSON.parse(readFile(nhlPlayers));
   const hdbIDs = JSON.parse(readFile(hdbPlayers));
   const hrIDs = JSON.parse(readFile(hrPlayers));
-  const missingPlayers = [];
 
   const progressBar = new cliProgress.SingleBar(
     {},
     cliProgress.Presets.shades_classic
   );
   progressBar.start(players.length, 0);
-
-  const temp = players.map((player, index) => {
+  //512
+  const playerResult = players.map((player, index) => {
     const fullName = `${player.firstName.default} ${player.lastName.default}`;
-
     const hr = hrIDs.find(
-      ({ name, birthDate, id }) =>
-        name === fullName && birthDate === player.birthDate
+      ({ name, birthDate, birthCity, id }) =>
+        (name === fullName && birthDate === player.birthDate) ||
+        (name === fullName && birthCity === player.birthCity.default)
     );
 
     const hdb = hdbIDs.find(
       ({ name, birthDate, hdbID }) =>
-        // name === fullName && birthDate === player.birthDate
         name === fullName && birthDate === player.birthDate
     );
 
-    // This could be cleaned up I think
-    if (hr === undefined) {
-      missingPlayers.push({
-        fullName,
-        birthDate: player.birthDate,
-        hr: "missing",
-      });
-    } else if (hdb === undefined) {
-      missingPlayers.push({
-        fullName,
-        birthDate: player.birthDate,
-        hdb: "missing",
-      });
-    }
-
-    // Not sure I need a progress bar on this, it's fast
     progressBar.update(index + 1);
 
     return {
@@ -149,10 +100,9 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
   });
 
   progressBar.stop();
-  console.log("Missing Players:", missingPlayers.length);
-  console.log(missingPlayers[0]);
+
   // return an array of objects containing all players with hdbid and hrids added
-  return temp;
+  return playerResult;
 };
 
 export {
@@ -162,7 +112,5 @@ export {
   getPage,
   readFile,
   writeFile,
-  convert,
   removeNickname,
-  parsePlayersFromHR,
 };
