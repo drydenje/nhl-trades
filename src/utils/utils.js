@@ -9,6 +9,28 @@ const checkArray = (arr) => {
   return Array.isArray(arr) && arr.length;
 };
 
+// takes nhlPlayer and another Player object
+const checkNameAndCity = (
+  { firstName, lastName, birthCity },
+  { name: hName, birthCity: hBirthCity }
+) => {
+  return (
+    `${firstName.default} ${lastName.default}` === hName &&
+    birthCity.default === hBirthCity
+  );
+};
+
+// takes nhlPlayer and another Player object
+const checkNameAndBirthDate = (
+  { firstName, lastName, birthDate },
+  { name: hName, birthDate: hBirthDate }
+) => {
+  return (
+    `${firstName.default} ${lastName.default}` === hName &&
+    birthDate === hBirthDate
+  );
+};
+
 // Returns the next year to scrape
 const getNextYear = (obj) => {
   const yearToScrape = Object.entries(obj).filter((year) => {
@@ -81,6 +103,7 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
 
   const playerResult = players.map((player, index) => {
     const fullName = `${player.firstName.default} ${player.lastName.default}`;
+    // const singleNameCheck = players.filter()
     const hr = hrIDs.find(
       (hrPlayer) =>
         checkNameAndBirthDate(player, hrPlayer) ||
@@ -106,28 +129,6 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
 
   // return an array of objects containing all players with hdbid and hrids added
   return playerResult;
-};
-
-// takes nhlPlayer and another Player object
-const checkNameAndCity = (
-  { firstName, lastName, birthCity },
-  { hName, hBirthCity }
-) => {
-  return (
-    `${firstName.default} ${lastName.default}` === hName &&
-    birthCity === hBirthCity
-  );
-};
-
-// takes nhlPlayer and another Player object
-const checkNameAndBirthDate = (
-  { firstName, lastName, birthDate },
-  { hName, hBirthDate }
-) => {
-  return (
-    `${firstName.default} ${lastName.default}` === hName &&
-    birthDate === hBirthDate
-  );
 };
 
 export {
