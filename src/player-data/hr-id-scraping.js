@@ -11,7 +11,7 @@ import latinize from "latinize";
 const scrapeHRPlayers = async (filePath) => {
   // check if the results file exists
   if (!existsSync(filePath)) {
-    console.log("file doesn't exist");
+    console.log("File doesn't exist: creating new file with template");
     // create a new json file using the blank template
     writeFile(filePath, hrEmptyTemplate);
   }
@@ -68,7 +68,6 @@ const scrapeHRPlayers = async (filePath) => {
 };
 
 const headings = ["name", "id", "birthDate"];
-
 const convertToCSV = () => {
   const players = JSON.parse(
     readFile(`./src/player-data/hr-player-id-final.json`)
@@ -111,6 +110,7 @@ const parsePlayersFromHR = (html) => {
   return players;
 };
 
+// This is used to create an empty JSON file if none exists
 const hrEmptyTemplate = [
   {
     name: "Alberta",
