@@ -76,18 +76,21 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
     cliProgress.Presets.shades_classic
   );
   progressBar.start(players.length, 0);
+
   //512
+
   const playerResult = players.map((player, index) => {
     const fullName = `${player.firstName.default} ${player.lastName.default}`;
     const hr = hrIDs.find(
-      ({ name, birthDate, birthCity, id }) =>
-        (name === fullName && birthDate === player.birthDate) ||
-        (name === fullName && birthCity === player.birthCity.default)
+      (hrPlayer) =>
+        checkNameAndBirthDate(player, hrPlayer) ||
+        checkNameAndCity(player, hrPlayer)
     );
 
     const hdb = hdbIDs.find(
-      ({ name, birthDate, hdbID }) =>
-        name === fullName && birthDate === player.birthDate
+      (hdbPlayer) =>
+        checkNameAndBirthDate(player, hdbPlayer) ||
+        checkNameAndCity(player, hdbPlayer)
     );
 
     progressBar.update(index + 1);
@@ -103,6 +106,28 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
 
   // return an array of objects containing all players with hdbid and hrids added
   return playerResult;
+};
+
+// takes nhlPlayer and another Player object
+const checkNameAndCity = (
+  { firstName, lastName, birthCity },
+  { hName, hBirthCity }
+) => {
+  return (
+    `${firstName.default} ${lastName.default}` === hName &&
+    birthCity === hBirthCity
+  );
+};
+
+// takes nhlPlayer and another Player object
+const checkNameAndBirthDate = (
+  { firstName, lastName, birthDate },
+  { hName, hBirthDate }
+) => {
+  return (
+    `${firstName.default} ${lastName.default}` === hName &&
+    birthDate === hBirthDate
+  );
 };
 
 export {
