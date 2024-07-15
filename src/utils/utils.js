@@ -9,6 +9,23 @@ const checkArray = (arr) => {
   return Array.isArray(arr) && arr.length;
 };
 
+const checkForMultipleNames = (players, { name: hName }) => {
+  const result = players.filter((player) => {
+    const fullName = `${player.firstName.default} ${player.lastName.default}`;
+    return fullName === hName;
+  });
+
+  // return result.length;
+
+  // console.log("R:", result.length);
+
+  // if (result.length > 1) {
+  //   console.log("Duplicate Name:", hName);
+  // }
+  return result.length === 1 ? true : false;
+  // return result.length > 1 && result.length != 0 ? true : false;
+};
+
 // takes nhlPlayer and another Player object
 const checkNameAndCity = (
   { firstName, lastName, birthCity },
@@ -106,12 +123,14 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
     // const singleNameCheck = players.filter()
     const hr = hrIDs.find(
       (hrPlayer) =>
+        checkForMultipleNames(players, hrPlayer) === 1 ||
         checkNameAndBirthDate(player, hrPlayer) ||
         checkNameAndCity(player, hrPlayer)
     );
 
     const hdb = hdbIDs.find(
       (hdbPlayer) =>
+        checkForMultipleNames(players, hdbPlayer) === true ||
         checkNameAndBirthDate(player, hdbPlayer) ||
         checkNameAndCity(player, hdbPlayer)
     );
@@ -134,6 +153,7 @@ const combineSiteIds = (nhlPlayers, hdbPlayers, hrPlayers) => {
 export {
   checkArray,
   combineSiteIds,
+  checkForMultipleNames,
   getNextYear,
   getPage,
   readFile,
