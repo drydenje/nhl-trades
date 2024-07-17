@@ -131,6 +131,10 @@ const players = [
 (async function () {
   //
   const pMap = new Map();
+  // const pMap = new Map(
+  //   players,
+  //   `${players.firstName.default} ${players.lastName.default}`
+  // );
 
   players.forEach((player) => {
     const fullName = `${player.firstName.default} ${player.lastName.default}`;
