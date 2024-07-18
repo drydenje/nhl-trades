@@ -10,26 +10,44 @@ import { scrapeHDBPlayers } from "./player-data/hockey-db-id-scraper.js";
 // import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 // import { runScrape, getTeamRosters } from "./experiment.js";
 
+var neo4j = require("neo4j-driver");
+(async () => {
+  // URI examples: 'neo4j://localhost', 'neo4j+s://xxx.databases.neo4j.io'
+  const URI = "";
+  const USER = "";
+  const PASSWORD = "";
+  let driver;
+
+  try {
+    driver = neo4j.driver(URI, neo4j.auth.basic(USER, PASSWORD));
+    const serverInfo = await driver.getServerInfo();
+    console.log("Connection established");
+    console.log(serverInfo);
+  } catch (err) {
+    console.log(`Connection error\n${err}\nCause: ${err.cause}`);
+  }
+})();
+
 // console.log(latinize("Paul Gagné"));
 
 // missing hr: 633, hdb: 1204
 // 512, 910
 
-const p = combineSiteIds(
-  "./src/player-data/nhl-id-scraping-unique.json",
-  "./src/player-data/results/hdb-player-ids.json",
-  "./src/player-data/results/hr-player-id.json"
-);
+// const p = combineSiteIds(
+//   "./src/player-data/nhl-id-scraping-unique.json",
+//   "./src/player-data/results/hdb-player-ids.json",
+//   "./src/player-data/results/hr-player-id.json"
+// );
 
-const missingHR = p.filter((player) => player.hrID === null);
-const missingHDB = p.filter((player) => player.hdbID === null);
+// const missingHR = p.filter((player) => player.hrID === null);
+// const missingHDB = p.filter((player) => player.hdbID === null);
 
-console.log("Total:", p.length);
-// console.log(p[0]);
-console.log("Missing HR:", missingHR.length);
-writeFile("./src/player-data/results/hr-missing.json", missingHR);
-console.log("Missing HDB:", missingHDB.length);
-writeFile("./src/player-data/results/hdb-missing.json", missingHDB);
+// console.log("Total:", p.length);
+// // console.log(p[0]);
+// console.log("Missing HR:", missingHR.length);
+// writeFile("./src/player-data/results/hr-missing.json", missingHR);
+// console.log("Missing HDB:", missingHDB.length);
+// writeFile("./src/player-data/results/hdb-missing.json", missingHDB);
 
 //check name, then add other options if there are more than one?
 
