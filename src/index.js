@@ -1,3 +1,4 @@
+import "dotenv/config";
 import fs from "fs";
 import { combineSiteIds, writeFile, readFile } from "./utils/utils.js";
 import cron from "node-cron";
@@ -13,18 +14,28 @@ import { scrapeHDBPlayers } from "./player-data/hockey-db-id-scraper.js";
 var neo4j = require("neo4j-driver");
 (async () => {
   // URI examples: 'neo4j://localhost', 'neo4j+s://xxx.databases.neo4j.io'
-  const URI = "";
-  const USER = "";
-  const PASSWORD = "";
+  // const URI = "";
+  // const USER = "";
+  // const PASSWORD = "";
+  console.log(process.env.NEO4J_URI);
+  console.log(process.env.NEO4J_USERNAME);
+  console.log(process.env.NEO4J_PASSWORD);
   let driver;
-
+  let session;
   try {
-    driver = neo4j.driver(URI, neo4j.auth.basic(USER, PASSWORD));
+    driver = neo4j.driver(
+      process.env.NEO4J_URI,
+      neo4j.auth.basic(process.env.NEO4J_USERNAME, process.env.NEO4J_PASSWORD)
+    );
     const serverInfo = await driver.getServerInfo();
     console.log("Connection established");
     console.log(serverInfo);
+    // session = driver.session({ database: `${process.env.AURA_INSTANCENAME}` });
   } catch (err) {
     console.log(`Connection error\n${err}\nCause: ${err.cause}`);
+  } finally {
+    //  session.close()
+    driver.close();
   }
 })();
 
