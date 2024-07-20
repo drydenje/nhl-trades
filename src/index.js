@@ -14,12 +14,11 @@ import { scrapeHDBPlayers } from "./player-data/hockey-db-id-scraper.js";
 var neo4j = require("neo4j-driver");
 (async () => {
   // URI examples: 'neo4j://localhost', 'neo4j+s://xxx.databases.neo4j.io'
-  // const URI = "";
-  // const USER = "";
-  // const PASSWORD = "";
-
+  const URI = "";
+  const USER = "";
+  const PASSWORD = "";
   let driver;
-
+  let session;
   try {
     driver = neo4j.driver(
       process.env.NEO4J_URI,
@@ -28,10 +27,9 @@ var neo4j = require("neo4j-driver");
     const serverInfo = await driver.getServerInfo();
     console.log("Connection established");
     console.log(serverInfo);
+    // session = driver.session({ database: `${process.env.AURA_INSTANCENAME}` });
   } catch (err) {
     console.log(`Connection error\n${err}\nCause: ${err.cause}`);
-  } finally {
-    driver.close();
   }
 })();
 
