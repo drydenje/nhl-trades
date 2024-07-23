@@ -23,6 +23,26 @@ var neo4j = require("neo4j-driver");
     const serverInfo = await driver.getServerInfo();
     console.log("Connection established");
     console.log(serverInfo);
+
+    // Get the name of all 42 year-olds
+    const { records, summary, keys } = await driver.executeQuery(
+      "MATCH (p:Person {age: $age}) RETURN p.name AS name",
+      { age: 42 },
+      { database: "neo4j" }
+    );
+
+    // Summary information
+    console.log(
+      `>> The query ${summary.query.text} ` +
+        `returned ${records.length} records ` +
+        `in ${summary.resultAvailableAfter} ms.`
+    );
+
+    // Loop through results and do something with them
+    console.log(">> Results");
+    for (record of records) {
+      console.log(record.get("name"));
+    }
   } catch (err) {
     console.log(`Connection error\n${err}\nCause: ${err.cause}`);
   } finally {
