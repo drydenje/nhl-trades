@@ -760,7 +760,6 @@ const teams = [
   {
     id: 55,
     name: "SEATTLE KRAKEN",
-    start: "20232024",
     abbreviation: "SEA",
     nicknames: [],
     colors: [],
@@ -768,6 +767,8 @@ const teams = [
     goalHorn: "",
     goalHornSong: "",
     isActive: true,
+    start: "20232024",
+    end: null,
   },
 ];
 
