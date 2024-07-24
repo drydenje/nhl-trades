@@ -11,43 +11,43 @@ import { scrapeHDBPlayers } from "./player-data/hockey-db-id-scraper.js";
 // import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
 // import { runScrape, getTeamRosters } from "./experiment.js";
 ////////////////
-// var neo4j = require("neo4j-driver");
-// (async () => {
-//   let driver;
+var neo4j = require("neo4j-driver");
+(async () => {
+  let driver;
 
-//   try {
-//     driver = neo4j.driver(
-//       process.env.NEO4J_URI,
-//       neo4j.auth.basic(process.env.NEO4J_USERNAME, process.env.NEO4J_PASSWORD)
-//     );
-//     const serverInfo = await driver.getServerInfo();
-//     console.log("Connection established");
-//     console.log(serverInfo);
+  try {
+    driver = neo4j.driver(
+      process.env.NEO4J_URI,
+      neo4j.auth.basic(process.env.NEO4J_USERNAME, process.env.NEO4J_PASSWORD)
+    );
+    const serverInfo = await driver.getServerInfo();
+    console.log("Connection established");
+    console.log(serverInfo);
 
-//     // Get the name of all 42 year-olds
-//     const { records, summary, keys } = await driver.executeQuery(
-//       "MATCH (t:Team {isActive: true}) RETURN t.name AS name",
-//       { database: "neo4j" }
-//     );
+    // Get the name of all 42 year-olds
+    const { records, summary, keys } = await driver.executeQuery(
+      "MATCH (t:Team {isActive: true}) RETURN t.name AS name",
+      { database: "neo4j" }
+    );
 
-//     // Summary information
-//     console.log(
-//       `>> The query ${summary.query.text} ` +
-//         `returned ${records.length} records ` +
-//         `in ${summary.resultAvailableAfter} ms.`
-//     );
+    // Summary information
+    console.log(
+      `>> The query ${summary.query.text} ` +
+        `returned ${records.length} records ` +
+        `in ${summary.resultAvailableAfter} ms.`
+    );
 
-//     // Loop through results and do something with them
-//     console.log(">> Results");
-//     for (record of records) {
-//       console.log(record.get("name"));
-//     }
-//   } catch (err) {
-//     console.log(`Connection error\n${err}\nCause: ${err.cause}`);
-//   } finally {
-//     driver.close();
-//   }
-// })();
+    // Loop through results and do something with them
+    console.log(">> Results");
+    for (record of records) {
+      console.log(record.get("name"));
+    }
+  } catch (err) {
+    console.log(`Connection error\n${err}\nCause: ${err.cause}`);
+  } finally {
+    driver.close();
+  }
+})();
 /////////////////////
 
 // console.log(latinize("Paul Gagné"));
@@ -176,56 +176,56 @@ import { scrapeHDBPlayers } from "./player-data/hockey-db-id-scraper.js";
 /////////////////////////////////////////////
 // Convert NHL Teams to CSV
 /////////////////////////////////////////////
-import { convertArrayToCSV } from "convert-array-to-csv";
-// import teams from "../public/scraped-data/team-nhl-id";
+// import { convertArrayToCSV } from "convert-array-to-csv";
+// // import teams from "../public/scraped-data/team-nhl-id";
 
-import { teams } from "./player-data/team-nhl-id";
+// import { teams } from "./player-data/team-nhl-id";
 
-const headings = [
-  "id",
-  "name",
-  "abbreviation",
-  "nicknames",
-  "colors",
-  "logo",
-  "goalHorn",
-  // "goalHornSong",
-  "isActive",
-  "start",
-  "end",
-];
+// const headings = [
+//   "id",
+//   "name",
+//   "abbreviation",
+//   "nicknames",
+//   "colors",
+//   "logo",
+//   "goalHorn",
+//   // "goalHornSong",
+//   "isActive",
+//   "start",
+//   "end",
+// ];
 
-const temp = teams.map((team) => {
-  delete team.nicknames;
-  delete team.goalHorn;
-  delete team.goalHornSong;
-  return {
-    ...team,
-    // removing things we don't want
-    // nicknames: null,
-    colors: team.colors.join("/"),
-    // goalHorn: null,
-    // goalHornSong: null,
+// const temp = teams.map((team) => {
+//   delete team.nicknames;
+//   delete team.goalHorn;
+//   delete team.goalHornSong;
+//   return {
+//     ...team,
+//     // removing things we don't want
+//     // nicknames: null,
+//     colors: team.colors.join("/"),
+//     // goalHorn: null,
+//     // goalHornSong: null,
 
-    // to get around csv quotation problem
-    // nicknames: team.nicknames.join("/"),
-    // colors: team.colors.join("/"),
-  };
-});
+//     // to get around csv quotation problem
+//     // nicknames: team.nicknames.join("/"),
+//     // colors: team.colors.join("/"),
+//   };
+// });
 
-console.log(temp[0]);
+// console.log(temp[0]);
 
-const csv = convertArrayToCSV(temp, {
-  headings,
-  separator: ",",
-});
+// const csv = convertArrayToCSV(temp, {
+//   headings,
+//   separator: ",",
+// });
 
-// writeFile(`./src/player-data/nhl-team-ids.csv`, csv);
-fs.writeFile("./src/csv-data/nhl-team-ids.csv", csv, (err) => {
-  if (err) {
-    console.log(err);
-  }
-});
+// // writeFile(`./src/player-data/nhl-team-ids.csv`, csv);
+// fs.writeFile("./src/csv-data/nhl-team-ids.csv", csv, (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+// });
 
 /////////////////////////////////////////////
 // Convert NHL Trades to CSV
