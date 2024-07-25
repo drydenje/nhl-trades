@@ -37,9 +37,10 @@ var neo4j = require("neo4j-driver");
         `in ${summary.resultAvailableAfter} ms.`
     );
 
+    // console.log(records);
     // Loop through results and do something with them
     console.log(">> Results");
-    for (record of records) {
+    for (let record of records) {
       console.log(record.get("name"));
     }
   } catch (err) {
