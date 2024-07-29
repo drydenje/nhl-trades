@@ -126,53 +126,10 @@ var neo4j = require("neo4j-driver");
 /////////////////////////////////////////////
 // Convert NHL ids to CSV
 /////////////////////////////////////////////
-// import { convertArrayToCSV } from "convert-array-to-csv";
+import { convertNHLPlayersToCSV } from "./player-data/nhl-id-scraping.js";
 
-// const players = JSON.parse(
-//   readFile(`./src/player-data/nhl-id-scraping-unique.json`)
-// ).map((player) => {
-//   return {
-//     ...player,
-//     firstName: player.firstName.default,
-//     lastName: player.lastName.default,
-//     birthCity: player.birthCity?.default,
-//     birthStateProvince: player.birthStateProvince?.default,
-//     name: `${player.firstName.default} ${player.lastName.default}`,
-//   };
-// });
-
-// const headings = [
-//   "id",
-//   "headshot",
-//   "firstName",
-//   "lastName",
-//   "sweaterNumber",
-//   "positionCode",
-//   "shootsCatches",
-//   "heightInInches",
-//   "weightInPounds",
-//   "heightInCentimeters",
-//   "weightInKilograms",
-//   "birthDate",
-//   "birthCity",
-//   "birthCountry",
-//   "birthStateProvince",
-//   "hrID",
-//   "hdbID",
-//   "verified",
-//   "name",
-// ];
-
-// const csv = convertArrayToCSV(players, {
-//   headings,
-//   separator: ",",
-// });
-
-// fs.writeFile("./src/player-data/nhl-id-scraping-unique.csv", csv, (err) => {
-//   if (err) {
-//     console.log(err);
-//   }
-// });
+const jsonFilePath = "";
+convertNHLPlayersToCSV(jsonFilePath);
 
 /////////////////////////////////////////////
 // Convert NHL Teams to CSV
