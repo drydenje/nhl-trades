@@ -1,3 +1,12 @@
+import latinize from "latinize";
+
+// import { fetchDraftYear, convertToCSV } from "./nhl-draft-scraping.js";
+// import { scrapeHRPlayers } from "./player-data/hr-id-scraping.js";
+// import { scrapeHDBPlayers } from "./player-data/hockey-db-id-scraper.js";
+// import { players } from "./player-data/player-nhl-id.js";
+// import { scrapeNhlRoster, scrapeNHLTeams } from "./nhl-id-scraping.js";
+// import { runScrape, getTeamRosters } from "./experiment.js";
+
 // console.log(latinize("Paul Gagné"));
 
 // missing hr: 633, hdb: 1204
