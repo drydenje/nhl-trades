@@ -1,11 +1,28 @@
 import "dotenv/config";
 import fs from "fs";
-import { combineSiteIds, writeFile, readFile } from "./utils/utils.js";
+import { writeFile, readFile } from "./utils/utils.js";
 import cron from "node-cron";
+
+/////////////////////////////////////////////
+// Scraping NHL_ID
+/////////////////////////////////////////////
+//#region <NHL_ID>
+
+// import { scrapeNHLPlayers } from "./player-data/nhl-id-scraping.js";
+
+// (async function () {
+//   while (true) {
+//     await scrapeNHLPlayers();
+//   }
+// })();
+
+// Convert NHL ids to CSV
+//#endregion
 
 /////////////////////////////////////////////
 // Scraping Hockey Reference
 /////////////////////////////////////////////
+//#region <HOCKEY_REFERENCE>
 // const hrPlayerResults = `./src/player-data/results/hr-player-id.json`;
 
 // cron.schedule(
@@ -22,9 +39,13 @@ import cron from "node-cron";
 // rename this to hrToCSV(), put in hr-id-scraping, remove from index.js
 // convertToCSV();
 
+//#endregion
+
 /////////////////////////////////////////////
 // Scraping HockeyDB
 /////////////////////////////////////////////
+//#region <HOCKEY_DB>
+
 // const hdbPlayerResults = `./src/player-data/results/hdb-player-ids.json`;
 
 // cron.schedule(
@@ -41,29 +62,27 @@ import cron from "node-cron";
 // rename this to hrToCSV(), put in hr-id-scraping, remove from index.js
 // convertToCSV();
 
-/////////////////////////////////////////////
-// Scraping NHL Rosters
-/////////////////////////////////////////////
-// (async function () {
-//   while (true) {
-//     await scrapeNHLTeams();
-//   }
-// })();
+//#endregion
 
 /////////////////////////////////////////////
-// Convert NHL ids to CSV
+// Convert NHL Teams to CSV ✅
 /////////////////////////////////////////////
-// import { convertNHLPlayersToCSV } from "./player-data/nhl-id-scraping.js";
+//#region <NHL_TEAMS>
+// Todo: Save to ./results/teams.json
+// Todo: Add colours, logo url, and isActive, start, end? to teams after scrape
+// Todo: Save to csv file for database insertion
 
-// const jsonFilePath = "";
-// convertNHLPlayersToCSV(jsonFilePath);
+import { scrapeNhlTeams, teamsToCSV } from "./teams/nhl-team-scraping";
 
-/////////////////////////////////////////////
-// Convert NHL Teams to CSV
-/////////////////////////////////////////////
+(async function () {
+  await scrapeNhlTeams();
+  // teamsToCSV();
+})();
+
+//#endregion
 
 /////////////////////////////////////////////
 // Convert NHL Trades to CSV
 /////////////////////////////////////////////
-
-/////////////
+//#region <NHL_TRADES>
+//#endregion

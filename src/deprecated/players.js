@@ -31,3 +31,8 @@ import latinize from "latinize";
 //check name, then add other options if there are more than one?
 
 // console.log(p.find((player) => player.id === 8446993));
+
+// import { convertNHLPlayersToCSV } from "./player-data/nhl-id-scraping.js";
+
+// const jsonFilePath = "";
+// convertNHLPlayersToCSV(jsonFilePath);

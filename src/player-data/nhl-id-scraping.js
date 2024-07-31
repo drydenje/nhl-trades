@@ -64,7 +64,7 @@ async function* scrapeNhlRoster(teamToScrape, startYear) {
   }
 }
 
-const scrapeNHLTeams = async () => {
+const scrapeNHLPlayers = async () => {
   const startTime = new Date();
 
   // decide which team to scrape rosters from
@@ -177,4 +177,4 @@ const convertNHLPlayersToCSV = (jsonFilePath) => {
   });
 };
 
-export { scrapeNhlRoster, scrapeNHLTeams, convertNHLPlayersToCSV };
+export { scrapeNhlRoster, scrapeNHLPlayers, convertNHLPlayersToCSV };
