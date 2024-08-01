@@ -1,4 +1,4 @@
-const teams = [
+const teamExtras = [
   {
     id: 1,
     name: "NEW JERSEY DEVILS",
@@ -426,7 +426,7 @@ const teams = [
       "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/horns/ari.m4a",
     goalHornSong:
       "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/songs/ari.mp3",
-    isActive: true,
+    isActive: false,
     start: null,
     end: null,
   },
@@ -509,6 +509,29 @@ const teams = [
     goalHornSong:
       "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/songs/wpg.mp3",
     isActive: true,
+    start: null,
+    end: null,
+  },
+  {
+    id: 52,
+    name: "WINNIPEG JETS (1979)",
+    abbreviation: "WIN",
+    nicknames: ["AIRFORCE"],
+    colors: [
+      "#041E42",
+      "#004C97",
+      "#AC162C",
+      "#7B303E",
+      "#55565A",
+      "#8E9090",
+      "#FFF",
+    ],
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Winnipeg_Jets_Logo_2011.svg/440px-Winnipeg_Jets_Logo_2011.svg.png",
+    goalHorn:
+      "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/horns/wpg.m4a",
+    goalHornSong:
+      "https://github.com/gretzky/nhl-api/blob/master/packages/teams/src/assets/songs/wpg.mp3",
+    isActive: false,
     start: null,
     end: null,
   },
@@ -732,6 +755,19 @@ const teams = [
     isActive: false,
   },
   {
+    id: 59,
+    name: "UTAH HOCKEY CLUB",
+    start: "20242025",
+    end: null,
+    abbreviation: "UTA",
+    nicknames: [],
+    colors: ["#71AFE5", "#090909"],
+    logo: "https://upload.wikimedia.org/wikipedia/en/9/95/Utah_Hockey_Club_2024-25_Logo.svg",
+    goalHorn: "",
+    goalHornSong: "",
+    isActive: true,
+  },
+  {
     id: 45,
     name: "ST. LOUIS EAGLES",
     start: "1934",
@@ -762,14 +798,14 @@ const teams = [
     name: "SEATTLE KRAKEN",
     abbreviation: "SEA",
     nicknames: [],
-    colors: [],
-    logo: null,
+    colors: ["#001628", "#99D9D9", "#355464", "#68A2B9", "#E9072B"],
+    logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Seattle_Kraken.png",
     goalHorn: "",
     goalHornSong: "",
     isActive: true,
-    start: "20232024",
+    start: 20232024,
     end: null,
   },
 ];
 
-export { teams };
+export { teamExtras };

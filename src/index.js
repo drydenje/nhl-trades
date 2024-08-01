@@ -65,19 +65,18 @@ import cron from "node-cron";
 //#endregion
 
 /////////////////////////////////////////////
-// Convert NHL Teams to CSV ✅
+// Scrape NHL Teams and convert to CSV ✅
 /////////////////////////////////////////////
 //#region <NHL_TEAMS>
-// Todo: Save to ./results/teams.json
-// Todo: Add colours, logo url, and isActive, start, end? to teams after scrape
-// Todo: Save to csv file for database insertion
 
-import { scrapeNhlTeams, teamsToCSV } from "./teams/nhl-team-scraping";
+// import { scrapeNhlTeams, teamsToCSV } from "./teams/nhl-team-scraping";
 
-(async function () {
-  await scrapeNhlTeams();
-  // teamsToCSV();
-})();
+// (async function () {
+//   // scrape the NHL Team list
+//   await scrapeNhlTeams()
+//     // Save the teams to a CSV File
+//     .then((teams) => teamsToCSV(teams));
+// })();
 
 //#endregion
 

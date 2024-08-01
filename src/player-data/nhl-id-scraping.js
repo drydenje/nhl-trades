@@ -3,26 +3,6 @@ import fs from "fs";
 import { writeFile, readFile } from "../utils/utils.js";
 const chalk = require("chalk");
 
-// const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {
-//   const TEAM_ROSTER_URL = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${yearToScrape}`;
-
-//   const result = await fetch(TEAM_ROSTER_URL)
-//     .then((res) => res.json())
-//     .then((res) => [...res.forwards, ...res.defensemen, ...res.goalies])
-//     .then((res) =>
-//       res.map((player) => {
-//         return {
-//           ...player,
-//           hrID: null,
-//           hdbID: null,
-//           verified: false,
-//         };
-//       })
-//     );
-
-//   return result;
-// };
-
 async function* scrapeNhlRoster(teamToScrape, startYear) {
   let year = startYear;
   while (year) {

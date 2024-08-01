@@ -1,5 +1,7 @@
 import { writeFile } from "fs";
 import { convertArrayToCSV } from "convert-array-to-csv";
+const chalk = require("chalk");
+import { teamExtras } from "./team-nhl-id-extras";
 
 const TEAM_REST_URL = `https://api.nhle.com/stats/rest/en/team`;
 const JSON_RESULTS_FILE = `./src/teams/results/teams.json`;
@@ -11,16 +13,44 @@ const scrapeNhlTeams = async () => {
     if (!response.ok) {
       console.error("Unable to fetch team list");
     } else {
-      const data = await response.json().then((res) => res.data);
-      console.log(data);
-      // return data; ?
+      const data = await response
+        .json()
+        .then((res) => res.data)
+        .then((teams) =>
+          teams.map((team) => {
+            const extras = teamExtras.find(
+              (teamX) => teamX.abbreviation === team.triCode
+            );
+
+            return {
+              ...team,
+              colors: extras?.colors ? extras.colors.join("/") : [],
+              logo: extras?.logo ? extras.logo : null,
+              isActive: extras?.isActive ? true : false,
+              start: extras?.start ? extras.start : null,
+              end: extras?.end ? extras.end : null,
+            };
+          })
+        );
+
+      writeFile(JSON_RESULTS_FILE, JSON.stringify(data), (err) => {
+        if (err) {
+          console.log(err);
+        }
+
+        console.log(
+          chalk.inverse(`JSON data written to: ${JSON_RESULTS_FILE}`)
+        );
+      });
+
+      return data;
     }
   } catch (error) {
     console.error(error);
   }
 };
 
-const teamsToCSV = () => {
+const teamsToCSV = (teams) => {
   const headings = [
     "id",
     "franchiseId",
@@ -28,11 +58,11 @@ const teamsToCSV = () => {
     "leagueId",
     "rawTricode",
     "triCode",
-    // "colors",
-    // "logo",
-    // "isActive",
-    // "start",
-    //   "end",
+    "colors",
+    "logo",
+    "isActive",
+    "start",
+    "end",
   ];
 
   const csv = convertArrayToCSV(teams, {
@@ -44,7 +74,8 @@ const teamsToCSV = () => {
     if (err) {
       console.log(err);
     }
-    // console.log(`Data written to: ${csvFilePath}`);
+
+    console.log(chalk.bgCyan(`CSV data written to: ${CSV_RESULTS_FILE}`));
   });
 };
 
