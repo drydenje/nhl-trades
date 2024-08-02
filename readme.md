@@ -116,6 +116,202 @@
   ]
   ```
 
+  - Returns the entire array of all draft picks of the given year. (set the limit high)
+  - [https://records.nhl.com/site/api/draft?](https://records.nhl.com/site/api/draft?include=draftProspect.id&include=player.birthStateProvince&include=player.birthCountry&include=player.position&include=player.onRoster&include=player.yearsPro&include=player.firstName&include=player.lastName&include=player.id&include=team.id&include=team.placeName&include=team.commonName&include=team.fullName&include=team.triCode&include=team.logos&include=franchiseTeam.franchise.mostRecentTeamId&include=franchiseTeam.franchise.teamCommonName&include=franchiseTeam.franchise.teamPlaceName&sort=[{%22property%22:%22overallPickNumber%22,%22direction%22:%22ASC%22}]&cayenneExp=%20draftYear%20=%202023&start=0&limit=300)
+
+  ```json
+  [
+    {
+      "id": 19119,
+      "ageInDays": 6555,
+      "ageInDaysForYear": 346,
+      "ageInYears": 17,
+      "amateurClubName": "Regina",
+      "amateurLeague": "WHL",
+      "birthDate": "2005-07-17",
+      "birthPlace": "North Vancouver, BC",
+      "countryCode": "CAN",
+      "csPlayerId": 91671,
+      "draftDate": "2023-06-28",
+      "draftMasterId": 70,
+      "draftProspect": {
+        "id": 157648
+      },
+      "draftYear": 2023,
+      "draftedByTeamId": 16,
+      "firstName": "Connor",
+      "franchiseTeam": {
+        "franchise": {
+          "mostRecentTeamId": 16,
+          "teamCommonName": "Blackhawks",
+          "teamPlaceName": "Chicago"
+        }
+      },
+      "height": 70,
+      "lastName": "Bedard",
+      "notes": null,
+      "overallPickNumber": 1,
+      "pickInRound": 1,
+      "player": {
+        "id": 8484144,
+        "birthCountry": "CAN",
+        "birthStateProvince": "BC",
+        "firstName": "Connor",
+        "lastName": "Bedard",
+        "onRoster": "Y",
+        "position": "C",
+        "yearsPro": 1
+      },
+      "playerId": 8484144,
+      "playerName": "Connor Bedard",
+      "position": "C",
+      "removedOutright": "N",
+      "removedOutrightWhy": null,
+      "roundNumber": 1,
+      "shootsCatches": "R",
+      "supplementalDraft": "N",
+      "team": {
+        "id": 16,
+        "commonName": "Blackhawks",
+        "fullName": "Chicago Blackhawks",
+        "logos": [
+          {
+            "id": 61,
+            "background": "light",
+            "endSeason": 19561957,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19261927-19561957_light.svg",
+            "startSeason": 19261927,
+            "teamId": 16,
+            "url": "http://3.cdn.nhle.com/logos/nhl/svg/CHI_19261927-19561957_light.svg"
+          },
+          {
+            "id": 404,
+            "background": "dark",
+            "endSeason": 19561957,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19261927-19561957_dark.svg",
+            "startSeason": 19261927,
+            "teamId": 16,
+            "url": "http://1.cdn.nhle.com/logos/nhl/svg/CHI_19261927-19561957_dark.svg"
+          },
+          {
+            "id": 240,
+            "background": "dark",
+            "endSeason": 19611962,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19571958-19611962_dark.svg",
+            "startSeason": 19571958,
+            "teamId": 16,
+            "url": "http://1.cdn.nhle.com/logos/nhl/svg/CHI_19571958-19611962_dark.svg"
+          },
+          {
+            "id": 250,
+            "background": "light",
+            "endSeason": 19611962,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19571958-19611962_light.svg",
+            "startSeason": 19571958,
+            "teamId": 16,
+            "url": "http://3.cdn.nhle.com/logos/nhl/svg/CHI_19571958-19611962_light.svg"
+          },
+          {
+            "id": 88,
+            "background": "dark",
+            "endSeason": 19641965,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19621963-19641965_dark.svg",
+            "startSeason": 19621963,
+            "teamId": 16,
+            "url": "http://3.cdn.nhle.com/logos/nhl/svg/CHI_19621963-19641965_dark.svg"
+          },
+          {
+            "id": 224,
+            "background": "light",
+            "endSeason": 19641965,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19621963-19641965_light.svg",
+            "startSeason": 19621963,
+            "teamId": 16,
+            "url": "http://1.cdn.nhle.com/logos/nhl/svg/CHI_19621963-19641965_light.svg"
+          },
+          {
+            "id": 9,
+            "background": "dark",
+            "endSeason": 19881989,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19651966-19881989_dark.svg",
+            "startSeason": 19651966,
+            "teamId": 16,
+            "url": "http://1.cdn.nhle.com/logos/nhl/svg/CHI_19651966-19881989_dark.svg"
+          },
+          {
+            "id": 70,
+            "background": "light",
+            "endSeason": 19881989,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19651966-19881989_light.svg",
+            "startSeason": 19651966,
+            "teamId": 16,
+            "url": "http://3.cdn.nhle.com/logos/nhl/svg/CHI_19651966-19881989_light.svg"
+          },
+          {
+            "id": 44,
+            "background": "dark",
+            "endSeason": 19951996,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19891990-19951996_dark.svg",
+            "startSeason": 19891990,
+            "teamId": 16,
+            "url": "http://2.cdn.nhle.com/logos/nhl/svg/CHI_19891990-19951996_dark.svg"
+          },
+          {
+            "id": 269,
+            "background": "light",
+            "endSeason": 19951996,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19891990-19951996_light.svg",
+            "startSeason": 19891990,
+            "teamId": 16,
+            "url": "http://2.cdn.nhle.com/logos/nhl/svg/CHI_19891990-19951996_light.svg"
+          },
+          {
+            "id": 52,
+            "background": "dark",
+            "endSeason": 19981999,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19961997-19981999_dark.svg",
+            "startSeason": 19961997,
+            "teamId": 16,
+            "url": "http://3.cdn.nhle.com/logos/nhl/svg/CHI_19961997-19981999_dark.svg"
+          },
+          {
+            "id": 247,
+            "background": "light",
+            "endSeason": 19981999,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_19961997-19981999_light.svg",
+            "startSeason": 19961997,
+            "teamId": 16,
+            "url": "http://1.cdn.nhle.com/logos/nhl/svg/CHI_19961997-19981999_light.svg"
+          },
+          {
+            "id": 22,
+            "background": "light",
+            "endSeason": 20242025,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+            "startSeason": 19992000,
+            "teamId": 16,
+            "url": "http://3.cdn.nhle.com/logos/nhl/svg/CHI_light.svg"
+          },
+          {
+            "id": 228,
+            "background": "dark",
+            "endSeason": 20242025,
+            "secureUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg",
+            "startSeason": 19992000,
+            "teamId": 16,
+            "url": "http://1.cdn.nhle.com/logos/nhl/svg/CHI_dark.svg"
+          }
+        ],
+        "placeName": "Chicago",
+        "triCode": "CHI"
+      },
+      "teamPickHistory": "CHI",
+      "triCode": "CHI",
+      "weight": 185
+    }
+  ]
+  ```
+
 - Team ✅
 
   - Returns an array of all current and past NHL teams
