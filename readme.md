@@ -41,35 +41,94 @@
 ### Nodes
 
 - Player
-  -- id
-  -- hdbId
-  -- hrId
-  -- Name
-  -- birthDate
-  -- verified (bool)
-  -- nhlAPIstats
+
+  - id
+  - hdbId
+  - hrId
+  - Name
+  - birthDate
+  - verified (bool)
+  - nhlAPIstats
 
 - Team
-  -- hdbId
-  -- hrId
-  -- nhlId
-  -- Name
-  -- verified
+
+  - hdbId
+  - hrId
+  - nhlId
+  - Name
+  - verified
 
 - DraftPick
-  -- year
-  -- overallPick
-  -- teamId ?which site, or my own teamId?
-  -- playerId
+
+  - year
+  - overallPick
+  - teamId ? which site, or my own teamId?
+  - playerId
 
 - Trade
   -- tradeDate ?
   -- a
 
 - TRADED_TO
-  -- fromTeam
-  -- toTeam
-  -- tradeNumber
-  -- tradeDate ?
+  - fromTeam
+  - toTeam
+  - tradeNumber
+  - tradeDate ?
 
--
+### NHl API Points
+
+- [https://github.com/Zmalski/NHL-API-Reference?tab=readme-ov-file](https://github.com/Zmalski/NHL-API-Reference?tab=readme-ov-file)
+
+- Players:
+
+  - Only returns 5 players (out of 22537). At 5 players per call every 5 seconds, it would take over 6 hours to scrape
+  - &limit=5 (can only reduce below 5)
+  - This would fix the 'roster only' problem if I can find a better example
+  - [https://api.nhle.com/stats/rest/en/players](https://api.nhle.com/stats/rest/en/players)
+  - [https://api.nhle.com/stats/rest/en/players?start=1&sort=lastName](https://api.nhle.com/stats/rest/en/players?start=1&sort=lastName)
+
+  ```json
+  [
+    {
+      "id": 8455414,
+      "currentTeamId": null,
+      "firstName": "Cliff",
+      "fullName": "Cliff Abrecht",
+      "lastName": "Abrecht",
+      "positionCode": "D",
+      "sweaterNumber": null
+    }
+  ]
+  ```
+
+- Draft
+
+  - Returns a an array of all rounds (without players) of the NHL draft
+  - [https://api.nhle.com/stats/rest/en/draft](https://api.nhle.com/stats/rest/en/draft)
+
+  ```json
+  [
+    {
+      "id": 1,
+      "draftYear": 1989,
+      "rounds": 12
+    }
+  ]
+  ```
+
+- Team ✅
+
+  - Returns an array of all current and past NHL teams
+
+  ```json
+  [
+    {
+      "id": 11,
+      "franchiseId": 35,
+      "fullName": "Atlanta Thrashers",
+      "leagueId": 133,
+      "rawTricode": "ATL",
+      "triCode": "ATL"
+    }
+  ]
+  ```

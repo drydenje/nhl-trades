@@ -144,21 +144,35 @@ const players = [
   console.log(pMap);
 })();
 
-// id: 8445015,
-// headshot: "https://assets.nhle.com/mugs/nhl/19821983/NJD/8445015.png",
-// firstName: { default: "Mike" },
-// lastName: { default: "Antonovich" },
-// sweaterNumber: 23,
-// positionCode: "C",
-// shootsCatches: "L",
-// heightInInches: 68,
-// weightInPounds: 165,
-// heightInCentimeters: 173,
-// weightInKilograms: 75,
-// birthDate: "1951-10-18",
-// birthCity: { default: "Calumet" },
-// birthCountry: "USA",
-// birthStateProvince: { default: "Minnesota" },
-// hrID: null,
-// hdbID: null,
-// verified: false,
+const trades = [
+  {
+    date: "March 5, 2014",
+    teams: {
+      "New York Rangers": [{ name: "Raphael Diaz", hockeyDBid: "76283" }],
+      "Vancouver Canucks": [{ name: "5th round pick" }],
+    },
+    comment: null,
+  },
+  {
+    date: "February 3, 2014",
+    teams: {
+      "Vancouver Canucks": [{ name: "Raphael Diaz", hockeyDBid: "76283" }],
+      "Montreal Canadiens": [{ name: "Dale Weise", hockeyDBid: "80353" }],
+    },
+    comment: null,
+  },
+  {
+    date: "February 26, 2016",
+    teams: {
+      "Chicago Blackhawks": [
+        { name: "Dale Weise", hockeyDBid: "80353" },
+        { name: "Tomas Fleischmann", hockeyDBid: "64510" },
+      ],
+      "Montreal Canadiens": [
+        { name: "Philip Danault", hockeyDBid: "122605" },
+        { name: "2018 2nd round pick" },
+      ],
+    },
+    comment: null,
+  },
+];
