@@ -27,7 +27,13 @@ async function* scrapeDraftYear(startYear) {
   }
 }
 
-// const scrapeDraftPicks
+const scrapeDraftPicks = async () => {
+  const startTime = new Date();
+
+  const endTime = new Date();
+  const timeElapsed = (endTime - startTime) / 1000;
+  console.log("timeElapsed:", timeElapsed);
+};
 
 const convertDraftPicksToCSV = () => {};
 
@@ -35,4 +41,4 @@ const convertDraftPicksToCSV = () => {};
 const delay = (seconds) =>
   new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 
-export { convertDraftPicksToCSV };
+export { scrapeDraftPicks, convertDraftPicksToCSV };

@@ -20,6 +20,27 @@ import cron from "node-cron";
 //#endregion
 
 /////////////////////////////////////////////
+// Scraping NHL_DRAFT_PICKS
+/////////////////////////////////////////////
+//#region <NHL_DRAFT_PICKS>
+// todo: scrape each year of picks, convert them into a csv
+
+import {
+  scrapeDraftPicks,
+  convertDraftPicksToCSV,
+} from "./draft-picks/nhl-draft-scraping.js";
+
+(async function () {
+  while (true) {
+    await scrapeDraftPicks();
+  }
+})();
+
+// Convert NHL picks to CSV
+
+//#endregion
+
+/////////////////////////////////////////////
 // Scraping Hockey Reference
 /////////////////////////////////////////////
 //#region <HOCKEY_REFERENCE>
