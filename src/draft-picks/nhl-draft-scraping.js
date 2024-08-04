@@ -33,6 +33,8 @@ const scrapeDraftPicks = async () => {
   const endTime = new Date();
   const timeElapsed = (endTime - startTime) / 1000;
   console.log("timeElapsed:", timeElapsed);
+
+  writeFile("./src/player-data/nhl-id-scraping.json", newTeamArray);
 };
 
 const convertDraftPicksToCSV = () => {};
