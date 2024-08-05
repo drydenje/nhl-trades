@@ -128,30 +128,6 @@ const players = [
   },
 ];
 
-(async function () {
-  //
-  // const pMap = new Map();
-  // // const pMap = new Map(
-  // //   players,
-  // //   `${players.firstName.default} ${players.lastName.default}`
-  // // );
-
-  // players.forEach((player) => {
-  //   const fullName = `${player.firstName.default} ${player.lastName.default}`;
-  //   pMap.set(fullName, player);
-  // });
-
-  // console.log(pMap);
-
-  prepTrades();
-})();
-
-const prepTrades = () => {
-  const t = trades.map((trade) => {});
-
-  console.log(t);
-};
-
 const trades = [
   {
     date: "March 5, 2014",
@@ -184,3 +160,29 @@ const trades = [
     comment: null,
   },
 ];
+
+const prepTrades = () => {
+  const t = trades.map((trade) => {
+    return trade.date;
+  });
+
+  console.log(t);
+};
+
+(async function () {
+  //
+  // const pMap = new Map();
+  // // const pMap = new Map(
+  // //   players,
+  // //   `${players.firstName.default} ${players.lastName.default}`
+  // // );
+
+  // players.forEach((player) => {
+  //   const fullName = `${player.firstName.default} ${player.lastName.default}`;
+  //   pMap.set(fullName, player);
+  // });
+
+  // console.log(pMap);
+
+  prepTrades();
+})();
