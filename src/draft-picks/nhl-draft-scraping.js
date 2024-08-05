@@ -15,6 +15,7 @@ async function* scrapeDraftYear(startYear) {
     // console.log(data.total);
     if (data.total === 0) {
       year = null;
+      return false;
     } else {
       // console.log("D:", data);
       await delay(3);
@@ -33,10 +34,11 @@ const scrapeDraftPicks = async () => {
 
   let picks = {};
 
-  for await (const p of scrapeDraftYear(1951)) {
+  // for await (const p of scrapeDraftYear(2024)) {
+  for await (const p of scrapeDraftYear(1963)) {
     picks = {
       ...picks,
-      [p.year]: p.data,
+      [p.year]: p.data.data,
     };
     // console.log(picks);
   }
