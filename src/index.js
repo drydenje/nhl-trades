@@ -23,7 +23,7 @@ import cron from "node-cron";
 // Scraping NHL_DRAFT_PICKS
 /////////////////////////////////////////////
 //#region <NHL_DRAFT_PICKS>
-// todo: scrape each year of picks, clean the data, convert them into a csv
+// todo: convert them into a csv
 
 import {
   scrapeDraftPicks,
