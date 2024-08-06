@@ -55,7 +55,29 @@ const scrapeDraftPicks = async () => {
   writeFile("./src/draft-picks/results/nhl-picks-scraping.json", picks);
 };
 
-const convertDraftPicksToCSV = () => {};
+const convertDraftPicksToCSV = (draftPicks) => {
+  const picks = draftPicks.map((pick) => {
+    return {
+      ...pick,
+      // change the stuff you want to use
+      // dates in consistent format
+      // name in full?
+    };
+  });
+
+  const headings = ["id", "playerId", "triCode"];
+
+  const csv = convertArrayToCSV(picks, {
+    headings,
+    separator: ",",
+  });
+
+  fs.writeFile("./src/csv-data/nhl-draft-picks.csv", csv, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
+};
 
 // Used to delay the time between fetches, so we don't get blocked
 const delay = (seconds) =>
