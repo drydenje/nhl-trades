@@ -56,25 +56,33 @@ const scrapeDraftPicks = async () => {
 };
 
 const convertDraftPicksToCSV = (draftPicks) => {
+  console.log("test");
   const picks = draftPicks.map((pick) => {
     return {
-      ...pick,
+      id: pick.id,
+      playerId: pick.playerId,
+      playerName: pick.playerName,
+      triCode: pick.triCode,
       // change the stuff you want to use
       // dates in consistent format
       // name in full?
     };
   });
 
-  const headings = ["id", "playerId", "triCode"];
+  const headings = ["id", "playerId", "playerName", "triCode"];
 
   const csv = convertArrayToCSV(picks, {
     headings,
     separator: ",",
   });
 
+  console.log(csv);
+
   fs.writeFile("./src/csv-data/nhl-draft-picks.csv", csv, (err) => {
     if (err) {
       console.error(err);
+    } else {
+      return true;
     }
   });
 };
