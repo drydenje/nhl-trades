@@ -13,12 +13,10 @@ async function* scrapeDraftYear(startYear) {
     const response = await fetch(url);
     const data = await response.json();
 
-    // console.log(data.total);
     if (data.total === 0) {
       year = null;
       return false;
     } else {
-      // console.log("D:", data);
       await delay(3);
       yield {
         year,
@@ -33,19 +31,16 @@ async function* scrapeDraftYear(startYear) {
 const scrapeDraftPicks = async () => {
   const startTime = new Date();
 
-  let picks = {};
+  let picks = [];
 
   for await (const p of scrapeDraftYear(2024)) {
-    // for await (const p of scrapeDraftYear(1963)) {
+    // for await (const p of scrapeDraftYear(1964)) {
     const cleanedPicks = p.data.data.map((pick) => {
       delete pick.team.logos;
       return pick;
     });
 
-    picks = {
-      ...picks,
-      [p.year]: cleanedPicks,
-    };
+    picks.push(...cleanedPicks);
   }
 
   const endTime = new Date();
@@ -62,14 +57,23 @@ const convertDraftPicksToCSV = (draftPicks) => {
       id: pick.id,
       playerId: pick.playerId,
       playerName: pick.playerName,
+      birthDate: pick.birthDate,
       triCode: pick.triCode,
+      draftDate: pick.draftDate,
       // change the stuff you want to use
       // dates in consistent format
       // name in full?
     };
   });
 
-  const headings = ["id", "playerId", "playerName", "triCode"];
+  const headings = [
+    "id",
+    "playerId",
+    "playerName",
+    "birthDate",
+    "triCode",
+    "draftDate",
+  ];
 
   const csv = convertArrayToCSV(picks, {
     headings,

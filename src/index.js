@@ -30,73 +30,15 @@ import {
   convertDraftPicksToCSV,
 } from "./draft-picks/nhl-draft-scraping.js";
 
-// (async function () {
-// let keepScraping = true;
-// while (keepScraping) {
-//   keepScraping = await scrapeDraftPicks();
-// }
-const temp = convertDraftPicksToCSV([
-  {
-    id: 7051,
-    ageInDays: 6072,
-    ageInDaysForYear: 228,
-    ageInYears: 16,
-    amateurClubName: "St. Michael's Juveniles",
-    amateurLeague: null,
-    birthDate: "1946-10-20",
-    birthPlace: "Barrie, ON  CAN",
-    countryCode: "CAN",
-    csPlayerId: null,
-    draftDate: "1963-06-05",
-    draftMasterId: 1,
-    draftProspect: null,
-    draftYear: 1963,
-    draftedByTeamId: 8,
-    firstName: "Garry",
-    franchiseTeam: {
-      franchise: {
-        mostRecentTeamId: 8,
-        teamCommonName: "Canadiens",
-        teamPlaceName: "Montréal",
-      },
-    },
-    height: 72,
-    lastName: "Monahan",
-    notes: null,
-    overallPickNumber: 1,
-    pickInRound: 1,
-    player: {
-      id: 8447883,
-      birthCountry: "CAN",
-      birthStateProvince: "ON",
-      firstName: "Garry",
-      lastName: "Monahan",
-      onRoster: "N",
-      position: "L",
-      yearsPro: null,
-    },
-    playerId: 8447883,
-    playerName: "Garry Monahan",
-    position: "LW",
-    removedOutright: "N",
-    removedOutrightWhy: null,
-    roundNumber: 1,
-    shootsCatches: "L",
-    supplementalDraft: "N",
-    team: {
-      id: 8,
-      commonName: "Canadiens",
-      fullName: "Montréal Canadiens",
-      placeName: "Montréal",
-      triCode: "MTL",
-    },
-    teamPickHistory: "MTL",
-    triCode: "MTL",
-    weight: 199,
-  },
-]);
-console.log("TEMP:", temp);
-// })();
+(async function () {
+  let keepScraping = true;
+  while (keepScraping) {
+    keepScraping = await scrapeDraftPicks();
+  }
+
+  // const temp = convertDraftPicksToCSV([])
+  // console.log("TEMP:", temp);
+})();
 
 // Convert NHL picks to CSV
 
