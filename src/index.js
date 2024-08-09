@@ -30,15 +30,17 @@ import {
   convertDraftPicksToCSV,
 } from "./draft-picks/nhl-draft-scraping.js";
 
-(async function () {
-  let keepScraping = true;
-  while (keepScraping) {
-    keepScraping = await scrapeDraftPicks();
-  }
-
-  // const temp = convertDraftPicksToCSV([])
-  // console.log("TEMP:", temp);
-})();
+// (async function () {
+// let keepScraping = true;
+// while (keepScraping) {
+//   keepScraping = await scrapeDraftPicks();
+// }
+const s = JSON.parse(
+  readFile(`./src/draft-picks/results/nhl-picks-scraping.json`)
+);
+const temp = convertDraftPicksToCSV(s);
+console.log("TEMP:", temp);
+// })();
 
 // Convert NHL picks to CSV
 

@@ -51,7 +51,6 @@ const scrapeDraftPicks = async () => {
 };
 
 const convertDraftPicksToCSV = (draftPicks) => {
-  console.log("test");
   const picks = draftPicks.map((pick) => {
     return {
       id: pick.id,
@@ -79,8 +78,6 @@ const convertDraftPicksToCSV = (draftPicks) => {
     headings,
     separator: ",",
   });
-
-  console.log(csv);
 
   fs.writeFile("./src/csv-data/nhl-draft-picks.csv", csv, (err) => {
     if (err) {
