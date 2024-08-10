@@ -39,7 +39,6 @@ const s = JSON.parse(
   readFile(`./src/draft-picks/results/nhl-picks-scraping.json`)
 );
 const temp = convertDraftPicksToCSV(s);
-console.log("TEMP:", temp);
 // })();
 
 // Convert NHL picks to CSV
