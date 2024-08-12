@@ -2,6 +2,7 @@ import { convertArrayToCSV } from "convert-array-to-csv";
 import fs from "fs";
 import { writeFile, readFile } from "../utils/utils.js";
 const chalk = require("chalk");
+import latinize from "latinize";
 
 async function* scrapeDraftYear(startYear) {
   let year = startYear;
@@ -55,7 +56,7 @@ const convertDraftPicksToCSV = (draftPicks) => {
     return {
       id: pick.id,
       playerId: pick.playerId,
-      playerName: pick.playerName,
+      playerName: latinize(pick.playerName),
       birthDate: pick.birthDate,
       triCode: pick.triCode,
       draftDate: pick.draftDate,
