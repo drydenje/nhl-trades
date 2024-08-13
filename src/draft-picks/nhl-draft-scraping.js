@@ -60,9 +60,6 @@ const convertDraftPicksToCSV = (draftPicks) => {
       birthDate: pick.birthDate,
       triCode: pick.triCode,
       draftDate: pick.draftDate,
-      // change the stuff you want to use
-      // dates in consistent format
-      // name in full?
     };
   });
 
