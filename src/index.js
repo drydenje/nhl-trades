@@ -1,5 +1,4 @@
 import "dotenv/config";
-import fs from "fs";
 import { readFile } from "./utils/utils.js";
 import cron from "node-cron";
 
