@@ -1,27 +1,7 @@
-// const _ = require("lodash");
+import { convertArrayToCSV } from "convert-array-to-csv";
 import fs from "fs";
 import { writeFile, readFile } from "../utils/utils.js";
 const chalk = require("chalk");
-
-// const scrapeNhlRoster = async (teamToScrape, yearToScrape) => {
-//   const TEAM_ROSTER_URL = `https://api-web.nhle.com/v1/roster/${teamToScrape}/${yearToScrape}`;
-
-//   const result = await fetch(TEAM_ROSTER_URL)
-//     .then((res) => res.json())
-//     .then((res) => [...res.forwards, ...res.defensemen, ...res.goalies])
-//     .then((res) =>
-//       res.map((player) => {
-//         return {
-//           ...player,
-//           hrID: null,
-//           hdbID: null,
-//           verified: false,
-//         };
-//       })
-//     );
-
-//   return result;
-// };
 
 async function* scrapeNhlRoster(teamToScrape, startYear) {
   let year = startYear;
@@ -64,7 +44,7 @@ async function* scrapeNhlRoster(teamToScrape, startYear) {
   }
 }
 
-const scrapeNHLTeams = async () => {
+const scrapeNHLPlayers = async () => {
   const startTime = new Date();
 
   // decide which team to scrape rosters from
@@ -131,4 +111,50 @@ const scrapeNHLTeams = async () => {
 const delay = (seconds) =>
   new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 
-export { scrapeNhlRoster, scrapeNHLTeams };
+const convertNHLPlayersToCSV = (jsonFilePath) => {
+  const players = JSON.parse(readFile(jsonFilePath)).map((player) => {
+    return {
+      ...player,
+      firstName: player.firstName.default,
+      lastName: player.lastName.default,
+      birthCity: player.birthCity?.default,
+      birthStateProvince: player.birthStateProvince?.default,
+      name: `${player.firstName.default} ${player.lastName.default}`,
+    };
+  });
+
+  const headings = [
+    "id",
+    "headshot",
+    "firstName",
+    "lastName",
+    "sweaterNumber",
+    "positionCode",
+    "shootsCatches",
+    "heightInInches",
+    "weightInPounds",
+    "heightInCentimeters",
+    "weightInKilograms",
+    "birthDate",
+    "birthCity",
+    "birthCountry",
+    "birthStateProvince",
+    "hrID",
+    "hdbID",
+    "verified",
+    "name",
+  ];
+
+  const csv = convertArrayToCSV(players, {
+    headings,
+    separator: ",",
+  });
+
+  fs.writeFile("./src/player-data/nhl-id-scraping-unique.csv", csv, (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
+
+export { scrapeNhlRoster, scrapeNHLPlayers, convertNHLPlayersToCSV };

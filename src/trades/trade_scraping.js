@@ -88,3 +88,16 @@ const scrapeYear = async () => {
 //    { trade_data },
 //  ],
 // }
+
+// convert to csv?
+// const trades = JSON.parse(readFile(`./src/trades/trades.json`));
+
+// let result = [];
+// Object.entries(trades).forEach(([key, value]) => {
+//   result.push(value);
+// });
+
+// result = result.flat();
+
+// console.log(result.length);
+// console.log(result[0]);

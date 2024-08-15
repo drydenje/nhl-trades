@@ -1,171 +1,333 @@
-import { readFile, removeNickname } from "../utils/utils";
+import { getPage, readFile, writeFile, removeNickname } from "../utils/utils";
 const path = require("path");
 const cheerio = require("cheerio");
+import { existsSync } from "node:fs";
 const chalk = require("chalk");
 
-// can probably delete this
-const parsePlayer = (html) => {
-  const $ = cheerio.load(html);
-  // console.log(html);
-  const playerName = $("a").text().trim();
-  const playerId = $("a").attr("href").match(/\d+$/)[0];
-  const birthDate = $("td");
-  // console.log("bd:", birthDate);
+const scrapeHDBPlayers = async (filePath) => {
+  // check if the results file exists
+  if (!existsSync(filePath)) {
+    console.log("File doesn't exist: creating new file with template");
+    // create a new json file using the blank template
+    writeFile(filePath, hdbEmptyTemplate);
+  }
 
-  const data = {
-    name: playerName,
-    id: playerId,
-    birthDate: null,
-  };
+  // load the json file (all links.data arrays should be empty to start with)
+  const links = JSON.parse(readFile(filePath));
 
-  return data;
+  // decide which letter and league to scrape
+  const linkToScrape = links.find(
+    (link) => link.data === undefined || link.data.length == 0
+  );
+
+  const remainingLinks = links.filter(
+    (link) => link.data === undefined || link.data.length == 0
+  ).length;
+
+  // when there are no more places to scrape, prepare the data and save
+  if (remainingLinks === 0) {
+    console.log(chalk.yellow.bgBlue(`Finished scraping`));
+    const res = [];
+    links.forEach((link) => {
+      res.push(link.data);
+    });
+
+    const final = res.flat();
+    writeFile(filePath, final);
+
+    // still more data to scrape
+  } else {
+    // show what the script is trying to do, and give an idea of what remains to be scraped
+    console.log(
+      chalk.yellow.bgBlue(
+        `Trying to scrape: ${linkToScrape.name} (${remainingLinks}/${links.length})`
+      )
+    );
+
+    // fetch the actual html to scrape
+    const players = await getPage(linkToScrape.url)
+      // pull all of the players from the page
+      .then((html) => parsePlayersFromHDB(html));
+
+    const result = links.map((link) =>
+      link.name === linkToScrape.name ? { ...link, data: players } : link
+    );
+
+    writeFile(filePath, result);
+  }
 };
 
-const getNamesFromPage = (page) => {
-  const $ = cheerio.load(page);
+const parsePlayersFromHDB = (html) => {
+  const $ = cheerio.load(html);
   const names = $(".sortable > tbody")
     .children()
     .map((index, player) => {
       return {
-        hdbID: $("a", player).attr("href").match(/\d+$/)[0],
         name: removeNickname($("a", player).html()),
+        hdbID: $("a", player).attr("href").match(/\d+$/)[0],
         birthDate: new Date(
           $("td:eq(2)", player).html().trim()
         ).toLocaleDateString("en-CA"),
-        // new Date('02/04/1930').toLocaleDateString('en-CA')
+        birthCity: $("td:eq(3)", player).html().trim().split(",")[0],
       };
     })
     .toArray();
-  // console.log("N:", names);
+
   return names;
 };
 
-const play = [
-  [
-    {
-      birthDate: "12/26/1937",
-      id: "5512",
-      name: "Gene Ubriaco",
-    },
-    {
-      birthDate: "12/31/1992",
-      id: "123037",
-      name: "Dominik Uher",
-    },
-    {
-      birthDate: "10/01/1969",
-      id: "5515",
-      name: "Igor Ulanov",
-    },
-  ],
-  [
-    {
-      birthDate: "12/26/1935",
-      id: "5516",
-      name: "Norm Ullman",
-    },
-    {
-      birthDate: "07/31/1993",
-      id: "152794",
-      name: "Linus Ullmark",
-    },
-    {
-      birthDate: "04/22/1989",
-      id: "112734",
-      name: "David Ullstrom",
-    },
-  ],
-  [
-    {
-      birthDate: "04/27/1977",
-      id: "27868",
-      name: "Jeff Ulmer",
-    },
-    {
-      birthDate: "09/14/1980",
-      id: "31019",
-      name: "Layne Ulmer",
-    },
-    {
-      birthDate: "05/03/1982",
-      id: "54470",
-      name: "R.J. Umberger",
-    },
-  ],
+// This is used to create an empty JSON file if none exists
+const hdbEmptyTemplate = [
+  {
+    name: "A: Aalto to Ayres.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_a.html",
+    data: [],
+  },
+  {
+    name: "B: Babando to Byron.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_b.html",
+    data: [],
+  },
+  {
+    name: "C: Caamano to Czuczman.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_c.html",
+    data: [],
+  },
+  {
+    name: "D: D'Agostini to Dziurzynski.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_d.html",
+    data: [],
+  },
+  {
+    name: "E: Eager to Ezinicki.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_e.html",
+    data: [],
+  },
+  {
+    name: "F: Fabbri to Fussey.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_f.html",
+    data: [],
+  },
+  {
+    name: "G: Gaborik to Guy.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_g.html",
+    data: [],
+  },
+  {
+    name: "H: Haakana to Hyvonen.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_h.html",
+    data: [],
+  },
+  {
+    name: "I: Iafallo to Ivanans.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_i.html",
+    data: [],
+  },
+  {
+    name: "J: Jablonski to Juzda.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_j.html",
+    data: [],
+  },
+  {
+    name: "K: Kaarela to Kytnar.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_k.html",
+    data: [],
+  },
+  {
+    name: "L: L'Abbe to Lyubushkin.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_l.html",
+    data: [],
+  },
+  {
+    name: "M: Maatta to Myrvold.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_m.html",
+    data: [],
+  },
+  {
+    name: "N: Nabokov to Nystrom.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_n.html",
+    data: [],
+  },
+  {
+    name: "O: O'Brien to Ozolinsh.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_o.html",
+    data: [],
+  },
+  {
+    name: "P: Paajarvi to Pyyhtia.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_p.html",
+    data: [],
+  },
+  {
+    name: "Q: Quackenbush to Quintin.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_q.html",
+    data: [],
+  },
+  {
+    name: "R: Raanta to Ryznar.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_r.html",
+    data: [],
+  },
+  {
+    name: "S: Saad to Szwarz.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_s.html",
+    data: [],
+  },
+  {
+    name: "T: Tabaracci to Tyutin.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_t.html",
+    data: [],
+  },
+  {
+    name: "U: Ubriaco to Ustorf.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_u.html",
+    data: [],
+  },
+  {
+    name: "V: Vaakanainen to Vyshedkevich.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_v.html",
+    data: [],
+  },
+  {
+    name: "W: Waddell to Wyrozub.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_w.html",
+    data: [],
+  },
+  {
+    name: "X: Xhekaj to Xhekaj.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_x.html",
+    data: [],
+  },
+  {
+    name: "Y: Yablonski to Yzerman.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_y.html",
+    data: [],
+  },
+  {
+    name: "Z: Zaba to Zyuzin.",
+    url: "https://www.hockeydb.com/ihdb/players/player_ind_z.html",
+    data: [],
+  },
+  {
+    name: "A: Abbey to Aubry.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_a.html",
+    data: [],
+  },
+  {
+    name: "B: Backstrom to Byers.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_b.html",
+    data: [],
+  },
+  {
+    name: "C: Cadle to Curtis.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_c.html",
+    data: [],
+  },
+  {
+    name: "D: D'Alvise to Dzurilla.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_d.html",
+    data: [],
+  },
+  {
+    name: "E: Earl to Evo.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_e.html",
+    data: [],
+  },
+  {
+    name: "F: Falkenberg to Ftorek.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_f.html",
+    data: [],
+  },
+  {
+    name: "G: Gallant to Gustafsson.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_g.html",
+    data: [],
+  },
+  {
+    name: "H: Haas to Hynes.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_h.html",
+    data: [],
+  },
+  {
+    name: "I: Inglis to Israelson.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_i.html",
+    data: [],
+  },
+  {
+    name: "J: Jacques to Justin.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_j.html",
+    data: [],
+  },
+  {
+    name: "K: Kamppuri to Kveton.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_k.html",
+    data: [],
+  },
+  {
+    name: "L: Labossiere to Lyle.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_l.html",
+    data: [],
+  },
+  {
+    name: "M: MacDonald to Myers.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_m.html",
+    data: [],
+  },
+  {
+    name: "N: Napier to Nugent.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_n.html",
+    data: [],
+  },
+  {
+    name: "O: O'Connell to Ozlizlo.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_o.html",
+    data: [],
+  },
+  {
+    name: "P: Paiement to Pumple.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_p.html",
+    data: [],
+  },
+  {
+    name: "R: Raeder to Rydman.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_r.html",
+    data: [],
+  },
+  {
+    name: "S: Sacharuk to Szura.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_s.html",
+    data: [],
+  },
+  {
+    name: "T: Tajcnar to Turnbull.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_t.html",
+    data: [],
+  },
+  {
+    name: "U: Ullman to Ullman.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_u.html",
+    data: [],
+  },
+  {
+    name: "V: Vaive to Vyborny.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_v.html",
+    data: [],
+  },
+  {
+    name: "W: Wakely to Wyrozub.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_w.html",
+    data: [],
+  },
+  {
+    name: "Y: Yakiwchuk to Young.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_y.html",
+    data: [],
+  },
+  {
+    name: "Z: Zaine to Zuke.",
+    url: "https://www.hockeydb.com/ihdb/players/wha_player_ind_z.html",
+    data: [],
+  },
 ];
 
-const getAllPlayers = (letters, baseFilePath) => {
-  let allPlayers = [];
-  // for each letter in the array
-  letters.forEach((letter) => {
-    const fileToParse = `${baseFilePath}/NHL Player List -- ${letter.toUpperCase()}.html`;
-    const html = readFile(fileToParse);
-    const playersForLetter = getNamesFromPage(html);
-    allPlayers = [...allPlayers, ...playersForLetter];
-  });
-  return allPlayers.flat(); //.flatMap(player => );
-};
-
-// Takes two players and returns one combined (if it's the same person)
-const setHdbID = (player, hdbPlayer) => {
-  // check that the name and birthdate match to verify it's the same person
-  if (
-    player.name === hdbPlayer.name &&
-    player.birthDate === hdbPlayer.birthDate
-  ) {
-    // it's the same person, add the hdbID
-    return {
-      ...player,
-      hdbID: hdbPlayer.hdbID ? hdbPlayer.hdbID : null,
-    };
-  } else {
-    // it's a different person, just return the first player without the hdbID
-    return {
-      ...player,
-    };
-  }
-};
-
-const addHdbIDToAll = (players, hdbPlayers) => {
-  // if (typeof hdbPlayers.isObject) {
-  //   console.log(hdbPlayers);
-  //   throw "Not an array";
-  // }
-
-  // for each player in the nhl array
-  const result = players.map((player) => {
-    // find player(s) in the hdb array with the same name
-    const findHdbPlayers = hdbPlayers.filter(
-      (hdbPlayer) => hdbPlayer.name === player.name
-    );
-    // console.log("FIND:", player);
-
-    // if (findHdbPlayers.length === 0) {
-    //   console.log("ZERO:", findHdbPlayers);
-    //   console.log("PL:", player);
-    // }
-    // return player;
-
-    // refine the array further by comparing birthdates
-    let fPlayers = findHdbPlayers.filter(
-      (p) => p.birthDate === player.birthDate
-    );
-
-    // return the final player object to the result array
-    return {
-      ...player,
-      hdbID: fPlayers[0]?.hdbID ? fPlayers[0].hdbID : null,
-    };
-  });
-
-  // return the result array
-  return result;
-};
-
-export {
-  getNamesFromPage,
-  parsePlayer,
-  getAllPlayers,
-  setHdbID,
-  addHdbIDToAll,
-};
+export { parsePlayersFromHDB, scrapeHDBPlayers };
