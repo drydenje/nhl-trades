@@ -2,6 +2,7 @@ import { getPage, readFile, writeFile, removeNickname } from "../utils/utils";
 const path = require("path");
 const cheerio = require("cheerio");
 import { existsSync } from "node:fs";
+import latinize from "latinize";
 const chalk = require("chalk");
 
 const scrapeHDBPlayers = async (filePath) => {
@@ -74,6 +75,28 @@ const parsePlayersFromHDB = (html) => {
     .toArray();
 
   return names;
+};
+
+const convertHDBPlayersToCSV = (jsonFilePath) => {
+  const players = JSON.parse(readFile(jsonFilePath)).map((player) => {
+    return {
+      ...player,
+      name: latinize(player.name),
+    };
+  });
+
+  const headings = ["name", "hdbID", "birthDate", "birthCity"];
+
+  const csv = convertAttayToCSV(players, {
+    headings,
+    separator: ",",
+  });
+
+  fs.writeFile("./src/csv-data/hdb-id.csv", csv, (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
 };
 
 // This is used to create an empty JSON file if none exists
@@ -330,4 +353,4 @@ const hdbEmptyTemplate = [
   },
 ];
 
-export { parsePlayersFromHDB, scrapeHDBPlayers };
+export { parsePlayersFromHDB, scrapeHDBPlayers, convertHDBPlayersToCSV };
