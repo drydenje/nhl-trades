@@ -86,6 +86,7 @@
   - This would fix the 'roster only' problem if I can find a better example
   - [https://api.nhle.com/stats/rest/en/players](https://api.nhle.com/stats/rest/en/players)
   - [https://api.nhle.com/stats/rest/en/players?start=1&sort=lastName](https://api.nhle.com/stats/rest/en/players?start=1&sort=lastName)
+  - [https://search.d3.nhle.com/api/v1/search/player?culture=en-us&limit=200&q=\*](https://search.d3.nhle.com/api/v1/search/player?culture=en-us&limit=200&q=*)
 
   ```json
   [
